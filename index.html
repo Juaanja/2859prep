@@ -128,10 +128,16 @@
 
       <form id="savingsForm" class="space-y-5">
         
-        <!-- Nombre Jugador / ID -->
-        <div>
-          <label id="t-playerName" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5">Nombre del Jugador o ID</label>
-          <input type="text" id="jugador" required placeholder="Tu Nick exacto o ID" class="w-full input-box rounded-xl px-4 py-2.5 text-sm transition">
+        <!-- Nombre Jugador e ID separados -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label id="t-userName" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5">User Name</label>
+            <input type="text" id="jugador" required placeholder="Tu Nick exacto" class="w-full input-box rounded-xl px-4 py-2.5 text-sm transition">
+          </div>
+          <div>
+            <label id="t-userId" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5">ID (Needs to be copy and paste)</label>
+            <input type="text" id="jugadorId" required placeholder="Pega tu ID aquí" class="w-full input-box rounded-xl px-4 py-2.5 text-sm transition">
+          </div>
         </div>
 
         <!-- Alianzas -->
@@ -276,11 +282,13 @@
   </div>
 
   <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3qlGgSN3e7hCrop3h-ZMWFNTQAH-ayYDX7DgVAPgXxntd0YyiH5hbDfyMAgCtNk-NEw/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzEbAo62L29vusW6tuODcr7V-W6BA6IcwUA20X4oL6CVCl9yLrzOlGgYikX1VIf7t6VvQ/exec";
 
     const translations = {
       es: {
-        title: "Semana de Preparación del estado 2859", playerName: "Nombre del Jugador o ID", playerPlaceholder: "Tu Nick exacto o ID",
+        title: "Semana de Preparación del estado 2859",
+        userName: "Nombre de Usuario (User Name)", userPlaceholder: "Tu Nick exacto en el juego",
+        userId: "ID de Jugador (Copiar y Pegar)", idPlaceholder: "Pega tu ID aquí",
         fireCrystal: "Cristal de Fuego", refined: "Cristal de Fuego Refinado", fragments: "Fragmentos",
         speedupsHeader: "Aceleradores (Días)", general: "General", training: "Entrenamiento",
         construction: "Construcción", research: "Investigación",
@@ -293,7 +301,9 @@
         closedTitle: "Convocatoria Cerrada", closedDesc: "El plazo de inscripción ha finalizado o aún no se encuentra abierto."
       },
       en: {
-        title: "State 2859 Preparation Week", playerName: "Player Name or ID", playerPlaceholder: "Your exact in-game Nick or ID",
+        title: "State 2859 Preparation Week",
+        userName: "User Name", userPlaceholder: "Your exact in-game Nick",
+        userId: "ID (Needs to be copy and paste)", idPlaceholder: "Paste your ID here",
         fireCrystal: "Fire Crystals", refined: "RFC", fragments: "FC Shard",
         speedupsHeader: "Speedups (Days)", general: "General", training: "Training",
         construction: "Construction", research: "Research",
@@ -306,7 +316,9 @@
         closedTitle: "Registrations Closed", closedDesc: "The sign-up period has ended or is not open yet."
       },
       fr: {
-        title: "Semaine de Préparation de l'État 2859", playerName: "Nom du joueur ou ID", playerPlaceholder: "Votre pseudo exact ou ID",
+        title: "Semaine de Préparation de l'État 2859",
+        userName: "Nom d'utilisateur", userPlaceholder: "Votre pseudo exact en jeu",
+        userId: "ID (Copier-coller obligatoire)", idPlaceholder: "Collez votre ID ici",
         fireCrystal: "Cristal de feu", refined: "Cristal de feu raffiné", fragments: "Éclat de cristal de feu",
         speedupsHeader: "Accélérateurs (Jours)", general: "Général", training: "Entraînement",
         construction: "Construction", research: "Recherche",
@@ -319,7 +331,9 @@
         closedTitle: "Inscriptions Clôturées", closedDesc: "La période d'inscription est terminée ou pas encore ouverte."
       },
       de: {
-        title: "Vorbereitungswoche für Staat 2859", playerName: "Spielername oder ID", playerPlaceholder: "Genauer Nickname oder ID",
+        title: "Vorbereitungswoche für Staat 2859",
+        userName: "Benutzername", userPlaceholder: "Genauer Nickname im Spiel",
+        userId: "ID (Kopieren und Einfügen)", idPlaceholder: "Fügen Sie Ihre ID hier ein",
         fireCrystal: "Feuerkristall", refined: "Veredelter Feuerkristall", fragments: "Feuerkristall-Splitter",
         speedupsHeader: "Beschleuniger (Tage)", general: "Allgemein", training: "Ausbildung",
         construction: "Bau", research: "Forschung",
@@ -332,7 +346,9 @@
         closedTitle: "Anmeldung geschlossen", closedDesc: "Die Anmeldefrist ist abgelaufen oder noch nicht eröffnet."
       },
       ru: {
-        title: "Неделя подготовки штата 2859", playerName: "Имя игрока или ID", playerPlaceholder: "Ваш точный ник или ID",
+        title: "Неделя подготовки штата 2859",
+        userName: "Имя пользователя", userPlaceholder: "Ваш точный ник в игре",
+        userId: "ID (Скопируйте и вставьте)", idPlaceholder: "Вставьте ваш ID сюда",
         fireCrystal: "Огненный кристалл", refined: "Очищенный огненный кристалл", fragments: "Осколки огненного кристалла",
         speedupsHeader: "Ускорители (Дни)", general: "Общие", training: "Тренировка",
         construction: "Строительство", research: "Исследование",
@@ -345,7 +361,9 @@
         closedTitle: "Регистрация закрыта", closedDesc: "Срок регистрации истек или еще не начался."
       },
       ko: {
-        title: "2859 서버 준비 주간", playerName: "플레이어 이름 또는 ID", playerPlaceholder: "정확한 닉네임 또는 ID 입력",
+        title: "2859 서버 준비 주간",
+        userName: "사용자 이름", userPlaceholder: "게임 내 정확한 닉네임",
+        userId: "ID (복사하여 붙여넣기)", idPlaceholder: "여기에 ID를 붙여넣으세요",
         fireCrystal: "불의 수정", refined: "정제된 불의 수정", fragments: "불의 수정 조각",
         speedupsHeader: "가속 (일)", general: "일반", training: "훈련",
         construction: "건설", research: "연구",
@@ -358,7 +376,9 @@
         closedTitle: "신청 마감", closedDesc: "등록 기간이 종료되었거나 아직 시작되지 않았습니다."
       },
       pl: {
-        title: "Tydzień Przygotowań Stanu 2859", playerName: "Nazwa Gracza lub ID", playerPlaceholder: "Twój dokładny nick lub ID",
+        title: "Tydzień Przygotowań Stanu 2859",
+        userName: "Nazwa użytkownika", userPlaceholder: "Twój dokładny nick w grze",
+        userId: "ID (Wklej skopiowane ID)", idPlaceholder: "Wklej swoje ID tutaj",
         fireCrystal: "Ognisty Kryształ", refined: "Rafinowany Ognisty Kryształ", fragments: "Odłamki Ognistego Kryształu",
         speedupsHeader: "Przyspieszenia (Dni)", general: "Ogólne", training: "Trening",
         construction: "Budowa", research: "Badania",
@@ -371,7 +391,9 @@
         closedTitle: "Zapisy Zamknięte", closedDesc: "Okres rejestracji dobiegł końca lub jeszcze się nie rozpoczął."
       },
       id: {
-        title: "Pekan Persiapan State 2859", playerName: "Nama Pemain atau ID", playerPlaceholder: "Nick atau ID dalam game",
+        title: "Pekan Persiapan State 2859",
+        userName: "Nama Pengguna", userPlaceholder: "Nick game kamu",
+        userId: "ID (Salin dan tempel)", idPlaceholder: "Tempel ID kamu di sini",
         fireCrystal: "Kristal Api", refined: "Kristal Api Murni", fragments: "Pecahan Kristal Api",
         speedupsHeader: "Percepatan (Hari)", general: "Umum", training: "Pelatihan",
         construction: "Konstruksi", research: "Riset",
@@ -384,7 +406,9 @@
         closedTitle: "Pendaftaran Ditutup", closedDesc: "Batas waktu pendaftaran telah berakhir atau belum dibuka."
       },
       zh: {
-        title: "2859区 准备周活动", playerName: "玩家名称或ID", playerPlaceholder: "输入您的游戏昵称或ID",
+        title: "2859区 准备周活动",
+        userName: "玩家名称 (User Name)", userPlaceholder: "输入您的游戏昵称",
+        userId: "玩家ID (ID - 需要复制粘贴)", idPlaceholder: "在此粘贴您的游戏ID",
         fireCrystal: "火晶", refined: "精炼火晶", fragments: "火晶微粒",
         speedupsHeader: "加速道具 (天)", general: "通用加速", training: "训练加速",
         construction: "建造加速", research: "研究加速",
@@ -397,7 +421,9 @@
         closedTitle: "报名通道已关闭", closedDesc: "报名时间已截止或尚未开放。"
       },
       tr: {
-        title: "2859 Bölgesi Hazırlık Haftası", playerName: "Oyuncu Adı veya ID", playerPlaceholder: "Oyun içi adınız veya ID",
+        title: "2859 Bölgesi Hazırlık Haftası",
+        userName: "Kullanıcı Adı", userPlaceholder: "Oyun içi adınız",
+        userId: "ID (Kopyalayıp Yapıştırın)", idPlaceholder: "ID'nizi buraya yapıştırın",
         fireCrystal: "Ateş Kristali", refined: "Arıtılmış Ateş Kristali", fragments: "Ateş Kristali Parçacığı",
         speedupsHeader: "Hızlandırmalar (Gün)", general: "Genel", training: "Eğitim",
         construction: "İnşaat", research: "Araştırma",
@@ -410,7 +436,9 @@
         closedTitle: "Kayıtlar Kapandı", closedDesc: "Kayıt süresi doldu veya henüz başlamadı."
       },
       ar: {
-        title: "أسبوع الاستعداد لولاية 2859", playerName: "اسم اللاعب أو المعرف", playerPlaceholder: "اسمك داخل اللعبة أو المعرف",
+        title: "أسبوع الاستعداد لولاية 2859",
+        userName: "اسم المستخدم", userPlaceholder: "اسمك داخل اللعبة",
+        userId: "المعرف ID (نسخ ولصق)", idPlaceholder: "الصق المعرف هنا",
         fireCrystal: "بلور النار", refined: "بلور النار المنقى", fragments: "شظايا بلور النار",
         speedupsHeader: "المسرعات (بالأيام)", general: "عام", training: "تدريب",
         construction: "بناء", research: "بحث",
@@ -535,8 +563,10 @@
       const t = translations[lang];
 
       safeSetText("t-title", t.title);
-      safeSetText("t-playerName", t.playerName);
-      safeSetPlaceholder("jugador", t.playerPlaceholder);
+      safeSetText("t-userName", t.userName);
+      safeSetPlaceholder("jugador", t.userPlaceholder);
+      safeSetText("t-userId", t.userId);
+      safeSetPlaceholder("jugadorId", t.idPlaceholder);
       safeSetText("t-fireCrystal", t.fireCrystal);
       safeSetText("t-refined", t.refined);
       safeSetText("t-fragments", t.fragments);
@@ -615,6 +645,7 @@
 
       const payload = {
         jugador: document.getElementById("jugador").value,
+        jugadorId: document.getElementById("jugadorId").value,
         alianza: selectedAlliance,
         cristalFuego: document.getElementById("cristalFuego").value,
         refinado: document.getElementById("refinado").value,
