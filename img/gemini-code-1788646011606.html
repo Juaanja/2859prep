@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana de Preparación del estado 2796</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0b111c; font-family: system-ui, -apple-system, sans-serif; }
+    .card-modal {
+      background: linear-gradient(180deg, #131d2e 0%, #0d1522 100%);
+      border: 1px solid #1f2f47;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+    .top-gradient-bar {
+      height: 3px;
+      background: linear-gradient(90deg, #38bdf8 0%, #0284c7 60%, transparent 100%);
+    }
+    .input-box { background-color: #090e17; border: 1px solid #1b263b; }
+    .badge-btn { background-color: #121c2c; color: #94a3b8; border: 1px solid #1a283e; transition: all 0.15s; }
+    .badge-btn:hover { background-color: #1a273c; color: #e2e8f0; }
+    .badge-selected { background-color: #38bdf8 !important; color: #07111e !important; font-weight: 700; border-color: #38bdf8 !important; }
+    .icon-box { width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-3 sm:p-6">
+
+  <div class="card-modal w-full max-w-3xl rounded-2xl overflow-hidden text-slate-200 relative">
+    <div class="top-gradient-bar"></div>
+
+    <!-- Selector de Idiomas -->
+    <div class="flex justify-between items-center px-6 pt-5 pb-2">
+      <div class="flex items-center gap-1 bg-[#090e17] p-1 rounded-lg border border-slate-800 flex-wrap">
+        <button type="button" onclick="setLanguage('es')" id="lang-es" class="px-2 py-1 text-xs rounded font-bold transition bg-sky-500 text-slate-950">🇪🇸 ES</button>
+        <button type="button" onclick="setLanguage('en')" id="lang-en" class="px-2 py-1 text-xs rounded font-bold transition text-slate-400 hover:text-white">🇬🇧 EN</button>
+        <button type="button" onclick="setLanguage('fr')" id="lang-fr" class="px-2 py-1 text-xs rounded font-bold transition text-slate-400 hover:text-white">🇫🇷 FR</button>
+        <button type="button" onclick="setLanguage('de')" id="lang-de" class="px-2 py-1 text-xs rounded font-bold transition text-slate-400 hover:text-white">🇩🇪 DE</button>
+        <button type="button" onclick="setLanguage('ru')" id="lang-ru" class="px-2 py-1 text-xs rounded font-bold transition text-slate-400 hover:text-white">🇷🇺 RU</button>
+        <button type="button" onclick="setLanguage('ko')" id="lang-ko" class="px-2 py-1 text-xs rounded font-bold transition text-slate-400 hover:text-white">🇰🇷 KO</button>
+        <button type="button" onclick="setLanguage('pl')" id="lang-pl" class="px-2 py-1 text-xs rounded font-bold transition text-slate-400 hover:text-white">🇵🇱 PL</button>
+      </div>
+      <div class="w-7 h-7 rounded-full bg-slate-800/60 flex items-center justify-center text-slate-500 text-xs">✕</div>
+    </div>
+
+    <!-- Pantalla de Convocatoria Cerrada -->
+    <div id="closedNotice" class="p-10 text-center hidden">
+      <div class="text-5xl mb-4">🔒</div>
+      <h2 id="t-closedTitle" class="text-xl font-bold text-white mb-2">Convocatoria Cerrada</h2>
+      <p id="t-closedDesc" class="text-slate-400 text-sm max-w-md mx-auto">El plazo de inscripciones ha finalizado o aún no se encuentra abierto. Las asignaciones de horarios se publicarán pronto.</p>
+    </div>
+
+    <!-- Contenido del Formulario -->
+    <div id="formContainer" class="px-6 pb-6 pt-2">
+      <h1 id="t-title" class="text-xl sm:text-2xl font-bold text-center mb-5 text-white tracking-wide">Semana de Preparación del estado 2796</h1>
+
+      <form id="savingsForm" class="space-y-5">
+        
+        <!-- Nombre Jugador / ID -->
+        <div>
+          <label id="t-playerName" class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-1.5">Nombre del Jugador o ID</label>
+          <input type="text" id="jugador" required placeholder="Tu Nick exacto o ID" class="w-full input-box rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-sky-500 transition">
+        </div>
+
+        <!-- Alianzas -->
+        <div>
+          <div class="flex flex-wrap justify-center gap-2" id="allianceContainer">
+            <button type="button" class="alliance-btn badge-btn text-xs px-3 py-1.5 rounded-full" data-val="LFO">LFO</button>
+            <button type="button" class="alliance-btn badge-btn text-xs px-3 py-1.5 rounded-full" data-val="BLO">BLO</button>
+            <button type="button" class="alliance-btn badge-btn text-xs px-3 py-1.5 rounded-full" data-val="KOR">KOR</button>
+            <button type="button" class="alliance-btn badge-btn text-xs px-3 py-1.5 rounded-full" data-val="POL">POL</button>
+            <button type="button" class="alliance-btn badge-btn text-xs px-3 py-1.5 rounded-full" data-val="NEX">NEX</button>
+            <button type="button" class="alliance-btn badge-btn text-xs px-3 py-1.5 rounded-full" data-val="PXR">PXR</button>
+            <button type="button" class="alliance-btn badge-btn text-xs px-3 py-1.5 rounded-full" data-val="THE">The</button>
+          </div>
+        </div>
+
+        <!-- Recursos por Intervalos -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+          <div>
+            <label id="t-fireCrystal" class="block text-[10px] tracking-wider text-slate-400 font-bold mb-1.5 uppercase text-center">Cristal de Fuego</label>
+            <div class="flex items-center gap-2">
+              <div class="icon-box bg-rose-950/40 border border-rose-800/50">
+                <img src="img/cristal.png" alt="Cristal" onerror="this.outerHTML='<span>🔥</span>'" class="w-7 h-7 object-contain">
+              </div>
+              <select id="cristalFuego" class="w-full input-box rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-sky-500">
+                <option value="0-500">0 - 500</option>
+                <option value="501-1000">501 - 1000</option>
+                <option value="1001-1500">1001 - 1500</option>
+                <option value="1501-2000">1501 - 2000</option>
+                <option value="2001-2500">2001 - 2500</option>
+                <option value="2501-3000">2501 - 3000</option>
+                <option value="+3001">+3001</option>
+                <option value="Ilimitado">Ilimitado</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label id="t-refined" class="block text-[10px] tracking-wider text-slate-400 font-bold mb-1.5 uppercase text-center">Cristal de Fuego Refinado</label>
+            <div class="flex items-center gap-2">
+              <div class="icon-box bg-amber-950/40 border border-amber-800/50">
+                <img src="img/refinado.png" alt="Refinado" onerror="this.outerHTML='<span>💎</span>'" class="w-7 h-7 object-contain">
+              </div>
+              <select id="refinado" class="w-full input-box rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-sky-500">
+                <option value="0-20">0 - 20</option>
+                <option value="21-50">21 - 50</option>
+                <option value="51-80">51 - 80</option>
+                <option value="81-110">81 - 110</option>
+                <option value="111-130">111 - 130</option>
+                <option value="131-160">131 - 160</option>
+                <option value="+161">+161</option>
+                <option value="Ilimitado">Ilimitado</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label id="t-fragments" class="block text-[10px] tracking-wider text-slate-400 font-bold mb-1.5 uppercase text-center">Fragmentos</label>
+            <div class="flex items-center gap-2">
+              <div class="icon-box bg-red-950/40 border border-red-800/50">
+                <img src="img/fragmentos.png" alt="Fragmentos" onerror="this.outerHTML='<span>🔺</span>'" class="w-7 h-7 object-contain">
+              </div>
+              <select id="fragmentos" class="w-full input-box rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-sky-500">
+                <option value="0-250">0 - 250</option>
+                <option value="251-500">251 - 500</option>
+                <option value="501-1000">501 - 1000</option>
+                <option value="1001-1500">1001 - 1500</option>
+                <option value="1501-2000">1501 - 2000</option>
+                <option value="+2001">+2001</option>
+                <option value="Ilimitado">Ilimitado</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aceleradores por Intervalos (Días) -->
+        <div class="pt-2">
+          <p id="t-speedupsHeader" class="text-[11px] font-bold text-center tracking-wider text-slate-400 uppercase mb-3">Aceleradores (Días)</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label id="t-general" class="block text-[10px] uppercase text-slate-400 font-semibold mb-1">General</label>
+              <div class="flex items-center gap-2">
+                <div class="icon-box bg-sky-950/40 border border-sky-800/50">
+                  <img src="img/acel_general.png" alt="General" onerror="this.outerHTML='<span>⏩</span>'" class="w-7 h-7 object-contain">
+                </div>
+                <select id="acelGeneral" class="w-full input-box rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-sky-500">
+                  <option value="0-29">0 - 29 d</option>
+                  <option value="30-40">30 - 40 d</option>
+                  <option value="41-59">41 - 59 d</option>
+                  <option value="+60">+60 d</option>
+                  <option value="+100">+100 d</option>
+                  <option value="Ilimitado">Ilimitado</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label id="t-training" class="block text-[10px] uppercase text-slate-400 font-semibold mb-1">Entrenamiento</label>
+              <div class="flex items-center gap-2">
+                <div class="icon-box bg-orange-950/40 border border-orange-800/50">
+                  <img src="img/acel_entrenamiento.png" alt="Entrenamiento" onerror="this.outerHTML='<span>⚔️</span>'" class="w-7 h-7 object-contain">
+                </div>
+                <select id="acelEntrenamiento" class="w-full input-box rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-sky-500">
+                  <option value="0-29">0 - 29 d</option>
+                  <option value="30-40">30 - 40 d</option>
+                  <option value="41-59">41 - 59 d</option>
+                  <option value="+60">+60 d</option>
+                  <option value="+100">+100 d</option>
+                  <option value="Ilimitado">Ilimitado</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label id="t-construction" class="block text-[10px] uppercase text-slate-400 font-semibold mb-1">Construcción</label>
+              <div class="flex items-center gap-2">
+                <div class="icon-box bg-emerald-950/40 border border-emerald-800/50">
+                  <img src="img/acel_construccion.png" alt="Construcción" onerror="this.outerHTML='<span>🔨</span>'" class="w-7 h-7 object-contain">
+                </div>
+                <select id="acelConstruccion" class="w-full input-box rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-sky-500">
+                  <option value="0-29">0 - 29 d</option>
+                  <option value="30-40">30 - 40 d</option>
+                  <option value="41-59">41 - 59 d</option>
+                  <option value="+60">+60 d</option>
+                  <option value="+100">+100 d</option>
+                  <option value="Ilimitado">Ilimitado</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label id="t-research" class="block text-[10px] uppercase text-slate-400 font-semibold mb-1">Investigación</label>
+              <div class="flex items-center gap-2">
+                <div class="icon-box bg-purple-950/40 border border-purple-800/50">
+                  <img src="img/acel_investigacion.png" alt="Investigación" onerror="this.outerHTML='<span>🔬</span>'" class="w-7 h-7 object-contain">
+                </div>
+                <select id="acelInvestigacion" class="w-full input-box rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-sky-500">
+                  <option value="0-29">0 - 29 d</option>
+                  <option value="30-40">30 - 40 d</option>
+                  <option value="41-59">41 - 59 d</option>
+                  <option value="+60">+60 d</option>
+                  <option value="+100">+100 d</option>
+                  <option value="Ilimitado">Ilimitado</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Prioridades por Día -->
+        <div class="pt-2 border-t border-slate-800/80">
+          <p id="t-scheduleHeader" class="text-[11px] font-bold text-center tracking-wider text-slate-400 uppercase mb-2">Inscripción por Prioridades (3 opciones por día)</p>
+          
+          <div class="flex items-center justify-center gap-2 mb-4">
+            <input type="checkbox" id="syncSchedule" class="rounded accent-sky-500 w-4 h-4 cursor-pointer">
+            <label for="syncSchedule" id="t-syncLabel" class="text-xs text-sky-400 font-medium cursor-pointer">Aplicar las 3 opciones del Lunes a todos los días</label>
+          </div>
+
+          <!-- Lunes -->
+          <div class="mb-4 bg-[#090e17] p-3 rounded-xl border border-slate-800/80">
+            <label id="t-mon" class="block text-xs uppercase text-sky-400 font-bold mb-2">Lunes (Construcción)</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <select id="lunesP1" class="input-box rounded-lg p-2 text-xs text-white"></select>
+              <select id="lunesP2" class="input-box rounded-lg p-2 text-xs text-white"></select>
+              <select id="lunesP3" class="input-box rounded-lg p-2 text-xs text-white"></select>
+            </div>
+          </div>
+
+          <!-- Martes -->
+          <div class="mb-4 bg-[#090e17] p-3 rounded-xl border border-slate-800/80">
+            <label id="t-tue" class="block text-xs uppercase text-sky-400 font-bold mb-2">Martes (Investigación)</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <select id="martesP1" class="input-box rounded-lg p-2 text-xs text-white"></select>
+              <select id="martesP2" class="input-box rounded-lg p-2 text-xs text-white"></select>
+              <select id="martesP3" class="input-box rounded-lg p-2 text-xs text-white"></select>
+            </div>
+          </div>
+
+          <!-- Jueves -->
+          <div class="bg-[#090e17] p-3 rounded-xl border border-slate-800/80">
+            <label id="t-thu" class="block text-xs uppercase text-sky-400 font-bold mb-2">Jueves (Entrenamiento)</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <select id="juevesP1" class="input-box rounded-lg p-2 text-xs text-white"></select>
+              <select id="juevesP2" class="input-box rounded-lg p-2 text-xs text-white"></select>
+              <select id="juevesP3" class="input-box rounded-lg p-2 text-xs text-white"></select>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" id="submitBtn" class="w-full py-3.5 mt-4 rounded-xl font-bold bg-sky-500 hover:bg-sky-400 text-slate-950 transition duration-150">
+          Reserva tu hueco
+        </button>
+
+        <p id="msgStatus" class="text-center text-xs font-semibold hidden"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzEbAo62L29vusW6tuODcr7V-W6BA6IcwUA20X4oL6CVCl9yLrzOlGgYikX1VIf7t6VvQ/exec";
+
+    const translations = {
+      es: {
+        title: "Semana de Preparación del estado 2796", playerName: "Nombre del Jugador o ID", playerPlaceholder: "Tu Nick exacto o ID",
+        fireCrystal: "Cristal de Fuego", refined: "Cristal de Fuego Refinado", fragments: "Fragmentos",
+        speedupsHeader: "Aceleradores (Días)", general: "General", training: "Entrenamiento",
+        construction: "Construcción", research: "Investigación",
+        scheduleHeader: "Inscripción por Prioridades (3 opciones por día)", syncLabel: "Aplicar las 3 opciones del Lunes a todos los días",
+        mon: "Lunes (Construcción)", tue: "Martes (Investigación)", thu: "Jueves (Entrenamiento)",
+        submit: "Reserva tu hueco", sending: "Enviando...", success: "¡Reserva enviada correctamente!",
+        error: "Error al enviar los datos.", alertAlliance: "Por favor, selecciona una alianza.",
+        noParticipate: "-- No participa --", p1: "1ª Opción: ", p2: "2ª Opción: ", p3: "3ª Opción: ",
+        closedTitle: "Convocatoria Cerrada", closedDesc: "El plazo de inscripción ha finalizado o aún no se encuentra abierto."
+      },
+      en: {
+        title: "State 2796 Preparation Week", playerName: "Player Name or ID", playerPlaceholder: "Your exact in-game Nick or ID",
+        fireCrystal: "Fire Crystals", refined: "RFC", fragments: "FC Shard",
+        speedupsHeader: "Speedups (Days)", general: "General", training: "Training",
+        construction: "Construction", research: "Research",
+        scheduleHeader: "Sign-up by Priorities (3 choices per day)", syncLabel: "Apply Monday's 3 choices to all days",
+        mon: "Monday (Construction)", tue: "Tuesday (Research)", thu: "Thursday (Training)",
+        submit: "Reserve your slot", sending: "Submitting...", success: "Reservation sent successfully!",
+        error: "Error submitting data.", alertAlliance: "Please select an alliance.",
+        noParticipate: "-- Do not participate --", p1: "1st Choice: ", p2: "2nd Choice: ", p3: "3rd Choice: ",
+        closedTitle: "Registrations Closed", closedDesc: "The sign-up period has ended or is not open yet."
+      },
+      fr: {
+        title: "Semaine de Préparation de l'État 2796", playerName: "Nom du joueur ou ID", playerPlaceholder: "Votre pseudo exact ou ID",
+        fireCrystal: "Cristal de feu", refined: "Cristal de feu raffiné", fragments: "Éclat de cristal de feu",
+        speedupsHeader: "Accélérateurs (Jours)", general: "Général", training: "Entraînement",
+        construction: "Construction", research: "Recherche",
+        scheduleHeader: "Inscription par Priorités (3 choix par jour)", syncLabel: "Appliquer les 3 choix du lundi à tous les jours",
+        mon: "Lundi (Construction)", tue: "Mardi (Recherche)", thu: "Jeudi (Entraînement)",
+        submit: "Réservez votre créneau", sending: "Envoi en cours...", success: "Réservation envoyée avec succès !",
+        error: "Erreur lors de l'envoi.", alertAlliance: "Veuillez sélectionner une alliance.",
+        noParticipate: "-- Ne participe pas --", p1: "1er Choix: ", p2: "2ème Choix: ", p3: "3ème Choix: ",
+        closedTitle: "Inscriptions Clôturées", closedDesc: "La période d'inscription est terminée ou pas encore ouverte."
+      },
+      de: {
+        title: "Vorbereitungswoche für Staat 2796", playerName: "Spielername oder ID", playerPlaceholder: "Genauer Nickname oder ID",
+        fireCrystal: "Feuerkristall", refined: "Veredelter Feuerkristall", fragments: "Feuerkristall-Splitter",
+        speedupsHeader: "Beschleuniger (Tage)", general: "Allgemein", training: "Ausbildung",
+        construction: "Bau", research: "Forschung",
+        scheduleHeader: "Anmeldung nach Prioritäten (3 Optionen pro Tag)", syncLabel: "Montags-Optionen auf alle Tage anwenden",
+        mon: "Montag (Bau)", tue: "Dienstag (Forschung)", thu: "Donnerstag (Ausbildung)",
+        submit: "Slot reservieren", sending: "Wird gesendet...", success: "Reservierung erfolgreich gesendet!",
+        error: "Fehler beim Senden.", alertAlliance: "Bitte wählen Sie eine Allianz.",
+        noParticipate: "-- Nimmt nicht teil --", p1: "1. Wahl: ", p2: "2. Wahl: ", p3: "3. Wahl: ",
+        closedTitle: "Anmeldung geschlossen", closedDesc: "Die Anmeldefrist ist abgelaufen oder noch nicht eröffnet."
+      },
+      ru: {
+        title: "Неделя подготовки штата 2796", playerName: "Имя игрока или ID", playerPlaceholder: "Ваш точный ник или ID",
+        fireCrystal: "Огненный кристалл", refined: "Очищенный огненный кристалл", fragments: "Осколки огненного кристалла",
+        speedupsHeader: "Ускорители (Дни)", general: "Общие", training: "Тренировка",
+        construction: "Строительство", research: "Исследование",
+        scheduleHeader: "Запись по приоритетам (3 варианта в день)", syncLabel: "Применить варианты понедельника ко всем дням",
+        mon: "Понедельник (Строительство)", tue: "Вторник (Исследование)", thu: "Четверг (Тренировка)",
+        submit: "Забронировать место", sending: "Отправка...", success: "Бронирование успешно отправлено!",
+        error: "Ошибка при отправке.", alertAlliance: "Пожалуйста, выберите альянс.",
+        noParticipate: "-- Не участвует --", p1: "1-й выбор: ", p2: "2-й выбор: ", p3: "3-й выбор: ",
+        closedTitle: "Регистрация закрыта", closedDesc: "Срок регистрации истек или еще не начался."
+      },
+      ko: {
+        title: "2796 서버 준비 주간", playerName: "플레이어 이름 또는 ID", playerPlaceholder: "정확한 닉네임 또는 ID 입력",
+        fireCrystal: "불의 수정", refined: "정제된 불의 수정", fragments: "불의 수정 조각",
+        speedupsHeader: "가속 (일)", general: "일반", training: "훈련",
+        construction: "건설", research: "연구",
+        scheduleHeader: "우선순위별 등록 (하루 3가지 선택)", syncLabel: "월요일 3가지 선택을 모든 요일에 적용",
+        mon: "월요일 (건설)", tue: "화요일 (연구)", thu: "목요일 (훈련)",
+        submit: "자리 예약하기", sending: "제출 중...", success: "예약이 성공적으로 전송되었습니다!",
+        error: "전송 중 오류가 발생했습니다.", alertAlliance: "연맹을 선택해 주세요.",
+        noParticipate: "-- 미참여 --", p1: "1순위: ", p2: "2순위: ", p3: "3순위: ",
+        closedTitle: "신청 마감", closedDesc: "등록 기간이 종료되었거나 아직 시작되지 않았습니다."
+      },
+      pl: {
+        title: "Tydzień Przygotowań Stanu 2796", playerName: "Nazwa Gracza lub ID", playerPlaceholder: "Twój dokładny nick lub ID",
+        fireCrystal: "Ognisty Kryształ", refined: "Rafinowany Ognisty Kryształ", fragments: "Odłamki Ognistego Kryształu",
+        speedupsHeader: "Przyspieszenia (Dni)", general: "Ogólne", training: "Trening",
+        construction: "Budowa", research: "Badania",
+        scheduleHeader: "Zapisy według priorytetów (3 wybory dziennie)", syncLabel: "Zastosuj 3 wybory z poniedziałku do wszystkich dni",
+        mon: "Poniedziałek (Budowa)", tue: "Wtorek (Badania)", thu: "Czwartek (Trening)",
+        submit: "Zarezerwuj miejsce", sending: "Wysyłanie...", success: "Rezerwacja wysłana pomyślnie!",
+        error: "Błąd podczas przesyłania danych.", alertAlliance: "Proszę wybrać sojusz.",
+        noParticipate: "-- Brak udziału --", p1: "1. Wybór: ", p2: "2. Wybór: ", p3: "3. Wybór: ",
+        closedTitle: "Zapisy Zamknięte", closedDesc: "Okres rejestracji dobiegł końca lub jeszcze się nie rozpoczął."
+      }
+    };
+
+    let currentLang = "es";
+
+    function safeSetText(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = text;
+    }
+
+    function safeSetPlaceholder(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.placeholder = text;
+    }
+
+    function populateTimeSelectors() {
+      const t = translations[currentLang] || translations.es;
+      const selectors = [
+        { id: "lunesP1", label: t.p1 }, { id: "lunesP2", label: t.p2 }, { id: "lunesP3", label: t.p3 },
+        { id: "martesP1", label: t.p1 }, { id: "martesP2", label: t.p2 }, { id: "martesP3", label: t.p3 },
+        { id: "juevesP1", label: t.p1 }, { id: "juevesP2", label: t.p2 }, { id: "juevesP3", label: t.p3 }
+      ];
+
+      selectors.forEach(({ id, label }) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const currentVal = el.value || "No participa";
+        let html = `<option value="No participa">${t.noParticipate}</option>`;
+
+        for (let h = 0; h < 24; h++) {
+          for (let m = 0; m < 60; m += 30) {
+            const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+            html += `<option value="${timeStr}">${label}${timeStr}</option>`;
+          }
+        }
+        el.innerHTML = html;
+        el.value = currentVal;
+      });
+    }
+
+    // Comprobar apertura y cierre mediante JSONP
+    function checkConvocatoria() {
+      if (!SCRIPT_URL || SCRIPT_URL.includes("...")) return;
+      const script = document.createElement("script");
+      const cbName = "onCheckStatus_" + Math.floor(Math.random() * 1000000);
+
+      window[cbName] = function(data) {
+        if (data && data.estado === "CERRADO") {
+          document.getElementById("formContainer").classList.add("hidden");
+          document.getElementById("closedNotice").classList.remove("hidden");
+        } else {
+          document.getElementById("formContainer").classList.remove("hidden");
+          document.getElementById("closedNotice").classList.add("hidden");
+        }
+        delete window[cbName];
+        if (script.parentNode) script.parentNode.removeChild(script);
+      };
+
+      script.src = SCRIPT_URL + (SCRIPT_URL.includes("?") ? "&" : "?") + "callback=" + cbName + "&t=" + Date.now();
+      document.body.appendChild(script);
+    }
+
+    function setLanguage(lang) {
+      if (!translations[lang]) return;
+      currentLang = lang;
+      const t = translations[lang];
+
+      safeSetText("t-title", t.title);
+      safeSetText("t-playerName", t.playerName);
+      safeSetPlaceholder("jugador", t.playerPlaceholder);
+      safeSetText("t-fireCrystal", t.fireCrystal);
+      safeSetText("t-refined", t.refined);
+      safeSetText("t-fragments", t.fragments);
+      safeSetText("t-speedupsHeader", t.speedupsHeader);
+      safeSetText("t-general", t.general);
+      safeSetText("t-training", t.training);
+      safeSetText("t-construction", t.construction);
+      safeSetText("t-research", t.research);
+      safeSetText("t-scheduleHeader", t.scheduleHeader);
+      safeSetText("t-syncLabel", t.syncLabel);
+      safeSetText("t-mon", t.mon);
+      safeSetText("t-tue", t.tue);
+      safeSetText("t-thu", t.thu);
+      safeSetText("submitBtn", t.submit);
+      safeSetText("t-closedTitle", t.closedTitle);
+      safeSetText("t-closedDesc", t.closedDesc);
+
+      ["es", "en", "fr", "de", "ru", "ko", "pl"].forEach(l => {
+        const btn = document.getElementById(`lang-${l}`);
+        if (btn) {
+          btn.className = (l === lang) 
+            ? "px-2 py-1 text-xs rounded font-bold transition bg-sky-500 text-slate-950" 
+            : "px-2 py-1 text-xs rounded font-bold transition text-slate-400 hover:text-white";
+        }
+      });
+
+      populateTimeSelectors();
+    }
+
+    // Sincronización de las 3 opciones del lunes hacia los otros días
+    function syncAllDays() {
+      const p1 = document.getElementById("lunesP1").value;
+      const p2 = document.getElementById("lunesP2").value;
+      const p3 = document.getElementById("lunesP3").value;
+
+      ["martes", "jueves"].forEach(dia => {
+        document.getElementById(`${dia}P1`).value = p1;
+        document.getElementById(`${dia}P2`).value = p2;
+        document.getElementById(`${dia}P3`).value = p3;
+      });
+    }
+
+    ["lunesP1", "lunesP2", "lunesP3"].forEach(id => {
+      document.getElementById(id).addEventListener("change", () => {
+        if (document.getElementById("syncSchedule").checked) syncAllDays();
+      });
+    });
+
+    document.getElementById("syncSchedule").addEventListener("change", (e) => {
+      if (e.target.checked) syncAllDays();
+    });
+
+    let selectedAlliance = "";
+    document.querySelectorAll(".alliance-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".alliance-btn").forEach(b => b.classList.remove("badge-selected"));
+        btn.classList.add("badge-selected");
+        selectedAlliance = btn.getAttribute("data-val");
+      });
+    });
+
+    document.getElementById("savingsForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const t = translations[currentLang] || translations.es;
+
+      if (!selectedAlliance) {
+        alert(t.alertAlliance);
+        return;
+      }
+
+      const btn = document.getElementById("submitBtn");
+      const msg = document.getElementById("msgStatus");
+
+      btn.disabled = true;
+      btn.textContent = t.sending;
+
+      const payload = {
+        jugador: document.getElementById("jugador").value,
+        alianza: selectedAlliance,
+        cristalFuego: document.getElementById("cristalFuego").value,
+        refinado: document.getElementById("refinado").value,
+        fragmentos: document.getElementById("fragmentos").value,
+        acelGeneral: document.getElementById("acelGeneral").value,
+        acelEntrenamiento: document.getElementById("acelEntrenamiento").value,
+        acelConstruccion: document.getElementById("acelConstruccion").value,
+        acelInvestigacion: document.getElementById("acelInvestigacion").value,
+        horaLunesP1: document.getElementById("lunesP1").value,
+        horaLunesP2: document.getElementById("lunesP2").value,
+        horaLunesP3: document.getElementById("lunesP3").value,
+        horaMartesP1: document.getElementById("martesP1").value,
+        horaMartesP2: document.getElementById("martesP2").value,
+        horaMartesP3: document.getElementById("martesP3").value,
+        horaJuevesP1: document.getElementById("juevesP1").value,
+        horaJuevesP2: document.getElementById("juevesP2").value,
+        horaJuevesP3: document.getElementById("juevesP3").value
+      };
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        msg.textContent = t.success;
+        msg.className = "text-center text-xs font-semibold text-emerald-400 block";
+        document.getElementById("savingsForm").reset();
+        document.querySelectorAll(".badge-selected").forEach(b => b.classList.remove("badge-selected"));
+        selectedAlliance = "";
+      } catch (err) {
+        msg.textContent = t.error;
+        msg.className = "text-center text-xs font-semibold text-rose-400 block";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = t.submit;
+      }
+    });
+
+    populateTimeSelectors();
+    checkConvocatoria();
+  </script>
+</body>
+</html>
