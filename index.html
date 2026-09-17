@@ -128,20 +128,21 @@
 
       <form id="savingsForm" class="space-y-5">
         
-        <!-- Nombre Jugador e ID separados -->
+        <!-- Nombre Jugador e ID separados (Obligatorios) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label id="t-userName" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5">User Name</label>
+            <label id="t-userName" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5">User Name <span class="text-[#E31A21]">*</span></label>
             <input type="text" id="jugador" required placeholder="Tu Nick exacto" class="w-full input-box rounded-xl px-4 py-2.5 text-sm transition">
           </div>
           <div>
-            <label id="t-userId" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5">ID (Needs to be copy and paste)</label>
+            <label id="t-userId" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5">ID (Needs to be copy and paste) <span class="text-[#E31A21]">*</span></label>
             <input type="text" id="jugadorId" required placeholder="Pega tu ID aquí" class="w-full input-box rounded-xl px-4 py-2.5 text-sm transition">
           </div>
         </div>
 
-        <!-- Alianzas -->
+        <!-- Alianzas (Obligatorio) -->
         <div>
+          <label id="t-alliance" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5 text-center">Alianza <span class="text-[#E31A21]">*</span></label>
           <div class="flex flex-wrap justify-center gap-2" id="allianceContainer">
             <button type="button" class="alliance-btn badge-btn text-xs px-3 py-1.5 rounded-full" data-val="COH">COH</button>
             <button type="button" class="alliance-btn badge-btn text-xs px-3 py-1.5 rounded-full" data-val="GYM">GYM</button>
@@ -153,7 +154,7 @@
           </div>
         </div>
 
-        <!-- Recursos por Intervalos -->
+        <!-- Recursos por Intervalos (Opcionales) -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
           <div>
             <label id="t-fireCrystal" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">Cristal de Fuego</label>
@@ -186,7 +187,7 @@
           </div>
         </div>
 
-        <!-- Aceleradores por Intervalos (Días) -->
+        <!-- Aceleradores por Intervalos (Opcionales) -->
         <div class="pt-2">
           <p id="t-speedupsHeader" class="text-[11px] font-bold text-center tracking-wider text-[#C2A1A8] uppercase mb-3">Aceleradores (Días)</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -232,9 +233,9 @@
           </div>
         </div>
 
-        <!-- 3 Prioridades por Día -->
+        <!-- 3 Prioridades por Día (Obligatorios) -->
         <div class="pt-2 border-t border-[#33151D]">
-          <p id="t-scheduleHeader" class="text-[11px] font-bold text-center tracking-wider text-[#C2A1A8] uppercase mb-2">Inscripción por Prioridades (3 opciones por día)</p>
+          <p id="t-scheduleHeader" class="text-[11px] font-bold text-center tracking-wider text-[#C2A1A8] uppercase mb-2">Inscripción por Prioridades (3 opciones por día) <span class="text-[#E31A21]">*</span></p>
           
           <div class="flex items-center justify-center gap-2 mb-4">
             <input type="checkbox" id="syncSchedule" class="rounded accent-[#E31A21] w-4 h-4 cursor-pointer">
@@ -243,31 +244,31 @@
 
           <!-- Lunes -->
           <div class="mb-4 bg-[#12090C] p-3 rounded-xl border border-[#33151D]">
-            <label id="t-mon" class="block text-xs uppercase text-[#FF6B8B] font-bold mb-2">Lunes (Construcción)</label>
+            <label id="t-mon" class="block text-xs uppercase text-[#FF6B8B] font-bold mb-2">Lunes (Construcción) <span class="text-[#E31A21]">*</span></label>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              <select id="lunesP1" class="input-box rounded-lg p-2 text-xs"></select>
-              <select id="lunesP2" class="input-box rounded-lg p-2 text-xs"></select>
-              <select id="lunesP3" class="input-box rounded-lg p-2 text-xs"></select>
+              <select id="lunesP1" required class="input-box rounded-lg p-2 text-xs"></select>
+              <select id="lunesP2" required class="input-box rounded-lg p-2 text-xs"></select>
+              <select id="lunesP3" required class="input-box rounded-lg p-2 text-xs"></select>
             </div>
           </div>
 
           <!-- Martes -->
           <div class="mb-4 bg-[#12090C] p-3 rounded-xl border border-[#33151D]">
-            <label id="t-tue" class="block text-xs uppercase text-[#FF6B8B] font-bold mb-2">Martes (Investigación)</label>
+            <label id="t-tue" class="block text-xs uppercase text-[#FF6B8B] font-bold mb-2">Martes (Investigación) <span class="text-[#E31A21]">*</span></label>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              <select id="martesP1" class="input-box rounded-lg p-2 text-xs"></select>
-              <select id="martesP2" class="input-box rounded-lg p-2 text-xs"></select>
-              <select id="martesP3" class="input-box rounded-lg p-2 text-xs"></select>
+              <select id="martesP1" required class="input-box rounded-lg p-2 text-xs"></select>
+              <select id="martesP2" required class="input-box rounded-lg p-2 text-xs"></select>
+              <select id="martesP3" required class="input-box rounded-lg p-2 text-xs"></select>
             </div>
           </div>
 
           <!-- Jueves -->
           <div class="bg-[#12090C] p-3 rounded-xl border border-[#33151D]">
-            <label id="t-thu" class="block text-xs uppercase text-[#FF6B8B] font-bold mb-2">Jueves (Entrenamiento)</label>
+            <label id="t-thu" class="block text-xs uppercase text-[#FF6B8B] font-bold mb-2">Jueves (Entrenamiento) <span class="text-[#E31A21]">*</span></label>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              <select id="juevesP1" class="input-box rounded-lg p-2 text-xs"></select>
-              <select id="juevesP2" class="input-box rounded-lg p-2 text-xs"></select>
-              <select id="juevesP3" class="input-box rounded-lg p-2 text-xs"></select>
+              <select id="juevesP1" required class="input-box rounded-lg p-2 text-xs"></select>
+              <select id="juevesP2" required class="input-box rounded-lg p-2 text-xs"></select>
+              <select id="juevesP3" required class="input-box rounded-lg p-2 text-xs"></select>
             </div>
           </div>
         </div>
@@ -282,13 +283,14 @@
   </div>
 
   <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3qlGgSN3e7hCrop3h-ZMWFNTQAH-ayYDX7DgVAPgXxntd0YyiH5hbDfyMAgCtNk-NEw/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzEbAo62L29vusW6tuODcr7V-W6BA6IcwUA20X4oL6CVCl9yLrzOlGgYikX1VIf7t6VvQ/exec";
 
     const translations = {
       es: {
         title: "Semana de Preparación del estado 2859",
         userName: "Nombre de Usuario (User Name)", userPlaceholder: "Tu Nick exacto en el juego",
         userId: "ID de Jugador (Copiar y Pegar)", idPlaceholder: "Pega tu ID aquí",
+        allianceLabel: "Alianza",
         fireCrystal: "Cristal de Fuego", refined: "Cristal de Fuego Refinado", fragments: "Fragmentos",
         speedupsHeader: "Aceleradores (Días)", general: "General", training: "Entrenamiento",
         construction: "Construcción", research: "Investigación",
@@ -296,6 +298,8 @@
         mon: "Lunes (Construcción)", tue: "Martes (Investigación)", thu: "Jueves (Entrenamiento)",
         submit: "Reserva tu hueco", sending: "Enviando...", success: "¡Reserva enviada correctamente!",
         error: "Error al enviar los datos.", alertAlliance: "Por favor, selecciona una alianza.",
+        alertRequired: "Por favor, completa el Nick, la ID y selecciona tu alianza.",
+        alertSchedule: "Por favor, completa las 3 opciones de prioridad de cada día (o selecciona '-- No participa --').",
         noParticipate: "-- No participa --", p1: "1ª Opción: ", p2: "2ª Opción: ", p3: "3ª Opción: ",
         unlimited: "Ilimitado", dayUnit: "d",
         closedTitle: "Convocatoria Cerrada", closedDesc: "El plazo de inscripción ha finalizado o aún no se encuentra abierto."
@@ -304,6 +308,7 @@
         title: "State 2859 Preparation Week",
         userName: "User Name", userPlaceholder: "Your exact in-game Nick",
         userId: "ID (Needs to be copy and paste)", idPlaceholder: "Paste your ID here",
+        allianceLabel: "Alliance",
         fireCrystal: "Fire Crystals", refined: "RFC", fragments: "FC Shard",
         speedupsHeader: "Speedups (Days)", general: "General", training: "Training",
         construction: "Construction", research: "Research",
@@ -311,6 +316,8 @@
         mon: "Monday (Construction)", tue: "Tuesday (Research)", thu: "Thursday (Training)",
         submit: "Reserve your slot", sending: "Submitting...", success: "Reservation sent successfully!",
         error: "Error submitting data.", alertAlliance: "Please select an alliance.",
+        alertRequired: "Please enter your User Name, ID, and select an alliance.",
+        alertSchedule: "Please complete all 3 priority choices for each day (or select '-- Do not participate --').",
         noParticipate: "-- Do not participate --", p1: "1st Choice: ", p2: "2nd Choice: ", p3: "3rd Choice: ",
         unlimited: "Unlimited", dayUnit: "d",
         closedTitle: "Registrations Closed", closedDesc: "The sign-up period has ended or is not open yet."
@@ -319,6 +326,7 @@
         title: "Semaine de Préparation de l'État 2859",
         userName: "Nom d'utilisateur", userPlaceholder: "Votre pseudo exact en jeu",
         userId: "ID (Copier-coller obligatoire)", idPlaceholder: "Collez votre ID ici",
+        allianceLabel: "Alliance",
         fireCrystal: "Cristal de feu", refined: "Cristal de feu raffiné", fragments: "Éclat de cristal de feu",
         speedupsHeader: "Accélérateurs (Jours)", general: "Général", training: "Entraînement",
         construction: "Construction", research: "Recherche",
@@ -326,6 +334,8 @@
         mon: "Lundi (Construction)", tue: "Mardi (Recherche)", thu: "Jeudi (Entraînement)",
         submit: "Réservez votre créneau", sending: "Envoi en cours...", success: "Réservation envoyée avec succès !",
         error: "Erreur lors de l'envoi.", alertAlliance: "Veuillez sélectionner une alliance.",
+        alertRequired: "Veuillez saisir votre pseudo, ID et choisir une alliance.",
+        alertSchedule: "Veuillez renseigner vos 3 choix de créneaux pour chaque jour.",
         noParticipate: "-- Ne participe pas --", p1: "1er Choix: ", p2: "2ème Choix: ", p3: "3ème Choix: ",
         unlimited: "Illimité", dayUnit: "j",
         closedTitle: "Inscriptions Clôturées", closedDesc: "La période d'inscription est terminée ou pas encore ouverte."
@@ -334,6 +344,7 @@
         title: "Vorbereitungswoche für Staat 2859",
         userName: "Benutzername", userPlaceholder: "Genauer Nickname im Spiel",
         userId: "ID (Kopieren und Einfügen)", idPlaceholder: "Fügen Sie Ihre ID hier ein",
+        allianceLabel: "Allianz",
         fireCrystal: "Feuerkristall", refined: "Veredelter Feuerkristall", fragments: "Feuerkristall-Splitter",
         speedupsHeader: "Beschleuniger (Tage)", general: "Allgemein", training: "Ausbildung",
         construction: "Bau", research: "Forschung",
@@ -341,6 +352,8 @@
         mon: "Montag (Bau)", tue: "Dienstag (Forschung)", thu: "Donnerstag (Ausbildung)",
         submit: "Slot reservieren", sending: "Wird gesendet...", success: "Reservierung erfolgreich gesendet!",
         error: "Fehler beim Senden.", alertAlliance: "Bitte wählen Sie eine Allianz.",
+        alertRequired: "Bitte geben Sie Benutzernamen, ID ein und wählen Sie eine Allianz.",
+        alertSchedule: "Bitte füllen Sie alle 3 Prioritätsoptionen für jeden Tag aus.",
         noParticipate: "-- Nimmt nicht teil --", p1: "1. Wahl: ", p2: "2. Wahl: ", p3: "3. Wahl: ",
         unlimited: "Unbegrenzt", dayUnit: "T",
         closedTitle: "Anmeldung geschlossen", closedDesc: "Die Anmeldefrist ist abgelaufen oder noch nicht eröffnet."
@@ -349,6 +362,7 @@
         title: "Неделя подготовки штата 2859",
         userName: "Имя пользователя", userPlaceholder: "Ваш точный ник в игре",
         userId: "ID (Скопируйте и вставьте)", idPlaceholder: "Вставьте ваш ID сюда",
+        allianceLabel: "Альянс",
         fireCrystal: "Огненный кристалл", refined: "Очищенный огненный кристалл", fragments: "Осколки огненного кристалла",
         speedupsHeader: "Ускорители (Дни)", general: "Общие", training: "Тренировка",
         construction: "Строительство", research: "Исследование",
@@ -356,6 +370,8 @@
         mon: "Понедельник (Строительство)", tue: "Вторник (Исследование)", thu: "Четверг (Тренировка)",
         submit: "Забронировать место", sending: "Отправка...", success: "Бронирование успешно отправлено!",
         error: "Ошибка при отправке.", alertAlliance: "Пожалуйста, выберите альянс.",
+        alertRequired: "Пожалуйста, укажите никнейм, ID и выберите альянс.",
+        alertSchedule: "Пожалуйста, выберите все 3 приоритета на каждый день.",
         noParticipate: "-- Не участвует --", p1: "1-й выбор: ", p2: "2-й выбор: ", p3: "3-й выбор: ",
         unlimited: "Неограниченно", dayUnit: "д",
         closedTitle: "Регистрация закрыта", closedDesc: "Срок регистрации истек или еще не начался."
@@ -364,6 +380,7 @@
         title: "2859 서버 준비 주간",
         userName: "사용자 이름", userPlaceholder: "게임 내 정확한 닉네임",
         userId: "ID (복사하여 붙여넣기)", idPlaceholder: "여기에 ID를 붙여넣으세요",
+        allianceLabel: "연맹",
         fireCrystal: "불의 수정", refined: "정제된 불의 수정", fragments: "불의 수정 조각",
         speedupsHeader: "가속 (일)", general: "일반", training: "훈련",
         construction: "건설", research: "연구",
@@ -371,6 +388,8 @@
         mon: "월요일 (건설)", tue: "화요일 (연구)", thu: "목요일 (훈련)",
         submit: "자리 예약하기", sending: "제출 중...", success: "예약이 성공적으로 전송되었습니다!",
         error: "전송 중 오류가 발생했습니다.", alertAlliance: "연맹을 선택해 주세요.",
+        alertRequired: "사용자 이름과 ID를 입력하고 연맹을 선택해 주세요.",
+        alertSchedule: "각 요일별 3가지 우선순위를 모두 선택해 주세요.",
         noParticipate: "-- 미참여 --", p1: "1순위: ", p2: "2순위: ", p3: "3순위: ",
         unlimited: "무제한", dayUnit: "일",
         closedTitle: "신청 마감", closedDesc: "등록 기간이 종료되었거나 아직 시작되지 않았습니다."
@@ -379,6 +398,7 @@
         title: "Tydzień Przygotowań Stanu 2859",
         userName: "Nazwa użytkownika", userPlaceholder: "Twój dokładny nick w grze",
         userId: "ID (Wklej skopiowane ID)", idPlaceholder: "Wklej swoje ID tutaj",
+        allianceLabel: "Sojusz",
         fireCrystal: "Ognisty Kryształ", refined: "Rafinowany Ognisty Kryształ", fragments: "Odłamki Ognistego Kryształu",
         speedupsHeader: "Przyspieszenia (Dni)", general: "Ogólne", training: "Trening",
         construction: "Budowa", research: "Badania",
@@ -386,6 +406,8 @@
         mon: "Poniedziałek (Budowa)", tue: "Wtorek (Badania)", thu: "Czwartek (Trening)",
         submit: "Zarezerwuj miejsce", sending: "Wysyłanie...", success: "Rezerwacja wysłana pomyślnie!",
         error: "Błąd podczas przesyłania danych.", alertAlliance: "Proszę wybrać sojusz.",
+        alertRequired: "Wpisz nazwę użytkownika, ID i wybierz sojusz.",
+        alertSchedule: "Uzupełnij wszystkie 3 opcje priorytetów na każdy dzień.",
         noParticipate: "-- Brak udziału --", p1: "1. Wybór: ", p2: "2. Wybór: ", p3: "3. Wybór: ",
         unlimited: "Bez limitu", dayUnit: "d",
         closedTitle: "Zapisy Zamknięte", closedDesc: "Okres rejestracji dobiegł końca lub jeszcze się nie rozpoczął."
@@ -394,6 +416,7 @@
         title: "Pekan Persiapan State 2859",
         userName: "Nama Pengguna", userPlaceholder: "Nick game kamu",
         userId: "ID (Salin dan tempel)", idPlaceholder: "Tempel ID kamu di sini",
+        allianceLabel: "Aliansi",
         fireCrystal: "Kristal Api", refined: "Kristal Api Murni", fragments: "Pecahan Kristal Api",
         speedupsHeader: "Percepatan (Hari)", general: "Umum", training: "Pelatihan",
         construction: "Konstruksi", research: "Riset",
@@ -401,6 +424,8 @@
         mon: "Senin (Konstruksi)", tue: "Selasa (Riset)", thu: "Kamis (Pelatihan)",
         submit: "Pesan Jadwal", sending: "Mengirim...", success: "Pendaftaran berhasil dikirim!",
         error: "Gagal mengirim data.", alertAlliance: "Silakan pilih aliansi.",
+        alertRequired: "Silakan isi Nama Pengguna, ID, dan pilih aliansi.",
+        alertSchedule: "Silakan lengkapi 3 opsi prioritas untuk setiap hari.",
         noParticipate: "-- Tidak berpartisipasi --", p1: "Pilihan 1: ", p2: "Pilihan 2: ", p3: "Pilihan 3: ",
         unlimited: "Tak terbatas", dayUnit: "h",
         closedTitle: "Pendaftaran Ditutup", closedDesc: "Batas waktu pendaftaran telah berakhir atau belum dibuka."
@@ -409,6 +434,7 @@
         title: "2859区 准备周活动",
         userName: "玩家名称 (User Name)", userPlaceholder: "输入您的游戏昵称",
         userId: "玩家ID (ID - 需要复制粘贴)", idPlaceholder: "在此粘贴您的游戏ID",
+        allianceLabel: "联盟",
         fireCrystal: "火晶", refined: "精炼火晶", fragments: "火晶微粒",
         speedupsHeader: "加速道具 (天)", general: "通用加速", training: "训练加速",
         construction: "建造加速", research: "研究加速",
@@ -416,6 +442,8 @@
         mon: "周一 (建造)", tue: "周二 (研究)", thu: "周四 (训练)",
         submit: "预约时间段", sending: "提交中...", success: "预约成功提交！",
         error: "提交数据时出错。", alertAlliance: "请选择一个联盟。",
+        alertRequired: "请填写玩家名称、ID并选择所属联盟。",
+        alertSchedule: "请完整选择每天的3个时间段选项（或选择'-- 不参加 --'）。",
         noParticipate: "-- 不参加 --", p1: "第1优先级: ", p2: "第2优先级: ", p3: "第3优先级: ",
         unlimited: "无限制", dayUnit: "天",
         closedTitle: "报名通道已关闭", closedDesc: "报名时间已截止或尚未开放。"
@@ -424,6 +452,7 @@
         title: "2859 Bölgesi Hazırlık Haftası",
         userName: "Kullanıcı Adı", userPlaceholder: "Oyun içi adınız",
         userId: "ID (Kopyalayıp Yapıştırın)", idPlaceholder: "ID'nizi buraya yapıştırın",
+        allianceLabel: "İttifak",
         fireCrystal: "Ateş Kristali", refined: "Arıtılmış Ateş Kristali", fragments: "Ateş Kristali Parçacığı",
         speedupsHeader: "Hızlandırmalar (Gün)", general: "Genel", training: "Eğitim",
         construction: "İnşaat", research: "Araştırma",
@@ -431,6 +460,8 @@
         mon: "Pazartesi (İnşaat)", tue: "Salı (Araştırma)", thu: "Perşembe (Eğitim)",
         submit: "Slotunu Ayırt", sending: "Gönderiliyor...", success: "Rezervasyon başarıyla gönderildi!",
         error: "Veri gönderilirken hata oluştu.", alertAlliance: "Lütfen bir ittifak seçin.",
+        alertRequired: "Lütfen Kullanıcı Adı ve ID girin ve bir ittifak seçin.",
+        alertSchedule: "Lütfen her gün için 3 öncelik seçeneğini doldurun.",
         noParticipate: "-- Katılmıyor --", p1: "1. Tercih: ", p2: "2. Tercih: ", p3: "3. Tercih: ",
         unlimited: "Sınırsız", dayUnit: "g",
         closedTitle: "Kayıtlar Kapandı", closedDesc: "Kayıt süresi doldu veya henüz başlamadı."
@@ -439,6 +470,7 @@
         title: "أسبوع الاستعداد لولاية 2859",
         userName: "اسم المستخدم", userPlaceholder: "اسمك داخل اللعبة",
         userId: "المعرف ID (نسخ ولصق)", idPlaceholder: "الصق المعرف هنا",
+        allianceLabel: "التحالف",
         fireCrystal: "بلور النار", refined: "بلور النار المنقى", fragments: "شظايا بلور النار",
         speedupsHeader: "المسرعات (بالأيام)", general: "عام", training: "تدريب",
         construction: "بناء", research: "بحث",
@@ -446,6 +478,8 @@
         mon: "الإثنين (بناء)", tue: "الثلاثاء (بحث)", thu: "الخميس (تدريب)",
         submit: "حجز الموعد", sending: "جارٍ الإرسال...", success: "تم إرسال الحجز بنجاح!",
         error: "حدث خطأ أثناء إرسال البيانات.", alertAlliance: "يرجى اختيار التحالف.",
+        alertRequired: "يرجى إدخال اسم المستخدم والمعرف واختيار التحالف.",
+        alertSchedule: "يرجى تحديد الخيارات الثلاثة لكل يوم.",
         noParticipate: "-- لا يشارك --", p1: "الخيار 1: ", p2: "الخيار 2: ", p3: "الخيار 3: ",
         unlimited: "غير محدود", dayUnit: "ي",
         closedTitle: "التسجيل مغلق", closedDesc: "انتهت فترة التسجيل أو لم تبدأ بعد."
@@ -567,6 +601,7 @@
       safeSetPlaceholder("jugador", t.userPlaceholder);
       safeSetText("t-userId", t.userId);
       safeSetPlaceholder("jugadorId", t.idPlaceholder);
+      safeSetText("t-alliance", t.allianceLabel);
       safeSetText("t-fireCrystal", t.fireCrystal);
       safeSetText("t-refined", t.refined);
       safeSetText("t-fragments", t.fragments);
@@ -632,8 +667,33 @@
       e.preventDefault();
       const t = translations[currentLang] || translations.es;
 
+      const jugador = document.getElementById("jugador").value.trim();
+      const jugadorId = document.getElementById("jugadorId").value.trim();
+
+      // Validación de campos estrictamente obligatorios
+      if (!jugador || !jugadorId) {
+        alert(t.alertRequired);
+        return;
+      }
+
       if (!selectedAlliance) {
         alert(t.alertAlliance);
+        return;
+      }
+
+      // Verificación de que las 9 opciones de prioridad horaria estén seleccionadas
+      const scheduleSelectors = [
+        "lunesP1", "lunesP2", "lunesP3",
+        "martesP1", "martesP2", "martesP3",
+        "juevesP1", "juevesP2", "juevesP3"
+      ];
+      const allScheduleFilled = scheduleSelectors.every(id => {
+        const val = document.getElementById(id).value;
+        return val && val !== "";
+      });
+
+      if (!allScheduleFilled) {
+        alert(t.alertSchedule);
         return;
       }
 
@@ -644,16 +704,16 @@
       btn.textContent = t.sending;
 
       const payload = {
-        jugador: document.getElementById("jugador").value,
-        jugadorId: document.getElementById("jugadorId").value,
+        jugador: jugador,
+        jugadorId: jugadorId,
         alianza: selectedAlliance,
-        cristalFuego: document.getElementById("cristalFuego").value,
-        refinado: document.getElementById("refinado").value,
-        fragmentos: document.getElementById("fragmentos").value,
-        acelGeneral: document.getElementById("acelGeneral").value,
-        acelEntrenamiento: document.getElementById("acelEntrenamiento").value,
-        acelConstruccion: document.getElementById("acelConstruccion").value,
-        acelInvestigacion: document.getElementById("acelInvestigacion").value,
+        cristalFuego: document.getElementById("cristalFuego").value || "0-500",
+        refinado: document.getElementById("refinado").value || "0-20",
+        fragmentos: document.getElementById("fragmentos").value || "0-250",
+        acelGeneral: document.getElementById("acelGeneral").value || "0-29",
+        acelEntrenamiento: document.getElementById("acelEntrenamiento").value || "0-29",
+        acelConstruccion: document.getElementById("acelConstruccion").value || "0-29",
+        acelInvestigacion: document.getElementById("acelInvestigacion").value || "0-29",
         horaLunesP1: document.getElementById("lunesP1").value,
         horaLunesP2: document.getElementById("lunesP2").value,
         horaLunesP3: document.getElementById("lunesP3").value,
