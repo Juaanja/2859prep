@@ -90,8 +90,8 @@
     }
 
     .modal-backdrop {
-      background-color: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(5px);
+      background-color: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(6px);
     }
   </style>
 </head>
@@ -115,8 +115,8 @@
         <button type="button" onclick="setLanguage('tr', true)" id="lang-tr" class="px-2 py-1 text-xs rounded font-bold transition text-[#A88B92] hover:text-white">🇹🇷 TR</button>
         <button type="button" onclick="setLanguage('ar', true)" id="lang-ar" class="px-2 py-1 text-xs rounded font-bold transition text-[#A88B92] hover:text-white">🇸🇦 AR</button>
       </div>
-      <div class="hidden sm:flex w-7 h-7 rounded-full bg-[#12090C] items-center justify-center text-[#A88B92] text-xs border border-[#33151D]">
-        2859
+      <div class="hidden sm:flex px-2.5 py-1 rounded-full bg-[#12090C] items-center justify-center text-[#FF4D6D] text-xs font-bold border border-[#33151D]">
+        STATE 2859
       </div>
     </div>
 
@@ -131,9 +131,9 @@
     <div id="formContainer" class="px-4 sm:px-6 pb-6 pt-2">
       <h1 id="t-title" class="text-lg sm:text-2xl font-bold text-center mb-5 text-[#FFF0F2] tracking-wide">Semana de Preparación del estado 2859</h1>
 
-      <form id="savingsForm" class="space-y-4 sm:space-y-5">
+      <form id="savingsForm" class="space-y-4 sm:space-y-5" novalidate>
         
-        <!-- Nombre Jugador e ID separados -->
+        <!-- Nombre Jugador e ID (Obligatorios) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label id="t-userName" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5">User Name <span class="text-[#E31A21]">*</span></label>
@@ -145,7 +145,7 @@
           </div>
         </div>
 
-        <!-- Alianzas -->
+        <!-- Alianzas (Obligatorio) -->
         <div>
           <label id="t-alliance" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-2 text-center">Alianza <span class="text-[#E31A21]">*</span></label>
           <div class="flex flex-wrap justify-center gap-2" id="allianceContainer">
@@ -159,122 +159,231 @@
           </div>
         </div>
 
-        <!-- Recursos por Intervalos -->
+        <!-- Recursos por Intervalos (Obligatorios con opción vacía por defecto) -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
           <div>
-            <label id="t-fireCrystal" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">Cristal de Fuego</label>
+            <label id="t-fireCrystal" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">Cristal de Fuego <span class="text-[#E31A21]">*</span></label>
             <div class="flex items-center gap-2">
               <div class="icon-box">
                 <img src="img/cristal.png" alt="Cristal" onerror="this.outerHTML='🔥'" class="w-7 h-7 object-contain">
               </div>
-              <select id="cristalFuego" class="w-full input-box rounded-xl px-3 py-2 text-xs"></select>
+              <select id="cristalFuego" required class="w-full input-box rounded-xl px-3 py-2 text-xs resource-select"></select>
             </div>
           </div>
 
           <div>
-            <label id="t-refined" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">Cristal de Fuego Refinado</label>
+            <label id="t-refined" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">Cristal de Fuego Refinado <span class="text-[#E31A21]">*</span></label>
             <div class="flex items-center gap-2">
               <div class="icon-box">
                 <img src="img/refinado.png" alt="Refinado" onerror="this.outerHTML='💎'" class="w-7 h-7 object-contain">
               </div>
-              <select id="refinado" class="w-full input-box rounded-xl px-3 py-2 text-xs"></select>
+              <select id="refinado" required class="w-full input-box rounded-xl px-3 py-2 text-xs resource-select"></select>
             </div>
           </div>
 
           <div>
-            <label id="t-fragments" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">Fragmentos</label>
+            <label id="t-fragments" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">Fragmentos <span class="text-[#E31A21]">*</span></label>
             <div class="flex items-center gap-2">
               <div class="icon-box">
                 <img src="img/fragmentos.png" alt="Fragmentos" onerror="this.outerHTML='🔺'" class="w-7 h-7 object-contain">
               </div>
-              <select id="fragmentos" class="w-full input-box rounded-xl px-3 py-2 text-xs"></select>
+              <select id="fragmentos" required class="w-full input-box rounded-xl px-3 py-2 text-xs resource-select"></select>
             </div>
           </div>
         </div>
 
-        <!-- Aceleradores por Intervalos -->
+        <!-- Aceleradores por Intervalos (Obligatorios con opción vacía por defecto) -->
         <div class="pt-2">
-          <p id="t-speedupsHeader" class="text-[11px] font-bold text-center tracking-wider text-[#C2A1A8] uppercase mb-3">Aceleradores (Días)</p>
+          <p id="t-speedupsHeader" class="text-[11px] font-bold text-center tracking-wider text-[#C2A1A8] uppercase mb-3">Aceleradores (Días) <span class="text-[#E31A21]">*</span></p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label id="t-general" class="block text-[10px] uppercase text-[#C2A1A8] font-semibold mb-1">General</label>
+              <label id="t-general" class="block text-[10px] uppercase text-[#C2A1A8] font-semibold mb-1">General <span class="text-[#E31A21]">*</span></label>
               <div class="flex items-center gap-2">
                 <div class="icon-box">
                   <img src="img/acel_general.png" alt="General" onerror="this.outerHTML='⏩'" class="w-7 h-7 object-contain">
                 </div>
-                <select id="acelGeneral" class="w-full input-box rounded-xl px-3 py-2 text-xs"></select>
+                <select id="acelGeneral" required class="w-full input-box rounded-xl px-3 py-2 text-xs resource-select"></select>
               </div>
             </div>
 
             <div>
-              <label id="t-training" class="block text-[10px] uppercase text-[#C2A1A8] font-semibold mb-1">Entrenamiento</label>
+              <label id="t-training" class="block text-[10px] uppercase text-[#C2A1A8] font-semibold mb-1">Entrenamiento <span class="text-[#E31A21]">*</span></label>
               <div class="flex items-center gap-2">
                 <div class="icon-box">
                   <img src="img/acel_entrenamiento.png" alt="Entrenamiento" onerror="this.outerHTML='⚔️'" class="w-7 h-7 object-contain">
                 </div>
-                <select id="acelEntrenamiento" class="w-full input-box rounded-xl px-3 py-2 text-xs"></select>
+                <select id="acelEntrenamiento" required class="w-full input-box rounded-xl px-3 py-2 text-xs resource-select"></select>
               </div>
             </div>
 
             <div>
-              <label id="t-construction" class="block text-[10px] uppercase text-[#C2A1A8] font-semibold mb-1">Construcción</label>
+              <label id="t-construction" class="block text-[10px] uppercase text-[#C2A1A8] font-semibold mb-1">Construcción <span class="text-[#E31A21]">*</span></label>
               <div class="flex items-center gap-2">
                 <div class="icon-box">
                   <img src="img/acel_construccion.png" alt="Construcción" onerror="this.outerHTML='🔨'" class="w-7 h-7 object-contain">
                 </div>
-                <select id="acelConstruccion" class="w-full input-box rounded-xl px-3 py-2 text-xs"></select>
+                <select id="acelConstruccion" required class="w-full input-box rounded-xl px-3 py-2 text-xs resource-select"></select>
               </div>
             </div>
 
             <div>
-              <label id="t-research" class="block text-[10px] uppercase text-[#C2A1A8] font-semibold mb-1">Investigación</label>
+              <label id="t-research" class="block text-[10px] uppercase text-[#C2A1A8] font-semibold mb-1">Investigación <span class="text-[#E31A21]">*</span></label>
               <div class="flex items-center gap-2">
                 <div class="icon-box">
                   <img src="img/acel_investigacion.png" alt="Investigación" onerror="this.outerHTML='🔬'" class="w-7 h-7 object-contain">
                 </div>
-                <select id="acelInvestigacion" class="w-full input-box rounded-xl px-3 py-2 text-xs"></select>
+                <select id="acelInvestigacion" required class="w-full input-box rounded-xl px-3 py-2 text-xs resource-select"></select>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 3 Prioridades por Día -->
+        <!-- 3 Intervalos de Prioridad por Día (P1 Obligatoria) -->
         <div class="pt-3 border-t border-[#33151D]">
-          <p id="t-scheduleHeader" class="text-[11px] font-bold text-center tracking-wider text-[#C2A1A8] uppercase mb-1.5">Inscripción por Prioridades (3 opciones por día) <span class="text-[#E31A21]">*</span></p>
-          <p id="t-utcSubNotice" class="text-center text-[10px] text-[#FF4D6D] mb-3">🕒 Todo en horario UTC (Coordinated Universal Time)</p>
+          <p id="t-scheduleHeader" class="text-[11px] font-bold text-center tracking-wider text-[#C2A1A8] uppercase mb-1">Inscripción por Intervalos de Disponibilidad <span class="text-[#E31A21]">*</span></p>
+          <p id="t-scheduleSub" class="text-center text-[10px] text-[#A88B92] mb-1">La 1ª Preferencia es obligatoria para cada día. Elige tus franjas horarias o indica si no participas.</p>
+          <p id="t-utcSubNotice" class="text-center text-[10px] text-[#FF4D6D] mb-3">🕒 Todos los horarios en UTC (Coordinated Universal Time)</p>
           
-          <div class="flex items-center justify-center gap-2 mb-4 bg-[#14090D] p-2 rounded-lg border border-[#33151D]">
+          <div class="flex items-center justify-center gap-2 mb-4 bg-[#14090D] p-2.5 rounded-lg border border-[#33151D]">
             <input type="checkbox" id="syncSchedule" class="rounded accent-[#E31A21] w-4 h-4 cursor-pointer">
-            <label for="syncSchedule" id="t-syncLabel" class="text-xs text-[#FF6B8B] font-medium cursor-pointer select-none">Aplicar las 3 opciones del Lunes a todos los días</label>
+            <label for="syncSchedule" id="t-syncLabel" class="text-xs text-[#FF6B8B] font-medium cursor-pointer select-none">Aplicar las 3 franjas del Lunes a todos los días</label>
           </div>
 
           <!-- Lunes -->
-          <div class="mb-3 bg-[#12090C] p-3 rounded-xl border border-[#33151D]">
-            <label id="t-mon" class="block text-xs uppercase text-[#FF6B8B] font-bold mb-2">Lunes (Construcción) <span class="text-[#E31A21]">*</span></label>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              <select id="lunesP1" required class="input-box rounded-lg p-2 text-xs schedule-select"></select>
-              <select id="lunesP2" required class="input-box rounded-lg p-2 text-xs schedule-select"></select>
-              <select id="lunesP3" required class="input-box rounded-lg p-2 text-xs schedule-select"></select>
+          <div class="mb-4 bg-[#12090C] p-3.5 rounded-xl border border-[#33151D] space-y-2.5">
+            <label id="t-mon" class="block text-xs uppercase text-[#FF6B8B] font-bold">Lunes (Construcción) <span class="text-[#E31A21]">*</span></label>
+            
+            <!-- P1 (Obligatorio) -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#3D1923]">
+              <div class="sm:col-span-3 text-xs font-semibold text-[#FF859D] priority-title-1 flex items-center gap-1">
+                <span>1ª Preferencia</span><span class="text-[#E31A21]">*</span>
+              </div>
+              <div class="sm:col-span-4 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
+                <select id="lunesP1_desde" required class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+              <div class="sm:col-span-5 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-to w-10">Hasta</span>
+                <select id="lunesP1_hasta" required class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+            </div>
+
+            <!-- P2 -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
+              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-2">2ª Preferencia:</div>
+              <div class="sm:col-span-4 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
+                <select id="lunesP2_desde" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+              <div class="sm:col-span-5 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-to w-10">Hasta</span>
+                <select id="lunesP2_hasta" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+            </div>
+
+            <!-- P3 -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
+              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-3">3ª Preferencia:</div>
+              <div class="sm:col-span-4 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
+                <select id="lunesP3_desde" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+              <div class="sm:col-span-5 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-to w-10">Hasta</span>
+                <select id="lunesP3_hasta" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
             </div>
           </div>
 
           <!-- Martes -->
-          <div class="mb-3 bg-[#12090C] p-3 rounded-xl border border-[#33151D]">
-            <label id="t-tue" class="block text-xs uppercase text-[#FF6B8B] font-bold mb-2">Martes (Investigación) <span class="text-[#E31A21]">*</span></label>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              <select id="martesP1" required class="input-box rounded-lg p-2 text-xs schedule-select"></select>
-              <select id="martesP2" required class="input-box rounded-lg p-2 text-xs schedule-select"></select>
-              <select id="martesP3" required class="input-box rounded-lg p-2 text-xs schedule-select"></select>
+          <div class="mb-4 bg-[#12090C] p-3.5 rounded-xl border border-[#33151D] space-y-2.5">
+            <label id="t-tue" class="block text-xs uppercase text-[#FF6B8B] font-bold">Martes (Investigación) <span class="text-[#E31A21]">*</span></label>
+            
+            <!-- P1 (Obligatorio) -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#3D1923]">
+              <div class="sm:col-span-3 text-xs font-semibold text-[#FF859D] priority-title-1 flex items-center gap-1">
+                <span>1ª Preferencia</span><span class="text-[#E31A21]">*</span>
+              </div>
+              <div class="sm:col-span-4 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
+                <select id="martesP1_desde" required class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+              <div class="sm:col-span-5 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-to w-10">Hasta</span>
+                <select id="martesP1_hasta" required class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+            </div>
+
+            <!-- P2 -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
+              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-2">2ª Preferencia:</div>
+              <div class="sm:col-span-4 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
+                <select id="martesP2_desde" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+              <div class="sm:col-span-5 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-to w-10">Hasta</span>
+                <select id="martesP2_hasta" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+            </div>
+
+            <!-- P3 -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
+              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-3">3ª Preferencia:</div>
+              <div class="sm:col-span-4 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
+                <select id="martesP3_desde" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+              <div class="sm:col-span-5 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-to w-10">Hasta</span>
+                <select id="martesP3_hasta" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
             </div>
           </div>
 
           <!-- Jueves -->
-          <div class="bg-[#12090C] p-3 rounded-xl border border-[#33151D]">
-            <label id="t-thu" class="block text-xs uppercase text-[#FF6B8B] font-bold mb-2">Jueves (Entrenamiento) <span class="text-[#E31A21]">*</span></label>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              <select id="juevesP1" required class="input-box rounded-lg p-2 text-xs schedule-select"></select>
-              <select id="juevesP2" required class="input-box rounded-lg p-2 text-xs schedule-select"></select>
-              <select id="juevesP3" required class="input-box rounded-lg p-2 text-xs schedule-select"></select>
+          <div class="bg-[#12090C] p-3.5 rounded-xl border border-[#33151D] space-y-2.5">
+            <label id="t-thu" class="block text-xs uppercase text-[#FF6B8B] font-bold">Jueves (Entrenamiento) <span class="text-[#E31A21]">*</span></label>
+            
+            <!-- P1 (Obligatorio) -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#3D1923]">
+              <div class="sm:col-span-3 text-xs font-semibold text-[#FF859D] priority-title-1 flex items-center gap-1">
+                <span>1ª Preferencia</span><span class="text-[#E31A21]">*</span>
+              </div>
+              <div class="sm:col-span-4 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
+                <select id="juevesP1_desde" required class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+              <div class="sm:col-span-5 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-to w-10">Hasta</span>
+                <select id="juevesP1_hasta" required class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+            </div>
+
+            <!-- P2 -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
+              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-2">2ª Preferencia:</div>
+              <div class="sm:col-span-4 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
+                <select id="juevesP2_desde" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+              <div class="sm:col-span-5 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-to w-10">Hasta</span>
+                <select id="juevesP2_hasta" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+            </div>
+
+            <!-- P3 -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
+              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-3">3ª Preferencia:</div>
+              <div class="sm:col-span-4 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
+                <select id="juevesP3_desde" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
+              <div class="sm:col-span-5 flex items-center gap-1.5">
+                <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-to w-10">Hasta</span>
+                <select id="juevesP3_hasta" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
+              </div>
             </div>
           </div>
         </div>
@@ -316,14 +425,23 @@
         fireCrystal: "Cristal de Fuego", refined: "Cristal de Fuego Refinado", fragments: "Fragmentos",
         speedupsHeader: "Aceleradores (Días)", general: "General", training: "Entrenamiento",
         construction: "Construcción", research: "Investigación",
-        scheduleHeader: "Inscripción por Prioridades (3 opciones por día)", syncLabel: "Aplicar las 3 opciones del Lunes a todos los días",
-        utcSub: "🕒 Todo en horario UTC (Coordinated Universal Time)",
+        scheduleHeader: "Inscripción por Intervalos de Disponibilidad",
+        scheduleSub: "La 1ª Preferencia es obligatoria para cada día. Elige tus franjas horarias o indica si no participas.",
+        syncLabel: "Aplicar las 3 franjas del Lunes a todos los días",
+        utcSub: "🕒 Todos los horarios en UTC (Coordinated Universal Time)",
         mon: "Lunes (Construcción)", tue: "Martes (Investigación)", thu: "Jueves (Entrenamiento)",
+        from: "Desde", to: "Hasta",
+        p1: "1ª Preferencia", p2: "2ª Preferencia:", p3: "3ª Preferencia:",
+        selectPlaceholder: "-- Seleccionar --",
+        noParticipate: "-- No participa --",
         submit: "Reserva tu hueco", sending: "Enviando...", success: "¡Reserva enviada correctamente!",
-        error: "Error al enviar los datos.", alertAlliance: "Por favor, selecciona una alianza.",
+        error: "Error al enviar los datos.",
+        alertAlliance: "Por favor, selecciona una alianza.",
         alertRequired: "Por favor, completa el Nick, la ID y selecciona tu alianza.",
-        alertSchedule: "Por favor, completa las 3 opciones de prioridad de cada día.",
-        noParticipate: "-- No participa --", p1: "1ª Opción: ", p2: "2ª Opción: ", p3: "3ª Opción: ",
+        alertResources: "Por favor, selecciona una cantidad para los 3 campos de Cristales y Fragmentos.",
+        alertSpeedups: "Por favor, selecciona una cantidad para los 4 campos de Aceleradores.",
+        alertScheduleP1: "Por favor, completa la 1ª Preferencia obligatoria (Desde y Hasta) para Lunes, Martes y Jueves.",
+        alertInvalidRange: "El horario 'Hasta' debe ser posterior al horario 'Desde' en las franjas activas.",
         unlimited: "Ilimitado", dayUnit: "d",
         closedTitle: "Convocatoria Cerrada", closedDesc: "El plazo de inscripción ha finalizado o aún no se encuentra abierto.",
         utcModalTitle: "⚠️ ATENCIÓN HORARIO UTC",
@@ -338,14 +456,23 @@
         fireCrystal: "Fire Crystals", refined: "RFC", fragments: "FC Shard",
         speedupsHeader: "Speedups (Days)", general: "General", training: "Training",
         construction: "Construction", research: "Research",
-        scheduleHeader: "Sign-up by Priorities (3 choices per day)", syncLabel: "Apply Monday's 3 choices to all days",
+        scheduleHeader: "Sign-up by Availability Intervals",
+        scheduleSub: "1st Choice is mandatory for each day. Choose your intervals or indicate non-participation.",
+        syncLabel: "Apply Monday's 3 intervals to all days",
         utcSub: "🕒 All times in UTC (Coordinated Universal Time)",
         mon: "Monday (Construction)", tue: "Tuesday (Research)", thu: "Thursday (Training)",
+        from: "From", to: "To",
+        p1: "1st Choice", p2: "2nd Choice:", p3: "3rd Choice:",
+        selectPlaceholder: "-- Select --",
+        noParticipate: "-- Do not participate --",
         submit: "Reserve your slot", sending: "Submitting...", success: "Reservation sent successfully!",
-        error: "Error submitting data.", alertAlliance: "Please select an alliance.",
+        error: "Error submitting data.",
+        alertAlliance: "Please select an alliance.",
         alertRequired: "Please enter your User Name, ID, and select an alliance.",
-        alertSchedule: "Please complete all 3 priority choices for each day.",
-        noParticipate: "-- Do not participate --", p1: "1st Choice: ", p2: "2nd Choice: ", p3: "3rd Choice: ",
+        alertResources: "Please select your values for all 3 Crystals and Shards fields.",
+        alertSpeedups: "Please select your values for all 4 Speedup fields.",
+        alertScheduleP1: "Please complete the mandatory 1st Choice (From and To) for Monday, Tuesday, and Thursday.",
+        alertInvalidRange: "The 'To' time must be after the 'From' time in active intervals.",
         unlimited: "Unlimited", dayUnit: "d",
         closedTitle: "Registrations Closed", closedDesc: "The sign-up period has ended or is not open yet.",
         utcModalTitle: "⚠️ UTC TIMEZONE NOTICE",
@@ -360,14 +487,23 @@
         fireCrystal: "Cristal de feu", refined: "Cristal de feu raffiné", fragments: "Éclat de cristal de feu",
         speedupsHeader: "Accélérateurs (Jours)", general: "Général", training: "Entraînement",
         construction: "Construction", research: "Recherche",
-        scheduleHeader: "Inscription par Priorités (3 choix par jour)", syncLabel: "Appliquer les 3 choix du lundi à tous les jours",
+        scheduleHeader: "Inscription par Intervalles de Disponibilité",
+        scheduleSub: "Le 1er choix est obligatoire pour chaque jour. Choisissez vos créneaux ou indiquez que vous ne participez pas.",
+        syncLabel: "Appliquer les 3 plages du lundi à tous les jours",
         utcSub: "🕒 Tous les horaires sont en UTC",
         mon: "Lundi (Construction)", tue: "Mardi (Recherche)", thu: "Jeudi (Entraînement)",
+        from: "De", to: "À",
+        p1: "1er Choix", p2: "2ème Choix:", p3: "3ème Choix:",
+        selectPlaceholder: "-- Choisir --",
+        noParticipate: "-- Ne participe pas --",
         submit: "Réservez votre créneau", sending: "Envoi en cours...", success: "Réservation envoyée avec succès !",
-        error: "Erreur lors de l'envoi.", alertAlliance: "Veuillez sélectionner une alliance.",
+        error: "Erreur lors de l'envoi.",
+        alertAlliance: "Veuillez sélectionner une alliance.",
         alertRequired: "Veuillez saisir votre pseudo, ID et choisir une alliance.",
-        alertSchedule: "Veuillez renseigner vos 3 choix de créneaux pour chaque jour.",
-        noParticipate: "-- Ne participe pas --", p1: "1er Choix: ", p2: "2ème Choix: ", p3: "3ème Choix: ",
+        alertResources: "Veuillez renseigner les 3 champs de cristaux et fragments.",
+        alertSpeedups: "Veuillez renseigner les 4 types d'accélérateurs.",
+        alertScheduleP1: "Veuillez renseigner le 1er choix obligatoire pour lundi, mardi et jeudi.",
+        alertInvalidRange: "L'heure de fin ('À') doit être après l'heure de début ('De').",
         unlimited: "Illimité", dayUnit: "j",
         closedTitle: "Inscriptions Clôturées", closedDesc: "La période d'inscription est terminée ou pas encore ouverte.",
         utcModalTitle: "⚠️ AVERTISSEMENT HORAIRE UTC",
@@ -382,14 +518,23 @@
         fireCrystal: "Feuerkristall", refined: "Veredelter Feuerkristall", fragments: "Feuerkristall-Splitter",
         speedupsHeader: "Beschleuniger (Tage)", general: "Allgemein", training: "Ausbildung",
         construction: "Bau", research: "Forschung",
-        scheduleHeader: "Anmeldung nach Prioritäten (3 Optionen pro Tag)", syncLabel: "Montags-Optionen auf alle Tage anwenden",
+        scheduleHeader: "Anmeldung nach Zeitintervallen",
+        scheduleSub: "Die 1. Wahl ist für jeden Tag obligatorisch. Wählen Sie Ihre Zeitfenster oder Nichtteilnahme.",
+        syncLabel: "Montags-Zeitfenster auf alle Tage anwenden",
         utcSub: "🕒 Alle Zeitangaben in UTC",
         mon: "Montag (Bau)", tue: "Dienstag (Forschung)", thu: "Donnerstag (Ausbildung)",
+        from: "Von", to: "Bis",
+        p1: "1. Wahl", p2: "2. Wahl:", p3: "3. Wahl:",
+        selectPlaceholder: "-- Auswählen --",
+        noParticipate: "-- Nimmt nicht teil --",
         submit: "Slot reservieren", sending: "Wird gesendet...", success: "Reservierung erfolgreich gesendet!",
-        error: "Fehler beim Senden.", alertAlliance: "Bitte wählen Sie eine Allianz.",
+        error: "Fehler beim Senden.",
+        alertAlliance: "Bitte wählen Sie eine Allianz.",
         alertRequired: "Bitte geben Sie Benutzernamen, ID ein und wählen Sie eine Allianz.",
-        alertSchedule: "Bitte füllen Sie alle 3 Prioritätsoptionen für jeden Tag aus.",
-        noParticipate: "-- Nimmt nicht teil --", p1: "1. Wahl: ", p2: "2. Wahl: ", p3: "3. Wahl: ",
+        alertResources: "Bitte wählen Sie Werte für alle 3 Kristall-Felder aus.",
+        alertSpeedups: "Bitte wählen Sie Werte für alle 4 Beschleuniger-Felder aus.",
+        alertScheduleP1: "Bitte füllen Sie die 1. Wahl (Von und Bis) für Montag, Dienstag und Donnerstag aus.",
+        alertInvalidRange: "Das Ende ('Bis') muss nach dem Beginn ('Von') liegen.",
         unlimited: "Unbegrenzt", dayUnit: "T",
         closedTitle: "Anmeldung geschlossen", closedDesc: "Die Anmeldefrist ist abgelaufen oder noch nicht eröffnet.",
         utcModalTitle: "⚠️ UTC ZEITZONEN-HINWEIS",
@@ -404,14 +549,23 @@
         fireCrystal: "Огненный кристалл", refined: "Очищенный огненный кристалл", fragments: "Осколки огненного кристалла",
         speedupsHeader: "Ускорители (Дни)", general: "Общие", training: "Тренировка",
         construction: "Строительство", research: "Исследование",
-        scheduleHeader: "Запись по приоритетам (3 варианта в день)", syncLabel: "Применить варианты понедельника ко всем дням",
+        scheduleHeader: "Запись по временным интервалам",
+        scheduleSub: "1-й выбор обязателен для каждого дня. Укажите интервалы или выберите неучастие.",
+        syncLabel: "Применить интервалы понедельника ко всем дням",
         utcSub: "🕒 Все время указано в формате UTC",
         mon: "Понедельник (Строительство)", tue: "Вторник (Исследование)", thu: "Четверг (Тренировка)",
+        from: "С", to: "До",
+        p1: "1-й выбор", p2: "2-й выбор:", p3: "3-й выбор:",
+        selectPlaceholder: "-- Выбрать --",
+        noParticipate: "-- Не участвует --",
         submit: "Забронировать место", sending: "Отправка...", success: "Бронирование успешно отправлено!",
-        error: "Ошибка при отправке.", alertAlliance: "Пожалуйста, выберите альянс.",
+        error: "Ошибка при отправке.",
+        alertAlliance: "Пожалуйста, выберите альянс.",
         alertRequired: "Пожалуйста, укажите никнейм, ID и выберите альянс.",
-        alertSchedule: "Пожалуйста, выберите все 3 приоритета на каждый день.",
-        noParticipate: "-- Не участвует --", p1: "1-й выбор: ", p2: "2-й выбор: ", p3: "3-й выбор: ",
+        alertResources: "Пожалуйста, выберите значения для кристаллов и осколков.",
+        alertSpeedups: "Пожалуйста, выберите значения для всех 4 категорий ускорителей.",
+        alertScheduleP1: "Пожалуйста, обязательно заполните 1-й выбор (С и До) на понедельник, вторник и четверг.",
+        alertInvalidRange: "Время 'До' должно быть позже времени 'С'.",
         unlimited: "Неограниченно", dayUnit: "д",
         closedTitle: "Регистрация закрыта", closedDesc: "Срок регистрации истек или еще не начался.",
         utcModalTitle: "⚠️ ВРЕМЯ В ФОРМАТЕ UTC",
@@ -426,14 +580,23 @@
         fireCrystal: "불의 수정", refined: "정제된 불의 수정", fragments: "불의 수정 조각",
         speedupsHeader: "가속 (일)", general: "일반", training: "훈련",
         construction: "건설", research: "연구",
-        scheduleHeader: "우선순위별 등록 (하루 3가지 선택)", syncLabel: "월요일 3가지 선택을 모든 요일에 적용",
+        scheduleHeader: "선호 시간대 구간 등록",
+        scheduleSub: "각 요일별 1순위는 필수입니다. 시간대 구간을 선택하거나 미참여를 선택하세요.",
+        syncLabel: "월요일 시간대를 모든 요일에 적용",
         utcSub: "🕒 모든 시간은 UTC 기준입니다",
         mon: "월요일 (건설)", tue: "화요일 (연구)", thu: "목요일 (훈련)",
+        from: "시작", to: "종료",
+        p1: "1순위", p2: "2순위:", p3: "3순위:",
+        selectPlaceholder: "-- 선택 --",
+        noParticipate: "-- 미참여 --",
         submit: "자리 예약하기", sending: "제출 중...", success: "예약이 성공적으로 전송되었습니다!",
-        error: "전송 중 오류가 발생했습니다.", alertAlliance: "연맹을 선택해 주세요.",
+        error: "전송 중 오류가 발생했습니다.",
+        alertAlliance: "연맹을 선택해 주세요.",
         alertRequired: "사용자 이름과 ID를 입력하고 연맹을 선택해 주세요.",
-        alertSchedule: "각 요일별 3가지 우선순위를 모두 선택해 주세요.",
-        noParticipate: "-- 미참여 --", p1: "1순위: ", p2: "2순위: ", p3: "3순위: ",
+        alertResources: "수정 및 파편 관련 3개 항목을 모두 선택해 주세요.",
+        alertSpeedups: "가속 관련 4개 항목을 모두 선택해 주세요.",
+        alertScheduleP1: "월, 화, 목요일의 필수 1순위 시간대(시작/종료)를 선택해 주세요.",
+        alertInvalidRange: "종료 시간은 시작 시간보다 이후여야 합니다.",
         unlimited: "무제한", dayUnit: "일",
         closedTitle: "신청 마감", closedDesc: "등록 기간이 종료되었거나 아직 시작되지 않았습니다.",
         utcModalTitle: "⚠️ UTC 시간대 알림",
@@ -448,14 +611,23 @@
         fireCrystal: "Ognisty Kryształ", refined: "Rafinowany Ognisty Kryształ", fragments: "Odłamki Ognistego Kryształu",
         speedupsHeader: "Przyspieszenia (Dni)", general: "Ogólne", training: "Trening",
         construction: "Budowa", research: "Badania",
-        scheduleHeader: "Zapisy według priorytetów (3 wybory dziennie)", syncLabel: "Zastosuj 3 wybory z poniedziałku do wszystkich dni",
+        scheduleHeader: "Zapisy według przedziałów czasowych",
+        scheduleSub: "1. wybór jest obowiązkowy na każdy dzień. Wybierz przedział lub wskaż brak udziału.",
+        syncLabel: "Zastosuj przedziały z poniedziałku do wszystkich dni",
         utcSub: "🕒 Czas podawany w formacie UTC",
         mon: "Poniedziałek (Budowa)", tue: "Wtorek (Badania)", thu: "Czwartek (Trening)",
+        from: "Od", to: "Do",
+        p1: "1. Wybór", p2: "2. Wybór:", p3: "3. Wybór:",
+        selectPlaceholder: "-- Wybierz --",
+        noParticipate: "-- Brak udziału --",
         submit: "Zarezerwuj miejsce", sending: "Wysyłanie...", success: "Rezerwacja wysłana pomyślnie!",
-        error: "Błąd podczas przesyłania danych.", alertAlliance: "Proszę wybrać sojusz.",
+        error: "Błąd podczas przesyłania danych.",
+        alertAlliance: "Proszę wybrać sojusz.",
         alertRequired: "Wpisz nazwę użytkownika, ID i wybierz sojusz.",
-        alertSchedule: "Uzupełnij wszystkie 3 opcje priorytetów na każdy dzień.",
-        noParticipate: "-- Brak udziału --", p1: "1. Wybór: ", p2: "2. Wybór: ", p3: "3. Wybór: ",
+        alertResources: "Wybierz wartości dla wszystkich 3 pól kryształów i odłamków.",
+        alertSpeedups: "Wybierz wartości dla wszystkich 4 rodzajów przyspieszeń.",
+        alertScheduleP1: "Uzupełnij obowiązkowy 1. wybór (Od i Do) na poniedziałek, wtorek i czwartek.",
+        alertInvalidRange: "Godzina 'Do' musi być późniejsza niż godzina 'Od'.",
         unlimited: "Bez limitu", dayUnit: "d",
         closedTitle: "Zapisy Zamknięte", closedDesc: "Okres rejestracji dobiegł końca lub jeszcze się nie rozpoczął.",
         utcModalTitle: "⚠️ STREFA CZASOWA UTC",
@@ -467,17 +639,26 @@
         userName: "Nama Pengguna", userPlaceholder: "Nick game kamu",
         userId: "ID (Salin dan tempel)", idPlaceholder: "Tempel ID kamu di sini",
         allianceLabel: "Aliansi",
-        fireCrystal: "Cristal Api", refined: "Kristal Api Murni", fragments: "Pecahan Kristal Api",
+        fireCrystal: "Kristal Api", refined: "Kristal Api Murni", fragments: "Pecahan Kristal Api",
         speedupsHeader: "Percepatan (Hari)", general: "Umum", training: "Pelatihan",
         construction: "Konstruksi", research: "Riset",
-        scheduleHeader: "Pendaftaran Berdasarkan Prioritas (3 pilihan/hari)", syncLabel: "Terapkan 3 pilihan Senin ke semua hari",
+        scheduleHeader: "Pendaftaran Berdasarkan Interval Waktu",
+        scheduleSub: "Pilihan ke-1 wajib diisi tiap hari. Pilih rentang waktu atau pilih tidak berpartisipasi.",
+        syncLabel: "Terapkan rentang waktu Senin ke semua hari",
         utcSub: "🕒 Semua waktu dalam zona waktu UTC",
         mon: "Senin (Konstruksi)", tue: "Selasa (Riset)", thu: "Kamis (Pelatihan)",
+        from: "Dari", to: "Sampai",
+        p1: "Pilihan 1", p2: "Pilihan 2:", p3: "Pilihan 3:",
+        selectPlaceholder: "-- Pilih --",
+        noParticipate: "-- Tidak berpartisipasi --",
         submit: "Pesan Jadwal", sending: "Mengirim...", success: "Pendaftaran berhasil dikirim!",
-        error: "Gagal mengirim data.", alertAlliance: "Silakan pilih aliansi.",
+        error: "Gagal mengirim data.",
+        alertAlliance: "Silakan pilih aliansi.",
         alertRequired: "Silakan isi Nama Pengguna, ID, dan pilih aliansi.",
-        alertSchedule: "Silakan lengkapi 3 opsi prioritas untuk setiap hari.",
-        noParticipate: "-- Tidak berpartisipasi --", p1: "Pilihan 1: ", p2: "Pilihan 2: ", p3: "Pilihan 3: ",
+        alertResources: "Silakan pilih nilai untuk 3 kolom Kristal dan Pecahan.",
+        alertSpeedups: "Silakan pilih nilai untuk 4 kolom Percepatan.",
+        alertScheduleP1: "Silakan lengkapi Pilihan ke-1 (Dari dan Sampai) untuk Senin, Selasa, dan Kamis.",
+        alertInvalidRange: "Waktu 'Sampai' harus lebih akhir daripada waktu 'Dari'.",
         unlimited: "Tak terbatas", dayUnit: "h",
         closedTitle: "Pendaftaran Ditutup", closedDesc: "Batas waktu pendaftaran telah berakhir atau belum dibuka.",
         utcModalTitle: "⚠️ PERINGATAN WAKTU UTC",
@@ -492,14 +673,23 @@
         fireCrystal: "火晶", refined: "精炼火晶", fragments: "火晶微粒",
         speedupsHeader: "加速道具 (天)", general: "通用加速", training: "训练加速",
         construction: "建造加速", research: "研究加速",
-        scheduleHeader: "时间段优先级预约 (每天可选3个)", syncLabel: "将周一的3个选项应用到所有日期",
+        scheduleHeader: "空闲时间段区间预约",
+        scheduleSub: "每天的第1优先级为必填项。请选择时间区间或选择不参加。",
+        syncLabel: "将周一的3个时间区间应用到所有日期",
         utcSub: "🕒 所有时间均为 UTC 标准时间",
         mon: "周一 (建造)", tue: "周二 (研究)", thu: "周四 (训练)",
+        from: "从", to: "到",
+        p1: "第1优先级", p2: "第2优先级:", p3: "第3优先级:",
+        selectPlaceholder: "-- 请选择 --",
+        noParticipate: "-- 不参加 --",
         submit: "预约时间段", sending: "提交中...", success: "预约成功提交！",
-        error: "提交数据时出错。", alertAlliance: "请选择一个联盟。",
+        error: "提交数据时出错。",
+        alertAlliance: "请选择一个联盟。",
         alertRequired: "请填写玩家名称、ID并选择所属联盟。",
-        alertSchedule: "请完整选择每天的3个时间段选项。",
-        noParticipate: "-- 不参加 --", p1: "第1优先级: ", p2: "第2优先级: ", p3: "第3优先级: ",
+        alertResources: "请选择全部3项火晶与微粒存量。",
+        alertSpeedups: "请选择全部4项加速存量。",
+        alertScheduleP1: "请务必完成周一、周二和周四的第1优先级（从与到）的选择。",
+        alertInvalidRange: "结束时间（到）必须晚于开始时间（从）。",
         unlimited: "无限制", dayUnit: "天",
         closedTitle: "报名通道已关闭", closedDesc: "报名时间已截止或尚未开放。",
         utcModalTitle: "⚠️ UTC 时间提醒",
@@ -514,14 +704,23 @@
         fireCrystal: "Ateş Kristali", refined: "Arıtılmış Ateş Kristali", fragments: "Ateş Kristali Parçacığı",
         speedupsHeader: "Hızlandırmalar (Gün)", general: "Genel", training: "Eğitim",
         construction: "İnşaat", research: "Araştırma",
-        scheduleHeader: "Öncelikli Saat Kaydı (Günde 3 seçenek)", syncLabel: "Pazartesi seçeneklerini tüm günlere uygula",
+        scheduleHeader: "Zaman Aralığına Göre Kayıt",
+        scheduleSub: "Her gün için 1. Tercih zorunludur. Zaman aralıklarını seçin ya da katılmıyorum olarak belirtin.",
+        syncLabel: "Pazartesi aralıklarını tüm günlere uygula",
         utcSub: "🕒 Tüm saatler UTC saat dilimindedir",
         mon: "Pazartesi (İnşaat)", tue: "Salı (Araştırma)", thu: "Perşembe (Eğitim)",
+        from: "Başlangıç", to: "Bitiş",
+        p1: "1. Tercih", p2: "2. Tercih:", p3: "3. Tercih:",
+        selectPlaceholder: "-- Seçiniz --",
+        noParticipate: "-- Katılmıyor --",
         submit: "Slotunu Ayırt", sending: "Gönderiliyor...", success: "Rezervasyon başarıyla gönderildi!",
-        error: "Veri gönderilirken hata oluştu.", alertAlliance: "Lütfen bir ittifak seçin.",
+        error: "Veri gönderilirken hata oluştu.",
+        alertAlliance: "Lütfen bir ittifak seçin.",
         alertRequired: "Lütfen Kullanıcı Adı ve ID girin ve bir ittifak seçin.",
-        alertSchedule: "Lütfen her gün için 3 öncelik seçeneğini doldurun.",
-        noParticipate: "-- Katılmıyor --", p1: "1. Tercih: ", p2: "2. Tercih: ", p3: "3. Tercih: ",
+        alertResources: "Lütfen 3 kristal ve parçacık alanının tamamını doldurun.",
+        alertSpeedups: "Lütfen 4 hızlandırma alanının tamamını doldurun.",
+        alertScheduleP1: "Lütfen Pazartesi, Salı ve Perşembe için zorunlu 1. Tercihi tamamlayın.",
+        alertInvalidRange: "Bitiş saati başlangıç saatinden sonra olmalıdır.",
         unlimited: "Sınırsız", dayUnit: "g",
         closedTitle: "Kayıtlar Kapandı", closedDesc: "Kayıt süresi doldu veya henüz başlamadı.",
         utcModalTitle: "⚠️ UTC SAAT DİLİMİ UYARISI",
@@ -536,14 +735,23 @@
         fireCrystal: "بلور النار", refined: "بلور النار المنقى", fragments: "شظايا بلور النار",
         speedupsHeader: "المسرعات (بالأيام)", general: "عام", training: "تدريب",
         construction: "بناء", research: "بحث",
-        scheduleHeader: "التسجيل حسب الأولوية (3 خيارات يومياً)", syncLabel: "تطبيق خيارات الاثنين على بقية الأيام",
+        scheduleHeader: "التسجيل بالفترات الزمنية المتاحة",
+        scheduleSub: "الخيار الأول إلزامي لكل يوم. حدد الفترات الزمنية أو اختر عدم المشاركة.",
+        syncLabel: "تطبيق فترات الاثنين على بقية الأيام",
         utcSub: "🕒 جميع الأوقات بتوقيت UTC",
         mon: "الإثنين (بناء)", tue: "الثلاثاء (بحث)", thu: "الخميس (تدريب)",
+        from: "من", to: "إلى",
+        p1: "الخيار 1", p2: "الخيار 2:", p3: "الخيار 3:",
+        selectPlaceholder: "-- اختر --",
+        noParticipate: "-- لا يشارك --",
         submit: "حجز الموعد", sending: "جارٍ الإرسال...", success: "تم إرسال الحجز بنجاح!",
-        error: "حدث خطأ أثناء إرسال البيانات.", alertAlliance: "يرجى اختيار التحالف.",
+        error: "حدث خطأ أثناء إرسال البيانات.",
+        alertAlliance: "يرجى اختيار التحالف.",
         alertRequired: "يرجى إدخال اسم المستخدم والمعرف واختيار التحالف.",
-        alertSchedule: "يرجى تحديد الخيارات الثلاثة لكل يوم.",
-        noParticipate: "-- لا يشارك --", p1: "الخيار 1: ", p2: "الخيار 2: ", p3: "الخيار 3: ",
+        alertResources: "يرجى تحديد جميع حقول البلورات والشظايا الثلاثة.",
+        alertSpeedups: "يرجى تحديد جميع حقول المسرعات الأربعة.",
+        alertScheduleP1: "يرجى تحديد الخيار الأول الإلزامي (من وإلى) لأيام الإثنين والثلاثاء والخميس.",
+        alertInvalidRange: "يجب أن يكون وقت 'إلى' بعد وقت 'من'.",
         unlimited: "غير محدود", dayUnit: "ي",
         closedTitle: "التسجيل مغلق", closedDesc: "انتهت فترة التسجيل أو لم تبدأ بعد.",
         utcModalTitle: "⚠️ تنبيه التوقيت العالمي (UTC)",
@@ -572,6 +780,7 @@
       el.className = isError
         ? "p-3 rounded-xl text-center text-xs font-semibold block bg-[#331017] text-[#FF4D6D] border border-[#7A1D2D]"
         : "p-3 rounded-xl text-center text-xs font-semibold block bg-[#162A1D] text-[#4ADE80] border border-[#166534]";
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
     function populateResourceSelectors() {
@@ -604,47 +813,101 @@
         { v: "+100", l: `+100 ${t.dayUnit}` }, { v: "Ilimitado", l: t.unlimited }
       ];
 
-      fillSelect("cristalFuego", cfRanges);
-      fillSelect("refinado", refRanges);
-      fillSelect("fragmentos", fragRanges);
-      fillSelect("acelGeneral", spdRanges);
-      fillSelect("acelEntrenamiento", spdRanges);
-      fillSelect("acelConstruccion", spdRanges);
-      fillSelect("acelInvestigacion", spdRanges);
+      fillRequiredSelect("cristalFuego", cfRanges, t.selectPlaceholder);
+      fillRequiredSelect("refinado", refRanges, t.selectPlaceholder);
+      fillRequiredSelect("fragmentos", fragRanges, t.selectPlaceholder);
+      fillRequiredSelect("acelGeneral", spdRanges, t.selectPlaceholder);
+      fillRequiredSelect("acelEntrenamiento", spdRanges, t.selectPlaceholder);
+      fillRequiredSelect("acelConstruccion", spdRanges, t.selectPlaceholder);
+      fillRequiredSelect("acelInvestigacion", spdRanges, t.selectPlaceholder);
     }
 
-    function fillSelect(id, list) {
+    function fillRequiredSelect(id, list, placeholderText) {
       const el = document.getElementById(id);
       if (!el) return;
       const prev = el.value;
-      el.innerHTML = list.map(item => `<option value="${item.v}">${item.l}</option>`).join('');
+      let html = `<option value="" ${!prev ? "selected" : ""}>${placeholderText}</option>`;
+      html += list.map(item => `<option value="${item.v}">${item.l}</option>`).join('');
+      el.innerHTML = html;
       if (prev) el.value = prev;
     }
 
-    function populateTimeSelectors() {
-      const t = translations[currentLang] || translations.es;
-      const selectors = [
-        { id: "lunesP1", label: t.p1 }, { id: "lunesP2", label: t.p2 }, { id: "lunesP3", label: t.p3 },
-        { id: "martesP1", label: t.p1 }, { id: "martesP2", label: t.p2 }, { id: "martesP3", label: t.p3 },
-        { id: "juevesP1", label: t.p1 }, { id: "juevesP2", label: t.p2 }, { id: "juevesP3", label: t.p3 }
-      ];
+    const intervalFields = [
+      "lunesP1_desde", "lunesP1_hasta", "lunesP2_desde", "lunesP2_hasta", "lunesP3_desde", "lunesP3_hasta",
+      "martesP1_desde", "martesP1_hasta", "martesP2_desde", "martesP2_hasta", "martesP3_desde", "martesP3_hasta",
+      "juevesP1_desde", "juevesP1_hasta", "juevesP2_desde", "juevesP2_hasta", "juevesP3_desde", "juevesP3_hasta"
+    ];
 
-      selectors.forEach(({ id, label }) => {
+    const mandatoryP1Fields = [
+      "lunesP1_desde", "lunesP1_hasta",
+      "martesP1_desde", "martesP1_hasta",
+      "juevesP1_desde", "juevesP1_hasta"
+    ];
+
+    function populateTimeIntervalSelectors() {
+      const t = translations[currentLang] || translations.es;
+
+      // Base options for "Desde" (00:00 to 23:30)
+      let fromHours = "";
+      for (let h = 0; h < 24; h++) {
+        for (let m = 0; m < 60; m += 30) {
+          const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+          fromHours += `<option value="${timeStr}">${timeStr}</option>`;
+        }
+      }
+
+      // Base options for "Hasta" (00:30 to 24:00)
+      let toHours = "";
+      for (let h = 0; h < 24; h++) {
+        for (let m = 0; m < 60; m += 30) {
+          if (h === 0 && m === 0) continue;
+          const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+          toHours += `<option value="${timeStr}">${timeStr}</option>`;
+        }
+      }
+      toHours += `<option value="24:00">24:00</option>`;
+
+      intervalFields.forEach(id => {
         const el = document.getElementById(id);
         if (!el) return;
-        const currentVal = el.value || "No participa";
-        let html = `<option value="No participa">${t.noParticipate}</option>`;
+        const currentVal = el.value;
+        const isP1 = mandatoryP1Fields.includes(id);
+        const isFrom = id.endsWith("_desde");
 
-        for (let h = 0; h < 24; h++) {
-          for (let m = 0; m < 60; m += 30) {
-            const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
-            html += `<option value="${timeStr}">${label}${timeStr} UTC</option>`;
-          }
+        let html = "";
+        if (isP1) {
+          // P1 starts with an empty mandatory placeholder
+          html += `<option value="" ${!currentVal ? "selected" : ""}>${t.selectPlaceholder}</option>`;
+          html += `<option value="No participa">${t.noParticipate}</option>`;
+        } else {
+          // P2 & P3 default to "No participa"
+          html += `<option value="No participa" ${(!currentVal || currentVal === 'No participa') ? "selected" : ""}>${t.noParticipate}</option>`;
         }
+
+        html += isFrom ? fromHours : toHours;
         el.innerHTML = html;
-        el.value = currentVal;
+        if (currentVal !== undefined && currentVal !== "") {
+          el.value = currentVal;
+        }
       });
     }
+
+    function showUtcModal(force = false) {
+      if (!force && utcNoticeShownOnSelect) return;
+      if (!force) utcNoticeShownOnSelect = true;
+
+      const t = translations[currentLang] || translations.es;
+      safeSetText("utcModalTitle", t.utcModalTitle);
+      safeSetText("utcModalBody", t.utcAlert);
+      safeSetText("utcCloseBtn", t.utcBtn);
+
+      const modal = document.getElementById("utcModal");
+      if (modal) modal.classList.remove("hidden");
+    }
+
+    document.getElementById("utcCloseBtn").addEventListener("click", () => {
+      document.getElementById("utcModal").classList.add("hidden");
+    });
 
     function checkConvocatoria() {
       if (!SCRIPT_URL || SCRIPT_URL.includes("...")) return;
@@ -667,24 +930,6 @@
       document.body.appendChild(script);
     }
 
-    // Modal UTC
-    function showUtcModal(force = false) {
-      if (!force && utcNoticeShownOnSelect) return;
-      if (!force) utcNoticeShownOnSelect = true;
-
-      const t = translations[currentLang] || translations.es;
-      safeSetText("utcModalTitle", t.utcModalTitle);
-      safeSetText("utcModalBody", t.utcAlert);
-      safeSetText("utcCloseBtn", t.utcBtn);
-
-      const modal = document.getElementById("utcModal");
-      if (modal) modal.classList.remove("hidden");
-    }
-
-    document.getElementById("utcCloseBtn").addEventListener("click", () => {
-      document.getElementById("utcModal").classList.add("hidden");
-    });
-
     function setLanguage(lang, triggeredByUser = false) {
       if (!translations[lang]) return;
       currentLang = lang;
@@ -705,6 +950,7 @@
       safeSetText("t-construction", t.construction);
       safeSetText("t-research", t.research);
       safeSetText("t-scheduleHeader", t.scheduleHeader);
+      safeSetText("t-scheduleSub", t.scheduleSub);
       safeSetText("t-syncLabel", t.syncLabel);
       safeSetText("t-utcSubNotice", t.utcSub);
       safeSetText("t-mon", t.mon);
@@ -713,6 +959,12 @@
       safeSetText("submitBtn", t.submit);
       safeSetText("t-closedTitle", t.closedTitle);
       safeSetText("t-closedDesc", t.closedDesc);
+
+      document.querySelectorAll(".lbl-from").forEach(el => el.textContent = t.from);
+      document.querySelectorAll(".lbl-to").forEach(el => el.textContent = t.to);
+      document.querySelectorAll(".priority-title-1 span:first-child").forEach(el => el.textContent = t.p1);
+      document.querySelectorAll(".priority-title-2").forEach(el => el.textContent = t.p2);
+      document.querySelectorAll(".priority-title-3").forEach(el => el.textContent = t.p3);
 
       const languages = ["es", "en", "fr", "de", "ru", "ko", "pl", "id", "zh", "tr", "ar"];
       languages.forEach(l => {
@@ -725,27 +977,36 @@
       });
 
       populateResourceSelectors();
-      populateTimeSelectors();
+      populateTimeIntervalSelectors();
 
-      // Si el cambio de idioma lo realizó el usuario haciendo click en la barra de idiomas, mostrar la alerta
       if (triggeredByUser) {
         showUtcModal(true);
       }
     }
 
     function syncAllDays() {
-      const p1 = document.getElementById("lunesP1").value;
-      const p2 = document.getElementById("lunesP2").value;
-      const p3 = document.getElementById("lunesP3").value;
+      const p1_d = document.getElementById("lunesP1_desde").value;
+      const p1_h = document.getElementById("lunesP1_hasta").value;
+      const p2_d = document.getElementById("lunesP2_desde").value;
+      const p2_h = document.getElementById("lunesP2_hasta").value;
+      const p3_d = document.getElementById("lunesP3_desde").value;
+      const p3_h = document.getElementById("lunesP3_hasta").value;
 
       ["martes", "jueves"].forEach(dia => {
-        document.getElementById(`${dia}P1`).value = p1;
-        document.getElementById(`${dia}P2`).value = p2;
-        document.getElementById(`${dia}P3`).value = p3;
+        document.getElementById(`${dia}P1_desde`).value = p1_d;
+        document.getElementById(`${dia}P1_hasta`).value = p1_h;
+        document.getElementById(`${dia}P2_desde`).value = p2_d;
+        document.getElementById(`${dia}P2_hasta`).value = p2_h;
+        document.getElementById(`${dia}P3_desde`).value = p3_d;
+        document.getElementById(`${dia}P3_hasta`).value = p3_h;
       });
     }
 
-    ["lunesP1", "lunesP2", "lunesP3"].forEach(id => {
+    [
+      "lunesP1_desde", "lunesP1_hasta",
+      "lunesP2_desde", "lunesP2_hasta",
+      "lunesP3_desde", "lunesP3_hasta"
+    ].forEach(id => {
       document.getElementById(id).addEventListener("change", () => {
         if (document.getElementById("syncSchedule").checked) syncAllDays();
       });
@@ -755,13 +1016,7 @@
       if (e.target.checked) syncAllDays();
     });
 
-    const scheduleSelects = [
-      "lunesP1", "lunesP2", "lunesP3",
-      "martesP1", "martesP2", "martesP3",
-      "juevesP1", "juevesP2", "juevesP3"
-    ];
-
-    scheduleSelects.forEach(id => {
+    intervalFields.forEach(id => {
       const el = document.getElementById(id);
       if (el) {
         el.addEventListener("focus", () => showUtcModal(false));
@@ -778,6 +1033,12 @@
       });
     });
 
+    function timeToMinutes(str) {
+      if (!str || str === "No participa") return null;
+      const [h, m] = str.split(":").map(Number);
+      return h * 60 + m;
+    }
+
     document.getElementById("savingsForm").addEventListener("submit", async (e) => {
       e.preventDefault();
       const t = translations[currentLang] || translations.es;
@@ -785,24 +1046,83 @@
       const jugador = document.getElementById("jugador").value.trim();
       const jugadorId = document.getElementById("jugadorId").value.trim();
 
+      // 1. Nick e ID obligatorios
       if (!jugador || !jugadorId) {
         showBannerMessage(t.alertRequired, true);
         return;
       }
 
+      // 2. Alianza obligatoria
       if (!selectedAlliance) {
         showBannerMessage(t.alertAlliance, true);
         return;
       }
 
-      const allScheduleFilled = scheduleSelects.every(id => {
-        const val = document.getElementById(id).value;
-        return val && val !== "";
-      });
-
-      if (!allScheduleFilled) {
-        showBannerMessage(t.alertSchedule, true);
+      // 3. Recursos obligatorios (no vacíos)
+      const cf = document.getElementById("cristalFuego").value;
+      const ref = document.getElementById("refinado").value;
+      const frag = document.getElementById("fragmentos").value;
+      if (!cf || !ref || !frag) {
+        showBannerMessage(t.alertResources, true);
         return;
+      }
+
+      // 4. Aceleradores obligatorios (no vacíos)
+      const spdGen = document.getElementById("acelGeneral").value;
+      const spdEnt = document.getElementById("acelEntrenamiento").value;
+      const spdCon = document.getElementById("acelConstruccion").value;
+      const spdInv = document.getElementById("acelInvestigacion").value;
+      if (!spdGen || !spdEnt || !spdCon || !spdInv) {
+        showBannerMessage(t.alertSpeedups, true);
+        return;
+      }
+
+      // 5. Primera franja horaria obligatoria para cada día (P1 de Lunes, Martes y Jueves)
+      const p1Pairs = [
+        { d: "lunesP1_desde", h: "lunesP1_hasta" },
+        { d: "martesP1_desde", h: "martesP1_hasta" },
+        { d: "juevesP1_desde", h: "juevesP1_hasta" }
+      ];
+
+      for (const pair of p1Pairs) {
+        const valD = document.getElementById(pair.d).value;
+        const valH = document.getElementById(pair.h).value;
+        if (!valD || !valH) {
+          showBannerMessage(t.alertScheduleP1, true);
+          return;
+        }
+      }
+
+      // 6. Validación de rangos para todas las franjas activas (Hasta > Desde)
+      const intervalPairs = [
+        { d: "lunesP1_desde", h: "lunesP1_hasta" },
+        { d: "lunesP2_desde", h: "lunesP2_hasta" },
+        { d: "lunesP3_desde", h: "lunesP3_hasta" },
+        { d: "martesP1_desde", h: "martesP1_hasta" },
+        { d: "martesP2_desde", h: "martesP2_hasta" },
+        { d: "martesP3_desde", h: "martesP3_hasta" },
+        { d: "juevesP1_desde", h: "juevesP1_hasta" },
+        { d: "juevesP2_desde", h: "juevesP2_hasta" },
+        { d: "juevesP3_desde", h: "juevesP3_hasta" }
+      ];
+
+      for (const pair of intervalPairs) {
+        const valD = document.getElementById(pair.d).value;
+        const valH = document.getElementById(pair.h).value;
+
+        if ((valD === "No participa" && valH !== "No participa") || (valD !== "No participa" && valH === "No participa")) {
+          showBannerMessage(t.alertInvalidRange, true);
+          return;
+        }
+
+        if (valD && valH && valD !== "No participa" && valH !== "No participa") {
+          const minD = timeToMinutes(valD);
+          const minH = timeToMinutes(valH);
+          if (minH <= minD) {
+            showBannerMessage(t.alertInvalidRange, true);
+            return;
+          }
+        }
       }
 
       const btn = document.getElementById("submitBtn");
@@ -813,22 +1133,37 @@
         jugador: jugador,
         jugadorId: jugadorId,
         alianza: selectedAlliance,
-        cristalFuego: document.getElementById("cristalFuego").value || "0-500",
-        refinado: document.getElementById("refinado").value || "0-20",
-        fragmentos: document.getElementById("fragmentos").value || "0-250",
-        acelGeneral: document.getElementById("acelGeneral").value || "0-29",
-        acelEntrenamiento: document.getElementById("acelEntrenamiento").value || "0-29",
-        acelConstruccion: document.getElementById("acelConstruccion").value || "0-29",
-        acelInvestigacion: document.getElementById("acelInvestigacion").value || "0-29",
-        horaLunesP1: document.getElementById("lunesP1").value,
-        horaLunesP2: document.getElementById("lunesP2").value,
-        horaLunesP3: document.getElementById("lunesP3").value,
-        horaMartesP1: document.getElementById("martesP1").value,
-        horaMartesP2: document.getElementById("martesP2").value,
-        horaMartesP3: document.getElementById("martesP3").value,
-        horaJuevesP1: document.getElementById("juevesP1").value,
-        horaJuevesP2: document.getElementById("juevesP2").value,
-        horaJuevesP3: document.getElementById("juevesP3").value
+        cristalFuego: cf,
+        refinado: ref,
+        fragmentos: frag,
+        acelGeneral: spdGen,
+        acelEntrenamiento: spdEnt,
+        acelConstruccion: spdCon,
+        acelInvestigacion: spdInv,
+
+        // Franjas Lunes
+        horaLunesP1_desde: document.getElementById("lunesP1_desde").value,
+        horaLunesP1_hasta: document.getElementById("lunesP1_hasta").value,
+        horaLunesP2_desde: document.getElementById("lunesP2_desde").value,
+        horaLunesP2_hasta: document.getElementById("lunesP2_hasta").value,
+        horaLunesP3_desde: document.getElementById("lunesP3_desde").value,
+        horaLunesP3_hasta: document.getElementById("lunesP3_hasta").value,
+
+        // Franjas Martes
+        horaMartesP1_desde: document.getElementById("martesP1_desde").value,
+        horaMartesP1_hasta: document.getElementById("martesP1_hasta").value,
+        horaMartesP2_desde: document.getElementById("martesP2_desde").value,
+        horaMartesP2_hasta: document.getElementById("martesP2_hasta").value,
+        horaMartesP3_desde: document.getElementById("martesP3_desde").value,
+        horaMartesP3_hasta: document.getElementById("martesP3_hasta").value,
+
+        // Franjas Jueves
+        horaJuevesP1_desde: document.getElementById("juevesP1_desde").value,
+        horaJuevesP1_hasta: document.getElementById("juevesP1_hasta").value,
+        horaJuevesP2_desde: document.getElementById("juevesP2_desde").value,
+        horaJuevesP2_hasta: document.getElementById("juevesP2_hasta").value,
+        horaJuevesP3_desde: document.getElementById("juevesP3_desde").value,
+        horaJuevesP3_hasta: document.getElementById("juevesP3_hasta").value
       };
 
       try {
@@ -844,6 +1179,8 @@
         document.querySelectorAll(".badge-selected").forEach(b => b.classList.remove("badge-selected"));
         selectedAlliance = "";
         utcNoticeShownOnSelect = false;
+        populateResourceSelectors();
+        populateTimeIntervalSelectors();
       } catch (err) {
         showBannerMessage(t.error, true);
       } finally {
