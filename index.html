@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Semana de Preparación del estado 2859</title>
+  <title>Semana de Preparación - Estado 2859</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
@@ -123,24 +123,24 @@
     <!-- Pantalla de Convocatoria Cerrada -->
     <div id="closedNotice" class="p-10 text-center hidden">
       <div class="text-5xl mb-4">🔒</div>
-      <h2 id="t-closedTitle" class="text-xl font-bold text-[#FFF0F2] mb-2">Convocatoria Cerrada</h2>
-      <p id="t-closedDesc" class="text-[#A88B92] text-sm max-w-md mx-auto">El plazo de inscripción ha finalizado o aún no se encuentra abierto. Las asignaciones de horarios se publicarán pronto.</p>
+      <h2 id="t-closedTitle" class="text-xl font-bold text-[#FFF0F2] mb-2">Inscripciones Cerradas</h2>
+      <p id="t-closedDesc" class="text-[#A88B92] text-sm max-w-md mx-auto">El plazo de inscripción ha finalizado o aún no ha comenzado. El cuadrante oficial se publicará pronto.</p>
     </div>
 
     <!-- Contenido del Formulario -->
     <div id="formContainer" class="px-4 sm:px-6 pb-6 pt-2">
-      <h1 id="t-title" class="text-lg sm:text-2xl font-bold text-center mb-5 text-[#FFF0F2] tracking-wide">Semana de Preparación del estado 2859</h1>
+      <h1 id="t-title" class="text-lg sm:text-2xl font-bold text-center mb-5 text-[#FFF0F2] tracking-wide">Semana de Preparación - Estado 2859</h1>
 
       <form id="savingsForm" class="space-y-4 sm:space-y-5" novalidate>
         
         <!-- Nombre Jugador e ID (Obligatorios) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label id="t-userName" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5">User Name <span class="text-[#E31A21]">*</span></label>
-            <input type="text" id="jugador" required placeholder="Tu Nick exacto" class="w-full input-box rounded-xl px-4 py-2.5 text-sm">
+            <label id="t-userName" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5">Nombre de Jugador (IGN) <span class="text-[#E31A21]">*</span></label>
+            <input type="text" id="jugador" required placeholder="Tu nombre exacto en el juego" class="w-full input-box rounded-xl px-4 py-2.5 text-sm">
           </div>
           <div>
-            <label id="t-userId" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5">ID (Needs to be copy and paste) <span class="text-[#E31A21]">*</span></label>
+            <label id="t-userId" class="block text-[11px] uppercase tracking-wider text-[#C2A1A8] font-semibold mb-1.5">ID de Jugador (Copiar y Pegar) <span class="text-[#E31A21]">*</span></label>
             <input type="text" id="jugadorId" required placeholder="Pega tu ID aquí" class="w-full input-box rounded-xl px-4 py-2.5 text-sm">
           </div>
         </div>
@@ -162,7 +162,7 @@
         <!-- Recursos por Intervalos (Obligatorios con opción vacía por defecto) -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
           <div>
-            <label id="t-fireCrystal" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">Cristal de Fuego <span class="text-[#E31A21]">*</span></label>
+            <label id="t-fireCrystal" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">Cristal de Fuego (CF) <span class="text-[#E31A21]">*</span></label>
             <div class="flex items-center gap-2">
               <div class="icon-box">
                 <img src="img/cristal.png" alt="Cristal" onerror="this.outerHTML='🔥'" class="w-7 h-7 object-contain">
@@ -172,7 +172,7 @@
           </div>
 
           <div>
-            <label id="t-refined" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">Cristal de Fuego Refinado <span class="text-[#E31A21]">*</span></label>
+            <label id="t-refined" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">CF Refinado <span class="text-[#E31A21]">*</span></label>
             <div class="flex items-center gap-2">
               <div class="icon-box">
                 <img src="img/refinado.png" alt="Refinado" onerror="this.outerHTML='💎'" class="w-7 h-7 object-contain">
@@ -182,7 +182,7 @@
           </div>
 
           <div>
-            <label id="t-fragments" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">Fragmentos <span class="text-[#E31A21]">*</span></label>
+            <label id="t-fragments" class="block text-[10px] tracking-wider text-[#C2A1A8] font-bold mb-1.5 uppercase text-center">Fragmentos de CF <span class="text-[#E31A21]">*</span></label>
             <div class="flex items-center gap-2">
               <div class="icon-box">
                 <img src="img/fragmentos.png" alt="Fragmentos" onerror="this.outerHTML='🔺'" class="w-7 h-7 object-contain">
@@ -197,7 +197,7 @@
           <p id="t-speedupsHeader" class="text-[11px] font-bold text-center tracking-wider text-[#C2A1A8] uppercase mb-3">Aceleradores (Días) <span class="text-[#E31A21]">*</span></p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label id="t-general" class="block text-[10px] uppercase text-[#C2A1A8] font-semibold mb-1">General <span class="text-[#E31A21]">*</span></label>
+              <label id="t-general" class="block text-[10px] uppercase text-[#C2A1A8] font-semibold mb-1">Generales <span class="text-[#E31A21]">*</span></label>
               <div class="flex items-center gap-2">
                 <div class="icon-box">
                   <img src="img/acel_general.png" alt="General" onerror="this.outerHTML='⏩'" class="w-7 h-7 object-contain">
@@ -240,13 +240,13 @@
 
         <!-- 3 Intervalos de Prioridad por Día (P1 Obligatoria) -->
         <div class="pt-3 border-t border-[#33151D]">
-          <p id="t-scheduleHeader" class="text-[11px] font-bold text-center tracking-wider text-[#C2A1A8] uppercase mb-1">Inscripción por Intervalos de Disponibilidad <span class="text-[#E31A21]">*</span></p>
-          <p id="t-scheduleSub" class="text-center text-[10px] text-[#A88B92] mb-1">La 1ª Preferencia es obligatoria para cada día. Elige tus franjas horarias o indica si no participas.</p>
-          <p id="t-utcSubNotice" class="text-center text-[10px] text-[#FF4D6D] mb-3">🕒 Todos los horarios en UTC (Coordinated Universal Time)</p>
+          <p id="t-scheduleHeader" class="text-[11px] font-bold text-center tracking-wider text-[#C2A1A8] uppercase mb-1">Disponibilidad Horaria (Preferencias) <span class="text-[#E31A21]">*</span></p>
+          <p id="t-scheduleSub" class="text-center text-[10px] text-[#A88B92] mb-1">La 1ª Preferencia es obligatoria para cada día. Elige tus franjas o marca 'No participo'.</p>
+          <p id="t-utcSubNotice" class="text-center text-[10px] text-[#FF4D6D] mb-3">🕒 Horario UTC (Hora del Servidor)</p>
           
           <div class="flex items-center justify-center gap-2 mb-4 bg-[#14090D] p-2.5 rounded-lg border border-[#33151D]">
             <input type="checkbox" id="syncSchedule" class="rounded accent-[#E31A21] w-4 h-4 cursor-pointer">
-            <label for="syncSchedule" id="t-syncLabel" class="text-xs text-[#FF6B8B] font-medium cursor-pointer select-none">Aplicar las 3 franjas del Lunes a todos los días</label>
+            <label for="syncSchedule" id="t-syncLabel" class="text-xs text-[#FF6B8B] font-medium cursor-pointer select-none">Aplicar los intervalos del Lunes a todos los días</label>
           </div>
 
           <!-- Lunes -->
@@ -256,7 +256,7 @@
             <!-- P1 (Obligatorio) -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#3D1923]">
               <div class="sm:col-span-3 text-xs font-semibold text-[#FF859D] priority-title-1 flex items-center gap-1">
-                <span>1ª Preferencia</span><span class="text-[#E31A21]">*</span>
+                <span>1ª Opción:</span><span class="text-[#E31A21]">*</span>
               </div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
                 <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
@@ -270,7 +270,7 @@
 
             <!-- P2 -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
-              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-2">2ª Preferencia:</div>
+              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-2">2ª Opción:</div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
                 <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
                 <select id="lunesP2_desde" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
@@ -283,7 +283,7 @@
 
             <!-- P3 -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
-              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-3">3ª Preferencia:</div>
+              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-3">3ª Opción:</div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
                 <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
                 <select id="lunesP3_desde" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
@@ -302,7 +302,7 @@
             <!-- P1 (Obligatorio) -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#3D1923]">
               <div class="sm:col-span-3 text-xs font-semibold text-[#FF859D] priority-title-1 flex items-center gap-1">
-                <span>1ª Preferencia</span><span class="text-[#E31A21]">*</span>
+                <span>1ª Opción:</span><span class="text-[#E31A21]">*</span>
               </div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
                 <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
@@ -316,7 +316,7 @@
 
             <!-- P2 -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
-              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-2">2ª Preferencia:</div>
+              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-2">2ª Opción:</div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
                 <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
                 <select id="martesP2_desde" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
@@ -329,7 +329,7 @@
 
             <!-- P3 -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
-              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-3">3ª Preferencia:</div>
+              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-3">3ª Opción:</div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
                 <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
                 <select id="martesP3_desde" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
@@ -348,7 +348,7 @@
             <!-- P1 (Obligatorio) -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#3D1923]">
               <div class="sm:col-span-3 text-xs font-semibold text-[#FF859D] priority-title-1 flex items-center gap-1">
-                <span>1ª Preferencia</span><span class="text-[#E31A21]">*</span>
+                <span>1ª Opción:</span><span class="text-[#E31A21]">*</span>
               </div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
                 <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
@@ -362,7 +362,7 @@
 
             <!-- P2 -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
-              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-2">2ª Preferencia:</div>
+              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-2">2ª Opción:</div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
                 <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
                 <select id="juevesP2_desde" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
@@ -375,7 +375,7 @@
 
             <!-- P3 -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
-              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-3">3ª Preferencia:</div>
+              <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-3">3ª Opción:</div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
                 <span class="text-[10px] text-[#A88B92] uppercase font-bold lbl-from w-10">Desde</span>
                 <select id="juevesP3_desde" class="input-box rounded-lg p-2 text-xs w-full schedule-select"></select>
@@ -389,7 +389,7 @@
         </div>
 
         <button type="submit" id="submitBtn" class="btn-action w-full py-3.5 mt-4 rounded-xl font-bold shadow-lg cursor-pointer">
-          Reserva tu hueco
+          Confirmar Inscripción
         </button>
 
         <div id="inlineAlert" class="p-3 rounded-xl text-center text-xs font-semibold hidden"></div>
@@ -403,9 +403,9 @@
       <div class="w-12 h-12 rounded-full bg-[#2A0E15] text-[#FF4D6D] flex items-center justify-center mx-auto mb-3 text-2xl">
         ⚠️
       </div>
-      <h3 id="utcModalTitle" class="text-base font-bold text-white mb-2 uppercase tracking-wider">Zona Horaria UTC</h3>
+      <h3 id="utcModalTitle" class="text-base font-bold text-white mb-2 uppercase tracking-wider">AVISO HORARIO (UTC)</h3>
       <p id="utcModalBody" class="text-sm text-[#E6C2C9] mb-5 leading-relaxed font-medium">
-        ATENCIÓN: Las horas seleccionadas son en horario UTC. Téngalo en cuenta antes de elegir su franja horaria.
+        ATENCIÓN: Todos los horarios corresponden a la hora del servidor (UTC). Revisa la diferencia horaria con tu país antes de elegir.
       </p>
       <button type="button" id="utcCloseBtn" class="btn-action w-full py-2.5 rounded-xl font-bold text-sm">
         Entendido
@@ -418,345 +418,355 @@
 
     const translations = {
       es: {
-        title: "Semana de Preparación del estado 2859",
-        userName: "Nombre de Usuario (User Name)", userPlaceholder: "Tu Nick exacto en el juego",
+        title: "Semana de Preparación - Estado 2859",
+        userName: "Nombre de Jugador (IGN)", userPlaceholder: "Tu nombre exacto en el juego",
         userId: "ID de Jugador (Copiar y Pegar)", idPlaceholder: "Pega tu ID aquí",
         allianceLabel: "Alianza",
-        fireCrystal: "Cristal de Fuego", refined: "Cristal de Fuego Refinado", fragments: "Fragmentos",
-        speedupsHeader: "Aceleradores (Días)", general: "General", training: "Entrenamiento",
+        fireCrystal: "Cristal de Fuego (CF)", refined: "CF Refinado", fragments: "Fragmentos de CF",
+        speedupsHeader: "Aceleradores (Días)", general: "Generales", training: "Entrenamiento",
         construction: "Construcción", research: "Investigación",
-        scheduleHeader: "Inscripción por Intervalos de Disponibilidad",
-        scheduleSub: "La 1ª Preferencia es obligatoria para cada día. Elige tus franjas horarias o indica si no participas.",
-        syncLabel: "Aplicar las 3 franjas del Lunes a todos los días",
-        utcSub: "🕒 Todos los horarios en UTC (Coordinated Universal Time)",
+        scheduleHeader: "Disponibilidad Horaria (Preferencias)",
+        scheduleSub: "La 1ª Preferencia es obligatoria para cada día. Elige tus franjas o marca 'No participo'.",
+        syncLabel: "Aplicar los intervalos del Lunes a todos los días",
+        utcSub: "🕒 Horario UTC (Hora del Servidor)",
         mon: "Lunes (Construcción)", tue: "Martes (Investigación)", thu: "Jueves (Entrenamiento)",
         from: "Desde", to: "Hasta",
-        p1: "1ª Preferencia", p2: "2ª Preferencia:", p3: "3ª Preferencia:",
+        p1: "1ª Opción:", p2: "2ª Opción:", p3: "3ª Opción:",
         selectPlaceholder: "-- Seleccionar --",
-        noParticipate: "-- No participa --",
-        submit: "Reserva tu hueco", sending: "Enviando...", success: "¡Reserva enviada correctamente!",
-        error: "Error al enviar los datos.",
-        alertAlliance: "Por favor, selecciona una alianza.",
-        alertRequired: "Por favor, completa el Nick, la ID y selecciona tu alianza.",
-        alertResources: "Por favor, selecciona una cantidad para los 3 campos de Cristales y Fragmentos.",
-        alertSpeedups: "Por favor, selecciona una cantidad para los 4 campos de Aceleradores.",
-        alertScheduleP1: "Por favor, completa la 1ª Preferencia obligatoria (Desde y Hasta) para Lunes, Martes y Jueves.",
-        alertInvalidRange: "El horario 'Hasta' debe ser posterior al horario 'Desde' en las franjas activas.",
+        noParticipate: "-- No participo --",
+        submit: "Confirmar Inscripción", sending: "Enviando...", success: "¡Inscripción enviada con éxito!",
+        error: "Error al enviar los datos. Inténtalo de nuevo.",
+        alertAlliance: "Por favor, elige tu alianza.",
+        alertRequired: "Introduce tu nombre de jugador, ID y alianza.",
+        alertResources: "Completa los 3 campos de Cristales y Fragmentos.",
+        alertSpeedups: "Completa los 4 campos de aceleradores.",
+        alertScheduleP1: "La 1ª Opción (Desde y Hasta) es obligatoria para Lunes, Martes y Jueves.",
+        alertInvalidRange: "La hora 'Hasta' debe ser posterior a la hora 'Desde'.",
         unlimited: "Ilimitado", dayUnit: "días",
-        closedTitle: "Convocatoria Cerrada", closedDesc: "El plazo de inscripción ha finalizado o aún no se encuentra abierto.",
-        utcModalTitle: "AVISO: HORARIO UTC",
-        utcAlert: "Las horas seleccionadas son en horario UTC. Téngalo en cuenta antes de elegir su franja horaria.",
-        utcBtn: "Entendido"
+        closedTitle: "Inscripciones Cerradas", closedDesc: "El plazo de inscripción ha finalizado o aún no ha comenzado. El cuadrante oficial se publicará pronto.",
+        utcModalTitle: "AVISO HORARIO (UTC)",
+        utcAlert: "Todos los horarios corresponden a la hora del servidor (UTC). Revisa la diferencia horaria con tu país antes de elegir.",
+        understood: "Entendido"
       },
+
       en: {
         title: "State 2859 Preparation Week",
-        userName: "User Name", userPlaceholder: "Your exact in-game Nick",
-        userId: "ID (Needs to be copy and paste)", idPlaceholder: "Paste your ID here",
+        userName: "In-Game Name (IGN)", userPlaceholder: "Exact in-game name",
+        userId: "Player ID (Copy & Paste)", idPlaceholder: "Paste your Player ID here",
         allianceLabel: "Alliance",
-        fireCrystal: "Fire Crystals", refined: "RFC", fragments: "FC Shard",
+        fireCrystal: "Fire Crystals (FC)", refined: "Refined Fire Crystals (RFC)", fragments: "FC Shards",
         speedupsHeader: "Speedups (Days)", general: "General", training: "Training",
-        construction: "Construction", research: "Research",
-        scheduleHeader: "Sign-up by Availability Intervals",
-        scheduleSub: "1st Choice is mandatory for each day. Choose your intervals or indicate non-participation.",
-        syncLabel: "Apply Monday's 3 intervals to all days",
-        utcSub: "🕒 All times in UTC (Coordinated Universal Time)",
-        mon: "Monday (Construction)", tue: "Tuesday (Research)", thu: "Thursday (Training)",
+        construction: "Building", research: "Research",
+        scheduleHeader: "Availability Windows (Preferences)",
+        scheduleSub: "1st Preference is required for each day. Select your intervals or choose 'Not participating'.",
+        syncLabel: "Apply Monday's time slots to all days",
+        utcSub: "🕒 All times in UTC (Server Time)",
+        mon: "Monday (Building)", tue: "Tuesday (Research)", thu: "Thursday (Training)",
         from: "From", to: "To",
-        p1: "1st Choice", p2: "2nd Choice:", p3: "3rd Choice:",
+        p1: "1st Choice:", p2: "2nd Choice:", p3: "3rd Choice:",
         selectPlaceholder: "-- Select --",
-        noParticipate: "-- Do not participate --",
-        submit: "Reserve your slot", sending: "Submitting...", success: "Reservation sent successfully!",
-        error: "Error submitting data.",
+        noParticipate: "-- Not participating --",
+        submit: "Submit Registration", sending: "Submitting...", success: "Registration submitted successfully!",
+        error: "Failed to submit. Please try again.",
         alertAlliance: "Please select an alliance.",
-        alertRequired: "Please enter your User Name, ID, and select an alliance.",
-        alertResources: "Please select your values for all 3 Crystals and Shards fields.",
-        alertSpeedups: "Please select your values for all 4 Speedup fields.",
-        alertScheduleP1: "Please complete the mandatory 1st Choice (From and To) for Monday, Tuesday, and Thursday.",
-        alertInvalidRange: "The 'To' time must be after the 'From' time in active intervals.",
+        alertRequired: "Please enter your IGN, Player ID, and select an alliance.",
+        alertResources: "Please choose an option for all 3 Crystal and Shard fields.",
+        alertSpeedups: "Please select a range for all 4 speedup categories.",
+        alertScheduleP1: "Please complete your 1st Choice (From and To) for Monday, Tuesday, and Thursday.",
+        alertInvalidRange: "The end time ('To') must be later than the start time ('From').",
         unlimited: "Unlimited", dayUnit: "days",
-        closedTitle: "Registrations Closed", closedDesc: "The sign-up period has ended or is not open yet.",
-        utcModalTitle: "UTC TIMEZONE NOTICE",
-        utcAlert: "Selected times are in UTC format. Please keep this in mind before choosing your time slot.",
-        utcBtn: "Got it"
+        closedTitle: "Registrations Closed", closedDesc: "The sign-up window is currently closed. Schedule assignments will be published soon.",
+        utcModalTitle: "TIME ZONE NOTICE (UTC)",
+        utcAlert: "All schedules are in UTC (Server Time). Please check your local time difference before picking an interval.",
+        understood: "Got it"
       },
+
       fr: {
-        title: "Semaine de Préparation de l'État 2859",
-        userName: "Nom d'utilisateur", userPlaceholder: "Votre pseudo exact en jeu",
-        userId: "ID (Copier-coller obligatoire)", idPlaceholder: "Collez votre ID ici",
+        title: "Semaine de Préparation - État 2859",
+        userName: "Pseudo en jeu (IGN)", userPlaceholder: "Votre pseudo exact en jeu",
+        userId: "ID Joueur (Copier-Coller)", idPlaceholder: "Collez votre identifiant ici",
         allianceLabel: "Alliance",
-        fireCrystal: "Cristal de feu", refined: "Cristal de feu raffiné", fragments: "Éclat de cristal de feu",
-        speedupsHeader: "Accélérateurs (Jours)", general: "Général", training: "Entraînement",
+        fireCrystal: "Cristaux de Feu (CF)", refined: "CF Raffinés", fragments: "Éclats de CF",
+        speedupsHeader: "Accélérateurs (Jours)", general: "Généraux", training: "Entraînement",
         construction: "Construction", research: "Recherche",
-        scheduleHeader: "Inscription par Intervalles de Disponibilité",
-        scheduleSub: "Le 1er choix est obligatoire pour chaque jour. Choisissez vos créneaux ou indiquez que vous ne participez pas.",
-        syncLabel: "Appliquer les 3 plages du lundi à tous les jours",
-        utcSub: "🕒 Tous les horaires sont en UTC",
+        scheduleHeader: "Plages de Disponibilité (Préférences)",
+        scheduleSub: "Le 1er choix est obligatoire pour chaque jour. Indiquez vos créneaux ou sélectionnez 'Ne participe pas'.",
+        syncLabel: "Appliquer les créneaux du Lundi à tous les jours",
+        utcSub: "🕒 Horaires exprimés en UTC (Heure du Serveur)",
         mon: "Lundi (Construction)", tue: "Mardi (Recherche)", thu: "Jeudi (Entraînement)",
         from: "De", to: "À",
-        p1: "1er Choix", p2: "2ème Choix:", p3: "3ème Choix:",
+        p1: "1er Choix :", p2: "2ème Choix :", p3: "3ème Choix :",
         selectPlaceholder: "-- Choisir --",
         noParticipate: "-- Ne participe pas --",
-        submit: "Réservez votre créneau", sending: "Envoi en cours...", success: "Réservation envoyée avec succès !",
-        error: "Erreur lors de l'envoi.",
-        alertAlliance: "Veuillez sélectionner une alliance.",
-        alertRequired: "Veuillez saisir votre pseudo, ID et choisir une alliance.",
-        alertResources: "Veuillez renseigner les 3 champs de cristaux et fragments.",
+        submit: "Valider l'inscription", sending: "Envoi en cours...", success: "Inscription enregistrée avec succès !",
+        error: "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+        alertAlliance: "Veuillez choisir votre alliance.",
+        alertRequired: "Veuillez renseigner votre pseudo, ID joueur et alliance.",
+        alertResources: "Veuillez sélectionner vos valeurs pour les 3 champs de Cristaux et Éclats.",
         alertSpeedups: "Veuillez renseigner les 4 types d'accélérateurs.",
-        alertScheduleP1: "Veuillez renseigner le 1er choix obligatoire pour lundi, mardi et jeudi.",
-        alertInvalidRange: "L'heure de fin ('À') doit être après l'heure de début ('De').",
+        alertScheduleP1: "Le 1er choix (De / À) est obligatoire pour le Lundi, Mardi et Jeudi.",
+        alertInvalidRange: "L'heure de fin ('À') doit être postérieure à l'heure de début ('De').",
         unlimited: "Illimité", dayUnit: "jours",
-        closedTitle: "Inscriptions Clôturées", closedDesc: "La période d'inscription est terminée ou pas encore ouverte.",
-        utcModalTitle: "AVERTISSEMENT HORAIRE UTC",
-        utcAlert: "Les horaires sont exprimés en UTC. Veuillez en tenir compte avant de choisir votre créneau.",
-        utcBtn: "Compris"
+        closedTitle: "Inscriptions Clôturées", closedDesc: "La période d'inscription est fermée ou pas encore ouverte. Le planning sera publié sous peu.",
+        utcModalTitle: "RAPPEL FUSEAU HORAIRE (UTC)",
+        utcAlert: "Tous les créneaux sont calés sur l'heure UTC (Serveur). Pensez à vérifier votre décalage horaire avant de valider.",
+        understood: "Compris"
       },
+
       de: {
-        title: "Vorbereitungswoche für Staat 2859",
-        userName: "Benutzername", userPlaceholder: "Genauer Nickname im Spiel",
-        userId: "ID (Kopieren und Einfügen)", idPlaceholder: "Fügen Sie Ihre ID hier ein",
+        title: "Vorbereitungswoche - Staat 2859",
+        userName: "Spielername (IGN)", userPlaceholder: "Exakter Ingame-Name",
+        userId: "Spieler-ID (Kopieren & Einfügen)", idPlaceholder: "ID hier einfügen",
         allianceLabel: "Allianz",
-        fireCrystal: "Feuerkristall", refined: "Veredelter Feuerkristall", fragments: "Feuerkristall-Splitter",
-        speedupsHeader: "Beschleuniger (Tage)", general: "Allgemein", training: "Ausbildung",
+        fireCrystal: "Feuerkristalle (FK)", refined: "Veredelte FK", fragments: "FK-Splitter",
+        speedupsHeader: "Beschleuniger (Tage)", general: "Allgemein", training: "Truppen / Ausbildung",
         construction: "Bau", research: "Forschung",
-        scheduleHeader: "Anmeldung nach Zeitintervallen",
-        scheduleSub: "Die 1. Wahl ist für jeden Tag obligatorisch. Wählen Sie Ihre Zeitfenster oder Nichtteilnahme.",
-        syncLabel: "Montags-Zeitfenster auf alle Tage anwenden",
-        utcSub: "🕒 Alle Zeitangaben in UTC",
+        scheduleHeader: "Verfügbarkeitsfenster (Prioritäten)",
+        scheduleSub: "1. Priorität ist für jeden Tag Pflicht. Zeitfenster wählen oder 'Nimmt nicht teil' markieren.",
+        syncLabel: "Montags-Zeiten für alle Tage übernehmen",
+        utcSub: "🕒 Alle Angaben in UTC (Serverzeit)",
         mon: "Montag (Bau)", tue: "Dienstag (Forschung)", thu: "Donnerstag (Ausbildung)",
         from: "Von", to: "Bis",
-        p1: "1. Wahl", p2: "2. Wahl:", p3: "3. Wahl:",
-        selectPlaceholder: "-- Auswählen --",
+        p1: "1. Wahl:", p2: "2. Wahl:", p3: "3. Wahl:",
+        selectPlaceholder: "-- Bitte wählen --",
         noParticipate: "-- Nimmt nicht teil --",
-        submit: "Slot reservieren", sending: "Wird gesendet...", success: "Reservierung erfolgreich gesendet!",
-        error: "Fehler beim Senden.",
-        alertAlliance: "Bitte wählen Sie eine Allianz.",
-        alertRequired: "Bitte geben Sie Benutzernamen, ID ein und wählen Sie eine Allianz.",
-        alertResources: "Bitte wählen Sie Werte für alle 3 Kristall-Felder aus.",
-        alertSpeedups: "Bitte wählen Sie Werte für alle 4 Beschleuniger-Felder aus.",
-        alertScheduleP1: "Bitte füllen Sie die 1. Wahl (Von und Bis) für Montag, Dienstag und Donnerstag aus.",
-        alertInvalidRange: "Das Ende ('Bis') muss nach dem Beginn ('Von') liegen.",
+        submit: "Anmeldung absenden", sending: "Wird gesendet...", success: "Erfolgreich angemeldet!",
+        error: "Fehler beim Senden. Bitte erneut versuchen.",
+        alertAlliance: "Bitte wähle deine Allianz aus.",
+        alertRequired: "Bitte Ingame-Namen, Spieler-ID und Allianz angeben.",
+        alertResources: "Bitte alle 3 Optionen für Feuerkristalle und Splitter ausfüllen.",
+        alertSpeedups: "Bitte alle 4 Beschleuniger-Kategorien angeben.",
+        alertScheduleP1: "Die 1. Wahl (Von / Bis) ist für Montag, Dienstag und Donnerstag erforderlich.",
+        alertInvalidRange: "Die Endzeit ('Bis') muss nach der Startzeit ('Von') liegen.",
         unlimited: "Unbegrenzt", dayUnit: "Tage",
-        closedTitle: "Anmeldung geschlossen", closedDesc: "Die Anmeldefrist ist abgelaufen oder noch nicht eröffnet.",
-        utcModalTitle: "UTC ZEITZONEN-HINWEIS",
-        utcAlert: "Die ausgewählten Zeiten entsprechen der UTC-Zeit. Bitte beachten Sie dies vor der Auswahl Ihres Zeitfensters.",
-        utcBtn: "Verstanden"
+        closedTitle: "Anmeldung geschlossen", closedDesc: "Die Registrierungsphase ist beendet oder noch nicht freigeschaltet. Der Einsatzplan folgt in Kürze.",
+        utcModalTitle: "HINWEIS ZUR ZEITZONE (UTC)",
+        utcAlert: "Alle Zeiten laufen über UTC (Serverzeit). Bitte beachte deine lokale Zeitverschiebung bei der Auswahl.",
+        understood: "Verstanden"
       },
+
       ru: {
-        title: "Неделя подготовки штата 2859",
-        userName: "Имя пользователя", userPlaceholder: "Ваш точный ник в игре",
-        userId: "ID (Скопируйте и вставьте)", idPlaceholder: "Вставьте ваш ID сюда",
+        title: "Неделя подготовки — Штат 2859",
+        userName: "Игровой никнейм (IGN)", userPlaceholder: "Точный ник в игре",
+        userId: "ID игрока (Скопировать и вставить)", idPlaceholder: "Вставьте ваш ID сюда",
         allianceLabel: "Альянс",
-        fireCrystal: "Огненный кристалл", refined: "Очищенный огненный кристалл", fragments: "Осколки огненного кристалла",
-        speedupsHeader: "Ускорители (Дни)", general: "Общие", training: "Тренировка",
-        construction: "Строительство", research: "Исследование",
-        scheduleHeader: "Запись по временным интервалам",
-        scheduleSub: "1-й выбор обязателен для каждого дня. Укажите интервалы или выберите неучастие.",
+        fireCrystal: "Огненные кристаллы (ОК)", refined: "Очищенные ОК", fragments: "Осколки ОК",
+        speedupsHeader: "Ускорители (Дни)", general: "Универсальные", training: "Тренировка",
+        construction: "Строительство", research: "Исследования",
+        scheduleHeader: "Интервалы доступности (Приоритеты)",
+        scheduleSub: "1-й выбор обязателен для каждого дня. Укажите интервалы или выберите 'Не участвую'.",
         syncLabel: "Применить интервалы понедельника ко всем дням",
-        utcSub: "🕒 Все время указано в формате UTC",
-        mon: "Понедельник (Строительство)", tue: "Вторник (Исследование)", thu: "Четверг (Тренировка)",
+        utcSub: "🕒 Все время указано в формате UTC (Время сервера)",
+        mon: "Понедельник (Строительство)", tue: "Вторник (Исследования)", thu: "Четверг (Тренировка)",
         from: "С", to: "До",
-        p1: "1-й выбор", p2: "2-й выбор:", p3: "3-й выбор:",
+        p1: "1-й выбор:", p2: "2-й выбор:", p3: "3-й выбор:",
         selectPlaceholder: "-- Выбрать --",
-        noParticipate: "-- Не участвует --",
-        submit: "Забронировать место", sending: "Отправка...", success: "Бронирование успешно отправлено!",
-        error: "Ошибка при отправке.",
-        alertAlliance: "Пожалуйста, выберите альянс.",
-        alertRequired: "Пожалуйста, укажите никнейм, ID и выберите альянс.",
-        alertResources: "Пожалуйста, выберите значения для кристаллов и осколков.",
-        alertSpeedups: "Пожалуйста, выберите значения для всех 4 категорий ускорителей.",
-        alertScheduleP1: "Пожалуйста, обязательно заполните 1-й выбор (С и До) на понедельник, вторник и четверг.",
-        alertInvalidRange: "Время 'До' должно быть позже времени 'С'.",
-        unlimited: "Неограниченно", dayUnit: "дней",
-        closedTitle: "Регистрация закрыта", closedDesc: "Срок регистрации истек или еще не начался.",
-        utcModalTitle: "ВРЕМЯ В ФОРМАТЕ UTC",
-        utcAlert: "Указано время в формате UTC. Пожалуйста, учитывайте это перед выбором временного интервала.",
-        utcBtn: "Понятно"
+        noParticipate: "-- Не участвую --",
+        submit: "Отправить заявку", sending: "Отправка...", success: "Заявка успешно отправлена!",
+        error: "Ошибка отправки. Попробуйте снова.",
+        alertAlliance: "Пожалуйста, выберите ваш альянс.",
+        alertRequired: "Укажите никнейм, ID игрока и выберите альянс.",
+        alertResources: "Заполните все 3 поля с кристаллами и осколками.",
+        alertSpeedups: "Заполните все 4 категории ускорителей.",
+        alertScheduleP1: "Необходимо заполнить 1-й выбор (С / До) на понедельник, вторник и четверг.",
+        alertInvalidRange: "Время окончания ('До') должно быть позже времени начала ('С').",
+        unlimited: "Без лимита", dayUnit: "дней",
+        closedTitle: "Регистрация закрыта", closedDesc: "Срок подачи заявок истек или прием еще не открыт. Расписание будет опубликовано позже.",
+        utcModalTitle: "ВАЖНО: ЧАСОВОЙ ПОЯС (UTC)",
+        utcAlert: "Все слоты рассчитываются по времени UTC (время сервера). Учитывайте разницу с вашим часовым поясом перед выбором.",
+        understood: "Понятно"
       },
+
       ko: {
         title: "2859 서버 준비 주간",
-        userName: "사용자 이름", userPlaceholder: "게임 내 정확한 닉네임",
-        userId: "ID (복사하여 붙여넣기)", idPlaceholder: "여기에 ID를 붙여넣으세요",
+        userName: "게임 닉네임 (IGN)", userPlaceholder: "게임 내 정확한 닉네임 입력",
+        userId: "플레이어 ID (복사 & 붙여넣기)", idPlaceholder: "플레이어 ID를 여기에 붙여넣으세요",
         allianceLabel: "연맹",
-        fireCrystal: "불의 수정", refined: "정제된 불의 수정", fragments: "불의 수정 조각",
-        speedupsHeader: "가속 (일)", general: "일반", training: "훈련",
-        construction: "건설", research: "연구",
-        scheduleHeader: "선호 시간대 구간 등록",
-        scheduleSub: "각 요일별 1순위는 필수입니다. 시간대 구간을 선택하거나 미참여를 선택하세요.",
-        syncLabel: "월요일 시간대를 모든 요일에 적용",
-        utcSub: "🕒 모든 시간은 UTC 기준입니다",
+        fireCrystal: "불의 수정 (불수)", refined: "정제된 불의 수정", fragments: "불수 조각",
+        speedupsHeader: "가속 (일 단위)", general: "일반 가속", training: "훈련 가속",
+        construction: "건설 가속", research: "연구 가속",
+        scheduleHeader: "희망 시간대 (우선순위)",
+        scheduleSub: "매 요일 1순위는 필수 선택입니다. 가능한 시간 범위를 선택하거나 '미참여'를 선택하세요.",
+        syncLabel: "월요일 시간대를 모든 요일에 동일 적용",
+        utcSub: "🕒 모든 시간은 UTC(서버 시간) 기준입니다",
         mon: "월요일 (건설)", tue: "화요일 (연구)", thu: "목요일 (훈련)",
         from: "시작", to: "종료",
-        p1: "1순위", p2: "2순위:", p3: "3순위:",
+        p1: "1순위:", p2: "2순위:", p3: "3순위:",
         selectPlaceholder: "-- 선택 --",
         noParticipate: "-- 미참여 --",
-        submit: "자리 예약하기", sending: "제출 중...", success: "예약이 성공적으로 전송되었습니다!",
-        error: "전송 중 오류가 발생했습니다.",
-        alertAlliance: "연맹을 선택해 주세요.",
-        alertRequired: "사용자 이름과 ID를 입력하고 연맹을 선택해 주세요.",
-        alertResources: "수정 및 파편 관련 3개 항목을 모두 선택해 주세요.",
-        alertSpeedups: "가속 관련 4개 항목을 모두 선택해 주세요.",
-        alertScheduleP1: "월, 화, 목요일의 필수 1순위 시간대(시작/종료)를 선택해 주세요.",
-        alertInvalidRange: "종료 시간은 시작 시간보다 이후여야 합니다.",
+        submit: "신청서 제출", sending: "전송 중...", success: "성공적으로 제출되었습니다!",
+        error: "전송 중 오류가 발생했습니다. 다시 시도해 주세요.",
+        alertAlliance: "소속 연맹을 선택해 주세요.",
+        alertRequired: "닉네임, 플레이어 ID를 입력하고 연맹을 선택해 주세요.",
+        alertResources: "불의 수정 및 조각 3개 항목을 모두 선택해 주세요.",
+        alertSpeedups: "4개 가속 항목을 모두 선택해 주세요.",
+        alertScheduleP1: "월, 화, 목요일의 1순위 시간대(시작/종료)를 모두 지정해 주세요.",
+        alertInvalidRange: "종료 시간은 시작 시간보다 늦은 시간이어야 합니다.",
         unlimited: "무제한", dayUnit: "일",
-        closedTitle: "신청 마감", closedDesc: "등록 기간이 종료되었거나 아직 시작되지 않았습니다.",
-        utcModalTitle: "UTC 시간대 알림",
-        utcAlert: "선택한 시간은 UTC 기준입니다. 시간대를 선택하기 전에 이를 확인해 주십시오.",
-        utcBtn: "확인"
+        closedTitle: "신청 마감", closedDesc: "신청 기간이 마감되었거나 아직 오픈되지 않았습니다. 배정 명단은 곧 공지됩니다.",
+        utcModalTitle: "UTC 서버 시간 안내",
+        utcAlert: "모든 일정은 UTC(게임 서버 시간) 기준입니다. 거주하시는 지역의 시차(한국은 UTC+9)를 반드시 계산 후 신청하세요.",
+        understood: "확인했습니다"
       },
+
       pl: {
-        title: "Tydzień Przygotowań Stanu 2859",
-        userName: "Nazwa użytkownika", userPlaceholder: "Twój dokładny nick w grze",
-        userId: "ID (Wklej skopiowane ID)", idPlaceholder: "Wklej swoje ID tutaj",
+        title: "Tydzień Przygotowań — Stan 2859",
+        userName: "Nick w grze (IGN)", userPlaceholder: "Twój dokładny nick w grze",
+        userId: "ID Gracza (Wklej skopiowane ID)", idPlaceholder: "Wklej swoje ID tutaj",
         allianceLabel: "Sojusz",
-        fireCrystal: "Ognisty Kryształ", refined: "Rafinowany Ognisty Kryształ", fragments: "Odłamki Ognistego Kryształu",
-        speedupsHeader: "Przyspieszenia (Dni)", general: "Ogólne", training: "Trening",
+        fireCrystal: "Ogniste Kryształy (OK)", refined: "Rafinowane OK", fragments: "Odłamki OK",
+        speedupsHeader: "Przyspieszenia (Dni)", general: "Ogólne", training: "Szkolenie wojsk",
         construction: "Budowa", research: "Badania",
-        scheduleHeader: "Zapisy według przedziałów czasowych",
-        scheduleSub: "1. wybór jest obowiązkowy na każdy dzień. Wybierz przedział lub wskaż brak udziału.",
-        syncLabel: "Zastosuj przedziały z poniedziałku do wszystkich dni",
-        utcSub: "🕒 Czas podawany w formacie UTC",
-        mon: "Poniedziałek (Budowa)", tue: "Wtorek (Badania)", thu: "Czwartek (Trening)",
+        scheduleHeader: "Przedziały Czasowe (Preferencje)",
+        scheduleSub: "1. wybór jest obowiązkowy dla każdego dnia. Wybierz zakres godzin lub wskaż 'Nie biorę udziału'.",
+        syncLabel: "Zastosuj godziny z Poniedziałku do pozostałych dni",
+        utcSub: "🕒 Wszystkie godziny w formacie UTC (Czas Serwera)",
+        mon: "Poniedziałek (Budowa)", tue: "Wtorek (Badania)", thu: "Czwartek (Szkolenie)",
         from: "Od", to: "Do",
-        p1: "1. Wybór", p2: "2. Wybór:", p3: "3. Wybór:",
+        p1: "1. Wybór:", p2: "2. Wybór:", p3: "3. Wybór:",
         selectPlaceholder: "-- Wybierz --",
-        noParticipate: "-- Brak udziału --",
-        submit: "Zarezerwuj miejsce", sending: "Wysyłanie...", success: "Rezerwacja wysłana pomyślnie!",
-        error: "Błąd podczas przesyłania danych.",
-        alertAlliance: "Proszę wybrać sojusz.",
-        alertRequired: "Wpisz nazwę użytkownika, ID i wybierz sojusz.",
+        noParticipate: "-- Nie biorę udziału --",
+        submit: "Wyślij zgłoszenie", sending: "Wysyłanie...", success: "Zgłoszenie zostało pomyślnie wysłane!",
+        error: "Błąd podczas przesyłania. Spróbuj ponownie.",
+        alertAlliance: "Wybierz swój sojusz.",
+        alertRequired: "Wprowadź swój nick, ID gracza i wskaż sojusz.",
         alertResources: "Wybierz wartości dla wszystkich 3 pól kryształów i odłamków.",
-        alertSpeedups: "Wybierz wartości dla wszystkich 4 rodzajów przyspieszeń.",
-        alertScheduleP1: "Uzupełnij obowiązkowy 1. wybór (Od i Do) na poniedziałek, wtorek i czwartek.",
-        alertInvalidRange: "Godzina 'Do' musi być późniejsza niż godzina 'Od'.",
+        alertSpeedups: "Uzupełnij wszystkie 4 kategorie przyspieszeń.",
+        alertScheduleP1: "Wymagany jest 1. wybór (Od / Do) dla Poniedziałku, Wtorku i Czwartku.",
+        alertInvalidRange: "Godzina końcowa ('Do') musi być późniejsza niż godzina początkowa ('Od').",
         unlimited: "Bez limitu", dayUnit: "dni",
-        closedTitle: "Zapisy Zamknięte", closedDesc: "Okres rejestracji dobiegł końca lub jeszcze się nie rozpoczął.",
+        closedTitle: "Zapisy Zamknięte", closedDesc: "Formularz rejestracji jest obecnie niedostępny. Rozpiska ministrów pojawi się wkrótce.",
         utcModalTitle: "STREFA CZASOWA UTC",
-        utcAlert: "Wybrane godziny podane są według czasu UTC. Pamiętaj o tym przed dokonaniem wyboru.",
-        utcBtn: "Rozumiem"
+        utcAlert: "Wszystkie godziny bazują na strefie UTC (Czas serwera). Zwróć uwagę na różnicę czasową względem swojego kraju.",
+        understood: "Rozumiem"
       },
+
       id: {
         title: "Pekan Persiapan State 2859",
-        userName: "Nama Pengguna", userPlaceholder: "Nick game kamu",
-        userId: "ID (Salin dan tempel)", idPlaceholder: "Tempel ID kamu di sini",
+        userName: "Nama di Game (IGN)", userPlaceholder: "Nama persis di dalam game",
+        userId: "ID Pemain (Salin & Tempel)", idPlaceholder: "Tempelkan Player ID di sini",
         allianceLabel: "Aliansi",
-        fireCrystal: "Kristal Api", refined: "Kristal Api Murni", fragments: "Pecahan Kristal Api",
-        speedupsHeader: "Percepatan (Hari)", general: "Umum", training: "Pelatihan",
+        fireCrystal: "Kristal Api (FC)", refined: "FC Murni", fragments: "Pecahan FC",
+        speedupsHeader: "Percepatan / Speedup (Hari)", general: "Umum", training: "Pelatihan Pasukan",
         construction: "Konstruksi", research: "Riset",
-        scheduleHeader: "Pendaftaran Berdasarkan Interval Waktu",
-        scheduleSub: "Pilihan ke-1 wajib diisi tiap hari. Pilih rentang waktu atau pilih tidak berpartisipasi.",
-        syncLabel: "Terapkan rentang waktu Senin ke semua hari",
-        utcSub: "🕒 Semua waktu dalam zona waktu UTC",
+        scheduleHeader: "Jadwal Ketersediaan (Prioritas)",
+        scheduleSub: "Pilihan ke-1 wajib diisi untuk tiap hari. Pilih rentang jam atau tandai 'Tidak ikut'.",
+        syncLabel: "Terapkan jadwal Senin untuk semua hari",
+        utcSub: "🕒 Semua jadwal mengacu pada waktu UTC (Waktu Server)",
         mon: "Senin (Konstruksi)", tue: "Selasa (Riset)", thu: "Kamis (Pelatihan)",
         from: "Dari", to: "Sampai",
-        p1: "Pilihan 1", p2: "Pilihan 2:", p3: "Pilihan 3:",
+        p1: "Pilihan 1:", p2: "Pilihan 2:", p3: "Pilihan 3:",
         selectPlaceholder: "-- Pilih --",
-        noParticipate: "-- Tidak berpartisipasi --",
-        submit: "Pesan Jadwal", sending: "Mengirim...", success: "Pendaftaran berhasil dikirim!",
-        error: "Gagal mengirim data.",
-        alertAlliance: "Silakan pilih aliansi.",
-        alertRequired: "Silakan isi Nama Pengguna, ID, dan pilih aliansi.",
-        alertResources: "Silakan pilih nilai untuk 3 kolom Kristal dan Pecahan.",
-        alertSpeedups: "Silakan pilih nilai untuk 4 kolom Percepatan.",
-        alertScheduleP1: "Silakan lengkapi Pilihan ke-1 (Dari dan Sampai) untuk Senin, Selasa, dan Kamis.",
-        alertInvalidRange: "Waktu 'Sampai' harus lebih akhir daripada waktu 'Dari'.",
-        unlimited: "Tak terbatas", dayUnit: "hari",
-        closedTitle: "Pendaftaran Ditutup", closedDesc: "Batas waktu pendaftaran telah berakhir atau belum dibuka.",
-        utcModalTitle: "PERINGATAN WAKTU UTC",
-        utcAlert: "Waktu yang dipilih menggunakan zona waktu UTC. Harap perhatikan hal ini sebelum memilih slot waktu Anda.",
-        utcBtn: "Mengerti"
+        noParticipate: "-- Tidak ikut serta --",
+        submit: "Kirim Pendaftaran", sending: "Mengirim...", success: "Pendaftaran berhasil dikirim!",
+        error: "Gagal mengirim data. Silakan coba lagi.",
+        alertAlliance: "Silakan pilih aliansi Anda.",
+        alertRequired: "Silakan masukkan IGN, Player ID, dan pilih aliansi.",
+        alertResources: "Lengkapi ketiga opsi Kristal Api dan Pecahan.",
+        alertSpeedups: "Lengkapi semua dari 4 kategori percepatan (speedup).",
+        alertScheduleP1: "Pilihan ke-1 (Dari / Sampai) wajib diisi untuk hari Senin, Selasa, dan Kamis.",
+        alertInvalidRange: "Waktu selesai ('Sampai') harus lebih akhir dari waktu mulai ('Dari').",
+        unlimited: "Tanpa batas", dayUnit: "hari",
+        closedTitle: "Pendaftaran Ditutup", closedDesc: "Pendaftaran telah berakhir atau belum dibuka. Jadwal tugas menteri akan segera diumumkan.",
+        utcModalTitle: "PENGINGAT ZONA WAKTU (UTC)",
+        utcAlert: "Semua jadwal memakai acuan UTC (Waktu Server). Harap perhatikan selisih jam lokal Anda sebelum memilih.",
+        understood: "Mengerti"
       },
+
       zh: {
-        title: "2859区 准备周活动",
-        userName: "玩家名称 (User Name)", userPlaceholder: "输入您的游戏昵称",
-        userId: "玩家ID (ID - 需要复制粘贴)", idPlaceholder: "在此粘贴您的游戏ID",
-        allianceLabel: "联盟",
-        fireCrystal: "火晶", refined: "精炼火晶", fragments: "火晶微粒",
-        speedupsHeader: "加速道具 (天)", general: "通用加速", training: "训练加速",
+        title: "2859区 最强王国准备周",
+        userName: "游戏昵称 (IGN)", userPlaceholder: "请填写游戏内准确昵称",
+        userId: "玩家ID (复制并粘贴)", idPlaceholder: "在此粘贴您的游戏ID",
+        allianceLabel: "所属联盟",
+        fireCrystal: "火晶 (FC)", refined: "精炼火晶 (RFC)", fragments: "火晶微粒",
+        speedupsHeader: "加速储备 (天)", general: "通用加速", training: "训练加速",
         construction: "建造加速", research: "研究加速",
-        scheduleHeader: "空闲时间段区间预约",
-        scheduleSub: "每天的第1优先级为必填项。请选择时间区间或选择不参加。",
-        syncLabel: "将周一的3个时间区间应用到所有日期",
-        utcSub: "🕒 所有时间均为 UTC 标准时间",
-        mon: "周一 (建造)", tue: "周二 (研究)", thu: "周四 (训练)",
-        from: "从", to: "到",
-        p1: "第1优先级", p2: "第2优先级:", p3: "第3优先级:",
+        scheduleHeader: "空闲时间段预约 (优先级)",
+        scheduleSub: "每天的第一优先级为必填项。请选择可参与的时间区间，若无法参与请勾选'不参与'。",
+        syncLabel: "将周一的选择同步应用至所有日期",
+        utcSub: "🕒 全程采用 UTC 国际标准时间 (游戏服务器时间)",
+        mon: "周一 (建筑升级)", tue: "周二 (科技研究)", thu: "周四 (士兵训练)",
+        from: "起始", to: "截止",
+        p1: "第1优先级:", p2: "第2优先级:", p3: "第3优先级:",
         selectPlaceholder: "-- 请选择 --",
-        noParticipate: "-- 不参加 --",
-        submit: "预约时间段", sending: "提交中...", success: "预约成功提交！",
-        error: "提交数据时出错。",
-        alertAlliance: "请选择一个联盟。",
-        alertRequired: "请填写玩家名称、ID并选择所属联盟。",
-        alertResources: "请选择全部3项火晶与微粒存量。",
-        alertSpeedups: "请选择全部4项加速存量。",
-        alertScheduleP1: "请务必完成周一、周二和周四的第1优先级（从与到）的选择。",
-        alertInvalidRange: "结束时间（到）必须晚于开始时间（从）。",
-        unlimited: "无限制", dayUnit: "天",
-        closedTitle: "报名通道已关闭", closedDesc: "报名时间已截止或尚未开放。",
-        utcModalTitle: "UTC 时间提醒",
-        utcAlert: "所选时间均为 UTC 时间，请在选择时间段前注意核对。",
-        utcBtn: "明白"
+        noParticipate: "-- 不参与此日活动 --",
+        submit: "确认并提交预约", sending: "正在提交...", success: "预约登记成功！",
+        error: "提交失败，请检查网络后重试。",
+        alertAlliance: "请选择您所在的联盟。",
+        alertRequired: "请完整填写游戏昵称、玩家ID并选择联盟。",
+        alertResources: "请选择火晶与微粒的全部3项储备区间。",
+        alertSpeedups: "请选择全部4类加速道具的储备区间。",
+        alertScheduleP1: "周一、周二及周四的第一优先级时间区间（起始与截止）为必选项。",
+        alertInvalidRange: "截止时间必须晚于起始时间。",
+        unlimited: "无上限", dayUnit: "天",
+        closedTitle: "报名通道已关闭", closedDesc: "报名已截止或尚未开启。官员及加成排班表将在统计完成后公布。",
+        utcModalTitle: "时区确认提示 (UTC)",
+        utcAlert: "所有选项均为 UTC 服务器时间（比北京时间晚8小时）。请在选择前务必核对本地时间差。",
+        understood: "已知晓"
       },
+
       tr: {
-        title: "2859 Bölgesi Hazırlık Haftası",
-        userName: "Kullanıcı Adı", userPlaceholder: "Oyun içi adınız",
-        userId: "ID (Kopyalayıp Yapıştırın)", idPlaceholder: "ID'nizi buraya yapıştırın",
+        title: "2859 Eyaleti Hazırlık Haftası",
+        userName: "Oyun İçi İsim (IGN)", userPlaceholder: "Oyundaki tam adınız",
+        userId: "Oyuncu ID (Kopyala & Yapıştır)", idPlaceholder: "Oyuncu ID'nizi buraya yapıştırın",
         allianceLabel: "İttifak",
-        fireCrystal: "Ateş Kristali", refined: "Arıtılmış Ateş Kristali", fragments: "Ateş Kristali Parçacığı",
-        speedupsHeader: "Hızlandırmalar (Gün)", general: "Genel", training: "Eğitim",
+        fireCrystal: "Ateş Kristali (FC)", refined: "Arıtılmış FC", fragments: "FC Parçacığı",
+        speedupsHeader: "Hızlandırmalar (Gün)", general: "Genel Hızlandırma", training: "Asker Eğitimi",
         construction: "İnşaat", research: "Araştırma",
-        scheduleHeader: "Zaman Aralığına Göre Kayıt",
-        scheduleSub: "Her gün için 1. Tercih zorunludur. Zaman aralıklarını seçin ya da katılmıyorum olarak belirtin.",
-        syncLabel: "Pazartesi aralıklarını tüm günlere uygula",
-        utcSub: "🕒 Tüm saatler UTC saat dilimindedir",
+        scheduleHeader: "Müsaitlik Zaman Dilimleri (Tercihler)",
+        scheduleSub: "1. Tercih her gün için zorunludur. Uygun aralıkları seçin veya 'Katılmıyorum' olarak işaretleyin.",
+        syncLabel: "Pazartesi saatlerini tüm günlere uygula",
+        utcSub: "🕒 Tüm saatler UTC (Sunucu Saati) formatındadır",
         mon: "Pazartesi (İnşaat)", tue: "Salı (Araştırma)", thu: "Perşembe (Eğitim)",
         from: "Başlangıç", to: "Bitiş",
-        p1: "1. Tercih", p2: "2. Tercih:", p3: "3. Tercih:",
+        p1: "1. Tercih:", p2: "2. Tercih:", p3: "3. Tercih:",
         selectPlaceholder: "-- Seçiniz --",
-        noParticipate: "-- Katılmıyor --",
-        submit: "Slotunu Ayırt", sending: "Gönderiliyor...", success: "Rezervasyon başarıyla gönderildi!",
-        error: "Veri gönderilirken hata oluştu.",
+        noParticipate: "-- Katılmıyorum --",
+        submit: "Kaydı Tamamla", sending: "Gönderiliyor...", success: "Kaydınız başarıyla alındı!",
+        error: "Gönderilirken hata oluştu. Lütfen tekrar deneyin.",
         alertAlliance: "Lütfen bir ittifak seçin.",
-        alertRequired: "Lütfen Kullanıcı Adı ve ID girin ve bir ittifak seçin.",
+        alertRequired: "Lütfen oyun içi adınızı, ID'nizi girin ve ittifakınızı seçin.",
         alertResources: "Lütfen 3 kristal ve parçacık alanının tamamını doldurun.",
-        alertSpeedups: "Lütfen 4 hızlandırma alanının tamamını doldurun.",
-        alertScheduleP1: "Lütfen Pazartesi, Salı ve Perşembe için zorunlu 1. Tercihi tamamlayın.",
+        alertSpeedups: "Lütfen 4 hızlandırma türünü de seçin.",
+        alertScheduleP1: "Pazartesi, Salı ve Perşembe için 1. Tercih (Başlangıç / Bitiş) alanlarını doldurmalısınız.",
         alertInvalidRange: "Bitiş saati başlangıç saatinden sonra olmalıdır.",
-        unlimited: "Sınırsız", dayUnit: "gün",
-        closedTitle: "Kayıtlar Kapandı", closedDesc: "Kayıt süresi doldu veya henüz başlamadı.",
-        utcModalTitle: "UTC SAAT DİLİMİ UYARISI",
-        utcAlert: "Seçilen saatler UTC saat dilimindedir. Lütfen zaman aralığınızı seçmeden önce bunu dikkate alın.",
-        utcBtn: "Anladım"
+        unlimited: "Limitsiz", dayUnit: "gün",
+        closedTitle: "Kayıtlar Kapandı", closedDesc: "Başvuru süresi doldu veya henüz açılmadı. Bakanlık görev listesi yakında paylaşılacaktır.",
+        utcModalTitle: "SAAT DİLİMİ UYARISI (UTC)",
+        utcAlert: "Seçilen saatler oyun sunucusu saati olan UTC'ye göredir. Lütfen yerel saatinizle farkı kontrol ederek seçim yapın.",
+        understood: "Anlaşıldı"
       },
+
       ar: {
-        title: "أسبوع الاستعداد لولاية 2859",
-        userName: "اسم المستخدم", userPlaceholder: "اسمك داخل اللعبة",
-        userId: "المعرف ID (نسخ ولصق)", idPlaceholder: "الصق المعرف هنا",
+        title: "أسبوع الاستعداد — الولاية 2859",
+        userName: "اسم اللاعب باللعبة (IGN)", userPlaceholder: "اسمك الدقيق داخل اللعبة",
+        userId: "معرف اللاعب ID (نسخ ولصق)", idPlaceholder: "الصق معرفك هنا",
         allianceLabel: "التحالف",
-        fireCrystal: "بلور النار", refined: "بلور النار المنقى", fragments: "شظايا بلور النار",
-        speedupsHeader: "المسرعات (بالأيام)", general: "عام", training: "تدريب",
-        construction: "بناء", research: "بحث",
-        scheduleHeader: "التسجيل بالفترات الزمنية المتاحة",
-        scheduleSub: "الخيار الأول إلزامي لكل يوم. حدد الفترات الزمنية أو اختر عدم المشاركة.",
-        syncLabel: "تطبيق فترات الاثنين على بقية الأيام",
-        utcSub: "🕒 جميع الأوقات بتوقيت UTC",
-        mon: "الإثنين (بناء)", tue: "الثلاثاء (بحث)", thu: "الخميس (تدريب)",
+        fireCrystal: "بلورات النار (FC)", refined: "بلور ناري منقى", fragments: "شظايا بلور النار",
+        speedupsHeader: "تسريعات الوقت (بالأيام)", general: "تسريع عام", training: "تدريب القوات",
+        construction: "البناء", research: "البحث العلمي",
+        scheduleHeader: "فترات التوفر (الأولويات)",
+        scheduleSub: "الخيار الأول إلزامي لكل يوم. حدد مجالك الزمني أو اختر 'لا أشارك'.",
+        syncLabel: "تطبيق فترات الإثنين على باقي الأيام",
+        utcSub: "🕒 جميع المواعيد بتوقيت UTC (توقيت السيرفر الرسمي)",
+        mon: "الإثنين (بناء)", tue: "الثلاثاء (أبحاث)", thu: "الخميس (تدريب)",
         from: "من", to: "إلى",
-        p1: "الخيار 1", p2: "الخيار 2:", p3: "الخيار 3:",
+        p1: "الخيار الأول:", p2: "الخيار الثاني:", p3: "الخيار الثالث:",
         selectPlaceholder: "-- اختر --",
-        noParticipate: "-- لا يشارك --",
-        submit: "حجز الموعد", sending: "جارٍ الإرسال...", success: "تم إرسال الحجز بنجاح!",
-        error: "حدث خطأ أثناء إرسال البيانات.",
-        alertAlliance: "يرجى اختيار التحالف.",
-        alertRequired: "يرجى إدخال اسم المستخدم والمعرف واختيار التحالف.",
-        alertResources: "يرجى تحديد جميع حقول البلورات والشظايا الثلاثة.",
-        alertSpeedups: "يرجى تحديد جميع حقول المسرعات الأربعة.",
-        alertScheduleP1: "يرجى تحديد الخيار الأول الإلزامي (من وإلى) لأيام الإثنين والثلاثاء والخميس.",
-        alertInvalidRange: "يجب أن يكون وقت 'إلى' بعد وقت 'من'.",
+        noParticipate: "-- لن أشارك في هذا اليوم --",
+        submit: "تأكيد وإرسال التسجيل", sending: "جارٍ الإرسال...", success: "تم تسجيل موعدك بنجاح!",
+        error: "تعذر إرسال البيانات. يرجى المحاولة مرة أخرى.",
+        alertAlliance: "يرجى تحديد تحالفك.",
+        alertRequired: "يرجى ملء الاسم، المعرف واختيار التحالف.",
+        alertResources: "يرجى تعبئة حقول بلورات النار والشظايا كاملة.",
+        alertSpeedups: "يرجى تحديد كميات التسريعات الأربعة كاملة.",
+        alertScheduleP1: "الخيار الأول (من / إلى) إلزامي لأيام الإثنين والثلاثاء والخميس.",
+        alertInvalidRange: "يجب أن يكون وقت الانتهاء ('إلى') بعد وقت البدء ('من').",
         unlimited: "غير محدود", dayUnit: "أيام",
-        closedTitle: "التسجيل مغلق", closedDesc: "انتهت فترة التسجيل أو لم تبدأ بعد.",
-        utcModalTitle: "تنبيه التوقيت العالمي (UTC)",
-        utcAlert: "تنبيه: المواعيد المحددة هي بتوقيت UTC. يرجى أخذ ذلك في الاعتبار قبل اختيار فترتك الزمنية.",
-        utcBtn: "فهمت"
+        closedTitle: "باب التسجيل مغلق", closedDesc: "انتهت فترة التقديم أو لم تبدأ بعد. سيتم نشر جدول المواعيد الرسمي قريباً.",
+        utcModalTitle: "تنبيه مهم بخصوص التوقيت (UTC)",
+        utcAlert: "يرجى الانتباه: كافة الفترات محددة وفق توقيت السيرفر UTC. احرص على حساب الفارق الزمني مع بلدك قبل الاختيار.",
+        understood: "فهمت ذلك"
       }
     };
 
@@ -847,7 +857,6 @@
     function populateTimeIntervalSelectors() {
       const t = translations[currentLang] || translations.es;
 
-      // Base options for "Desde" (00:00 to 23:30)
       let fromHours = "";
       for (let h = 0; h < 24; h++) {
         for (let m = 0; m < 60; m += 30) {
@@ -856,7 +865,6 @@
         }
       }
 
-      // Base options for "Hasta" (00:30 to 24:00)
       let toHours = "";
       for (let h = 0; h < 24; h++) {
         for (let m = 0; m < 60; m += 30) {
@@ -876,11 +884,9 @@
 
         let html = "";
         if (isP1) {
-          // P1 starts with an empty mandatory placeholder
           html += `<option value="" ${!currentVal ? "selected" : ""}>${t.selectPlaceholder}</option>`;
           html += `<option value="No participa">${t.noParticipate}</option>`;
         } else {
-          // P2 & P3 default to "No participa"
           html += `<option value="No participa" ${(!currentVal || currentVal === 'No participa') ? "selected" : ""}>${t.noParticipate}</option>`;
         }
 
@@ -1192,7 +1198,6 @@
       }
     });
 
-    // Carga inicial
     setLanguage('es', false);
     checkConvocatoria();
   </script>
