@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Semana de Preparación - Estado 2889</title>
+  <link rel="icon" type="image/png" href="img/cristal.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
@@ -120,15 +121,22 @@
       </div>
     </div>
 
-    <!-- Pantalla de Convocatoria Cerrada -->
+    <!-- Pantalla de Carga Inicial mientras consulta el horario UTC -->
+    <div id="loadingNotice" class="p-10 text-center">
+      <div class="text-3xl mb-3 animate-pulse">⏳</div>
+      <p id="t-loadingDesc" class="text-[#A88B92] text-sm">Verificando horario del servidor (UTC)...</p>
+    </div>
+
+    <!-- Pantalla de Convocatoria Cerrada o Aún No Abierta -->
     <div id="closedNotice" class="p-10 text-center hidden">
       <div class="text-5xl mb-4">🔒</div>
       <h2 id="t-closedTitle" class="text-xl font-bold text-[#FFF0F2] mb-2">Inscripciones Cerradas</h2>
       <p id="t-closedDesc" class="text-[#A88B92] text-sm max-w-md mx-auto">El plazo de inscripción ha finalizado o aún no ha comenzado. El cuadrante oficial se publicará pronto.</p>
+      <p id="t-scheduleWindow" class="text-[#FF4D6D] text-xs font-mono mt-4 font-bold"></p>
     </div>
 
     <!-- Contenido del Formulario -->
-    <div id="formContainer" class="px-4 sm:px-6 pb-6 pt-2">
+    <div id="formContainer" class="px-4 sm:px-6 pb-6 pt-2 hidden">
       <h1 id="t-title" class="text-lg sm:text-2xl font-bold text-center mb-5 text-[#FFF0F2] tracking-wide">Semana de Preparación - Estado 2889</h1>
 
       <form id="savingsForm" class="space-y-4 sm:space-y-5" novalidate>
@@ -253,6 +261,7 @@
           <div class="mb-4 bg-[#12090C] p-3.5 rounded-xl border border-[#33151D] space-y-2.5">
             <label id="t-mon" class="block text-xs uppercase text-[#FF6B8B] font-bold">Lunes (Construcción) <span class="text-[#E31A21]">*</span></label>
 
+            <!-- P1 (Obligatorio) -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#3D1923]">
               <div class="sm:col-span-3 text-xs font-semibold text-[#FF859D] priority-title-1 flex items-center gap-1">
                 <span>1ª Opción:</span><span class="text-[#E31A21]">*</span>
@@ -267,6 +276,7 @@
               </div>
             </div>
 
+            <!-- P2 -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
               <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-2">2ª Opción:</div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
@@ -279,6 +289,7 @@
               </div>
             </div>
 
+            <!-- P3 -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
               <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-3">3ª Opción:</div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
@@ -296,6 +307,7 @@
           <div class="mb-4 bg-[#12090C] p-3.5 rounded-xl border border-[#33151D] space-y-2.5">
             <label id="t-tue" class="block text-xs uppercase text-[#FF6B8B] font-bold">Martes (Investigación) <span class="text-[#E31A21]">*</span></label>
 
+            <!-- P1 (Obligatorio) -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#3D1923]">
               <div class="sm:col-span-3 text-xs font-semibold text-[#FF859D] priority-title-1 flex items-center gap-1">
                 <span>1ª Opción:</span><span class="text-[#E31A21]">*</span>
@@ -310,6 +322,7 @@
               </div>
             </div>
 
+            <!-- P2 -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
               <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-2">2ª Opción:</div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
@@ -322,6 +335,7 @@
               </div>
             </div>
 
+            <!-- P3 -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
               <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-3">3ª Opción:</div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
@@ -339,6 +353,7 @@
           <div class="bg-[#12090C] p-3.5 rounded-xl border border-[#33151D] space-y-2.5">
             <label id="t-thu" class="block text-xs uppercase text-[#FF6B8B] font-bold">Jueves (Entrenamiento) <span class="text-[#E31A21]">*</span></label>
 
+            <!-- P1 (Obligatorio) -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#3D1923]">
               <div class="sm:col-span-3 text-xs font-semibold text-[#FF859D] priority-title-1 flex items-center gap-1">
                 <span>1ª Opción:</span><span class="text-[#E31A21]">*</span>
@@ -353,6 +368,7 @@
               </div>
             </div>
 
+            <!-- P2 -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
               <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-2">2ª Opción:</div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
@@ -365,6 +381,7 @@
               </div>
             </div>
 
+            <!-- P3 -->
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center bg-[#170A0F] p-2 rounded-lg border border-[#2B121A]">
               <div class="sm:col-span-3 text-xs font-semibold text-[#E6C2C9] priority-title-3">3ª Opción:</div>
               <div class="sm:col-span-4 flex items-center gap-1.5">
@@ -398,7 +415,7 @@
       <p id="utcModalBody" class="text-sm text-[#E6C2C9] mb-5 leading-relaxed font-medium">
         ATENCIÓN: Todos los horarios corresponden a la hora del servidor (UTC). Revisa la diferencia horaria con tu país antes de elegir.
       </p>
-      <button type="button" id="utcCloseBtn" class="btn-action w-full py-2.5 rounded-xl font-bold text-sm">
+      <button type="button" id="utcCloseBtn" class="btn-action w-full py-2.5 rounded-xl font-bold text-sm cursor-pointer">
         Entendido
       </button>
     </div>
@@ -434,11 +451,17 @@
         alertScheduleP1: "La 1ª Opción (Desde y Hasta) es obligatoria para Lunes, Martes y Jueves.",
         alertInvalidRange: "La hora 'Hasta' debe ser posterior a la hora 'Desde'.",
         unlimited: "Ilimitado", dayUnit: "días",
-        closedTitle: "Inscripciones Cerradas", closedDesc: "El plazo de inscripción ha finalizado o aún no ha comenzado. El cuadrante oficial se publicará pronto.",
+        loadingDesc: "Verificando horario del servidor (UTC)...",
+        notOpenTitle: "Inscripciones Aún No Abiertas",
+        notOpenDesc: "El formulario todavía no está disponible. Vuelve dentro del horario programado.",
+        closedTitle: "Inscripciones Cerradas",
+        closedDesc: "El plazo de inscripción ha finalizado. El cuadrante oficial se publicará pronto.",
+        opensAt: "Apertura", closesAt: "Cierre",
         utcModalTitle: "AVISO HORARIO (UTC)",
         utcAlert: "Todos los horarios corresponden a la hora del servidor (UTC). Revisa la diferencia horaria con tu país antes de elegir.",
         understood: "Entendido"
       },
+
       en: {
         title: "State 2889 Preparation Week",
         userName: "In-Game Name (IGN)", userPlaceholder: "Exact in-game name",
@@ -465,11 +488,17 @@
         alertScheduleP1: "Please complete your 1st Choice (From and To) for Monday, Tuesday, and Thursday.",
         alertInvalidRange: "The end time ('To') must be later than the start time ('From').",
         unlimited: "Unlimited", dayUnit: "days",
-        closedTitle: "Registrations Closed", closedDesc: "The sign-up window is currently closed. Schedule assignments will be published soon.",
+        loadingDesc: "Checking server schedule (UTC)...",
+        notOpenTitle: "Registrations Not Open Yet",
+        notOpenDesc: "The form is not open yet. Please come back during the scheduled UTC window.",
+        closedTitle: "Registrations Closed",
+        closedDesc: "The sign-up window has ended. Schedule assignments will be published soon.",
+        opensAt: "Opens", closesAt: "Closed",
         utcModalTitle: "TIME ZONE NOTICE (UTC)",
         utcAlert: "All schedules are in UTC (Server Time). Please check your local time difference before picking an interval.",
         understood: "Got it"
       },
+
       fr: {
         title: "Semaine de Préparation - État 2889",
         userName: "Pseudo en jeu (IGN)", userPlaceholder: "Votre pseudo exact en jeu",
@@ -496,11 +525,17 @@
         alertScheduleP1: "Le 1er choix (De / À) est obligatoire pour le Lundi, Mardi et Jeudi.",
         alertInvalidRange: "L'heure de fin ('À') doit être postérieure à l'heure de début ('De').",
         unlimited: "Illimité", dayUnit: "jours",
-        closedTitle: "Inscriptions Clôturées", closedDesc: "La période d'inscription est fermée ou pas encore ouverte. Le planning sera publié sous peu.",
+        loadingDesc: "Vérification de l'horaire du serveur (UTC)...",
+        notOpenTitle: "Inscriptions Pas Encore Ouvertes",
+        notOpenDesc: "Le formulaire n'est pas encore ouvert. Revenez pendant le créneau prévu.",
+        closedTitle: "Inscriptions Clôturées",
+        closedDesc: "La période d'inscription est fermée. Le planning sera publié sous peu.",
+        opensAt: "Ouverture", closesAt: "Fermeture",
         utcModalTitle: "RAPPEL FUSEAU HORAIRE (UTC)",
         utcAlert: "Tous les créneaux sont calés sur l'heure UTC (Serveur). Pensez à vérifier votre décalage horaire avant de valider.",
         understood: "Compris"
       },
+
       de: {
         title: "Vorbereitungswoche - Staat 2889",
         userName: "Spielername (IGN)", userPlaceholder: "Exakter Ingame-Name",
@@ -527,11 +562,17 @@
         alertScheduleP1: "Die 1. Wahl (Von / Bis) ist für Montag, Dienstag und Donnerstag erforderlich.",
         alertInvalidRange: "Die Endzeit ('Bis') muss nach der Startzeit ('Von') liegen.",
         unlimited: "Unbegrenzt", dayUnit: "Tage",
-        closedTitle: "Anmeldung geschlossen", closedDesc: "Die Registrierungsphase ist beendet oder noch nicht freigeschaltet. Der Einsatzplan folgt in Kürze.",
+        loadingDesc: "Serverzeit (UTC) wird überprüft...",
+        notOpenTitle: "Anmeldung Noch Nicht Geöffnet",
+        notOpenDesc: "Das Formular ist noch nicht freigeschaltet. Bitte schaue zum geplanten Zeitpunkt wieder vorbei.",
+        closedTitle: "Anmeldung Geschlossen",
+        closedDesc: "Die Registrierungsphase ist beendet. Der Einsatzplan folgt in Kürze.",
+        opensAt: "Öffnet", closesAt: "Geschlossen",
         utcModalTitle: "HINWEIS ZUR ZEITZONE (UTC)",
         utcAlert: "Alle Zeiten laufen über UTC (Serverzeit). Bitte beachte deine lokale Zeitverschiebung bei der Auswahl.",
         understood: "Verstanden"
       },
+
       ru: {
         title: "Неделя подготовки — Штат 2889",
         userName: "Игровой никнейм (IGN)", userPlaceholder: "Точный ник в игре",
@@ -558,11 +599,17 @@
         alertScheduleP1: "Необходимо заполнить 1-й выбор (С / До) на понедельник, вторник и четверг.",
         alertInvalidRange: "Время окончания ('До') должно быть позже времени начала ('С').",
         unlimited: "Без лимита", dayUnit: "дней",
-        closedTitle: "Регистрация закрыта", closedDesc: "Срок подачи заявок истек или прием еще не открыт. Расписание будет опубликовано позже.",
+        loadingDesc: "Проверка времени сервера (UTC)...",
+        notOpenTitle: "Регистрация ещё не открыта",
+        notOpenDesc: "Форма пока закрыта. Возвращайтесь в указанное время открытия.",
+        closedTitle: "Регистрация закрыта",
+        closedDesc: "Срок подачи заявок истек. Расписание будет опубликовано позже.",
+        opensAt: "Открытие", closesAt: "Закрытие",
         utcModalTitle: "ВАЖНО: ЧАСОВОЙ ПОЯС (UTC)",
         utcAlert: "Все слоты рассчитываются по времени UTC (время сервера). Учитывайте разницу с вашим часовым поясом перед выбором.",
         understood: "Понятно"
       },
+
       ko: {
         title: "2889 서버 준비 주간",
         userName: "게임 닉네임 (IGN)", userPlaceholder: "게임 내 정확한 닉네임 입력",
@@ -589,11 +636,17 @@
         alertScheduleP1: "월, 화, 목요일의 1순위 시간대(시작/종료)를 모두 지정해 주세요.",
         alertInvalidRange: "종료 시간은 시작 시간보다 늦은 시간이어야 합니다.",
         unlimited: "무제한", dayUnit: "일",
-        closedTitle: "신청 마감", closedDesc: "신청 기간이 마감되었거나 아직 오픈되지 않았습니다. 배정 명단은 곧 공지됩니다.",
+        loadingDesc: "서버 시간(UTC) 확인 중...",
+        notOpenTitle: "신청 오픈 전입니다",
+        notOpenDesc: "아직 신청 시간이 아닙니다. 예정된 UTC 오픈 시간에 다시 접속해 주세요.",
+        closedTitle: "신청 마감",
+        closedDesc: "신청 기간이 마감되었습니다. 배정 명단은 곧 공지됩니다.",
+        opensAt: "오픈 시간", closesAt: "마감 시간",
         utcModalTitle: "UTC 서버 시간 안내",
         utcAlert: "모든 일정은 UTC(게임 서버 시간) 기준입니다. 거주하시는 지역의 시차(한국은 UTC+9)를 반드시 계산 후 신청하세요.",
         understood: "확인했습니다"
       },
+
       pl: {
         title: "Tydzień Przygotowań — Stan 2889",
         userName: "Nick w grze (IGN)", userPlaceholder: "Twój dokładny nick w grze",
@@ -620,11 +673,17 @@
         alertScheduleP1: "Wymagany jest 1. wybór (Od / Do) dla Poniedziałku, Wtorku i Czwartku.",
         alertInvalidRange: "Godzina końcowa ('Do') musi być późniejsza niż godzina początkowa ('Od').",
         unlimited: "Bez limitu", dayUnit: "dni",
-        closedTitle: "Zapisy Zamknięte", closedDesc: "Formularz rejestracji jest obecnie niedostępny. Rozpiska ministrów pojawi się wkrótce.",
+        loadingDesc: "Sprawdzanie czasu serwera (UTC)...",
+        notOpenTitle: "Zapisy Jeszcze Nie Otwarte",
+        notOpenDesc: "Formularz nie jest jeszcze aktywny. Wróć w wyznaczonym oknie czasowym UTC.",
+        closedTitle: "Zapisy Zamknięte",
+        closedDesc: "Formularz rejestracji jest już zamknięty. Rozpiska ministrów pojawi się wkrótce.",
+        opensAt: "Otwarcie", closesAt: "Zamknięcie",
         utcModalTitle: "STREFA CZASOWA UTC",
         utcAlert: "Wszystkie godziny bazują na strefie UTC (Czas serwera). Zwróć uwagę na różnicę czasową względem swojego kraju.",
         understood: "Rozumiem"
       },
+
       id: {
         title: "Pekan Persiapan State 2889",
         userName: "Nama di Game (IGN)", userPlaceholder: "Nama persis di dalam game",
@@ -651,11 +710,17 @@
         alertScheduleP1: "Pilihan ke-1 (Dari / Sampai) wajib diisi untuk hari Senin, Selasa, dan Kamis.",
         alertInvalidRange: "Waktu selesai ('Sampai') harus lebih akhir dari waktu mulai ('Dari').",
         unlimited: "Tanpa batas", dayUnit: "hari",
-        closedTitle: "Pendaftaran Ditutup", closedDesc: "Pendaftaran telah berakhir atau belum dibuka. Jadwal tugas menteri akan segera diumumkan.",
+        loadingDesc: "Memeriksa jadwal server (UTC)...",
+        notOpenTitle: "Pendaftaran Belum Dibuka",
+        notOpenDesc: "Formulir belum dibuka. Silakan kembali sesuai jadwal UTC yang ditentukan.",
+        closedTitle: "Pendaftaran Ditutup",
+        closedDesc: "Pendaftaran telah berakhir. Jadwal tugas menteri akan segera diumumkan.",
+        opensAt: "Dibuka", closesAt: "Ditutup",
         utcModalTitle: "PENGINGAT ZONA WAKTU (UTC)",
         utcAlert: "Semua jadwal memakai acuan UTC (Waktu Server). Harap perhatikan selisih jam lokal Anda sebelum memilih.",
         understood: "Mengerti"
       },
+
       zh: {
         title: "2889区 最强王国准备周",
         userName: "游戏昵称 (IGN)", userPlaceholder: "请填写游戏内准确昵称",
@@ -682,11 +747,17 @@
         alertScheduleP1: "周一、周二及周四的第一优先级时间区间（起始与截止）为必选项。",
         alertInvalidRange: "截止时间必须晚于起始时间。",
         unlimited: "无上限", dayUnit: "天",
-        closedTitle: "报名通道已关闭", closedDesc: "报名已截止或尚未开启。官员及加成排班表将在统计完成后公布。",
+        loadingDesc: "正在检查服务器时间 (UTC)...",
+        notOpenTitle: "报名尚未开始",
+        notOpenDesc: "预约通道尚未开启，请在规定的 UTC 开放时间内访问。",
+        closedTitle: "报名通道已关闭",
+        closedDesc: "报名已截止。官员及加成排班表将在统计完成后公布。",
+        opensAt: "开放时间", closesAt: "截止时间",
         utcModalTitle: "时区确认提示 (UTC)",
         utcAlert: "所有选项均为 UTC 服务器时间（比北京时间晚8小时）。请在选择前务必核对本地时间差。",
         understood: "已知晓"
       },
+
       tr: {
         title: "2889 Eyaleti Hazırlık Haftası",
         userName: "Oyun İçi İsim (IGN)", userPlaceholder: "Oyundaki tam adınız",
@@ -713,11 +784,17 @@
         alertScheduleP1: "Pazartesi, Salı ve Perşembe için 1. Tercih (Başlangıç / Bitiş) alanlarını doldurmalısınız.",
         alertInvalidRange: "Bitiş saati başlangıç saatinden sonra olmalıdır.",
         unlimited: "Limitsiz", dayUnit: "gün",
-        closedTitle: "Kayıtlar Kapandı", closedDesc: "Başvuru süresi doldu veya henüz açılmadı. Bakanlık görev listesi yakında paylaşılacaktır.",
+        loadingDesc: "Sunucu saati (UTC) kontrol ediliyor...",
+        notOpenTitle: "Kayıtlar Henüz Açılmadı",
+        notOpenDesc: "Form henüz açılmadı. Lütfen planlanan UTC saatinde tekrar kontrol edin.",
+        closedTitle: "Kayıtlar Kapandı",
+        closedDesc: "Başvuru süresi doldu. Bakanlık görev listesi yakında paylaşılacaktır.",
+        opensAt: "Açılış", closesAt: "Kapanış",
         utcModalTitle: "SAAT DİLİMİ UYARISI (UTC)",
         utcAlert: "Seçilen saatler oyun sunucusu saati olan UTC'ye göredir. Lütfen yerel saatinizle farkı kontrol ederek seçim yapın.",
         understood: "Anlaşıldı"
       },
+
       ar: {
         title: "أسبوع الاستعداد — الولاية 2889",
         userName: "اسم اللاعب باللعبة (IGN)", userPlaceholder: "اسمك الدقيق داخل اللعبة",
@@ -744,7 +821,12 @@
         alertScheduleP1: "الخيار الأول (من / إلى) إلزامي لأيام الإثنين والثلاثاء والخميس.",
         alertInvalidRange: "يجب أن يكون وقت الانتهاء ('إلى') بعد وقت البدء ('من').",
         unlimited: "غير محدود", dayUnit: "أيام",
-        closedTitle: "باب التسجيل مغلق", closedDesc: "انتهت فترة التقديم أو لم تبدأ بعد. سيتم نشر جدول المواعيد الرسمي قريباً.",
+        loadingDesc: "جارٍ التحقق من توقيت السيرفر (UTC)...",
+        notOpenTitle: "التسجيل لم يبدأ بعد",
+        notOpenDesc: "النموذج غير متاح حالياً. يرجى العودة خلال فترة التوقيت المحددة (UTC).",
+        closedTitle: "باب التسجيل مغلق",
+        closedDesc: "انتهت فترة التقديم. سيتم نشر جدول المواعيد الرسمي قريباً.",
+        opensAt: "يفتح في", closesAt: "أُغلق في",
         utcModalTitle: "تنبيه مهم بخصوص التوقيت (UTC)",
         utcAlert: "يرجى الانتباه: كافة الفترات محددة وفق توقيت السيرفر UTC. احرص على حساب الفارق الزمني مع بلدك قبل الاختيار.",
         understood: "فهمت ذلك"
@@ -753,6 +835,7 @@
 
     let currentLang = "es";
     let utcNoticeShownOnSelect = false;
+    let lastServerStatus = null;
 
     function safeSetText(id, text) {
       const el = document.getElementById(id);
@@ -896,19 +979,46 @@
       document.getElementById("utcModal").classList.add("hidden");
     });
 
+    function renderScheduleNotice(data) {
+      const t = translations[currentLang] || translations.es;
+      const loadingEl = document.getElementById("loadingNotice");
+      const formEl = document.getElementById("formContainer");
+      const closedEl = document.getElementById("closedNotice");
+      const windowEl = document.getElementById("t-scheduleWindow");
+
+      if (loadingEl) loadingEl.classList.add("hidden");
+
+      if (data && (data.estado === "CERRADO" || data.estado === "NO_ABIERTO")) {
+        formEl.classList.add("hidden");
+        closedEl.classList.remove("hidden");
+
+        if (data.estado === "NO_ABIERTO") {
+          safeSetText("t-closedTitle", t.notOpenTitle);
+          safeSetText("t-closedDesc", t.notOpenDesc);
+          if (windowEl) {
+            windowEl.textContent = data.apertura ? `🕒 ${t.opensAt}: ${data.apertura} UTC` : "";
+          }
+        } else {
+          safeSetText("t-closedTitle", t.closedTitle);
+          safeSetText("t-closedDesc", t.closedDesc);
+          if (windowEl) {
+            windowEl.textContent = data.cierre ? `🕒 ${t.closesAt}: ${data.cierre} UTC` : "";
+          }
+        }
+      } else {
+        formEl.classList.remove("hidden");
+        closedEl.classList.add("hidden");
+      }
+    }
+
     function checkConvocatoria() {
       if (!SCRIPT_URL || SCRIPT_URL.includes("...")) return;
       const script = document.createElement("script");
       const cbName = "onCheckStatus_" + Math.floor(Math.random() * 1000000);
 
       window[cbName] = function(data) {
-        if (data && data.estado === "CERRADO") {
-          document.getElementById("formContainer").classList.add("hidden");
-          document.getElementById("closedNotice").classList.remove("hidden");
-        } else {
-          document.getElementById("formContainer").classList.remove("hidden");
-          document.getElementById("closedNotice").classList.add("hidden");
-        }
+        lastServerStatus = data;
+        renderScheduleNotice(data);
         delete window[cbName];
         if (script.parentNode) script.parentNode.removeChild(script);
       };
@@ -944,11 +1054,17 @@
       safeSetText("t-tue", t.tue);
       safeSetText("t-thu", t.thu);
       safeSetText("submitBtn", t.submit);
-      safeSetText("t-closedTitle", t.closedTitle);
-      safeSetText("t-closedDesc", t.closedDesc);
+      safeSetText("t-loadingDesc", t.loadingDesc);
       safeSetText("utcModalTitle", t.utcModalTitle);
       safeSetText("utcModalBody", t.utcAlert);
       safeSetText("utcCloseBtn", t.understood || "Entendido");
+
+      if (lastServerStatus) {
+        renderScheduleNotice(lastServerStatus);
+      } else {
+        safeSetText("t-closedTitle", t.closedTitle);
+        safeSetText("t-closedDesc", t.closedDesc);
+      }
 
       document.querySelectorAll(".lbl-from").forEach(el => el.textContent = t.from);
       document.querySelectorAll(".lbl-to").forEach(el => el.textContent = t.to);
@@ -1151,7 +1267,7 @@
         await fetch(SCRIPT_URL, {
           method: "POST",
           mode: "no-cors",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
 
@@ -1172,6 +1288,7 @@
 
     setLanguage('es', false);
     checkConvocatoria();
+    setInterval(checkConvocatoria, 30000);
   </script>
 </body>
 </html>
